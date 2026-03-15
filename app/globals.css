@@ -19,13 +19,6 @@
   --font-sans: 'Outfit', sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  cursor: none !important;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -36,3 +29,8 @@ body {
   0% { transform: scale(0); opacity: 0.7; }
   100% { transform: scale(2.5); opacity: 0; }
 }
+
+html, html * {
+  cursor: none !important;
+}
+
