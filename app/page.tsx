@@ -85,7 +85,7 @@ export default function HomePage() {
           countries. At Amazon, Crunchyroll, TurboTax, and Shopify I didn&rsquo;t
           just write the words, I built the frameworks, terminology systems, and
           AI guardrails that let entire teams ship consistent, human experiences
-          at scale. Think of me as the <span style={{ color: "#FFD700" }}>content canary in the data-system mine</span>. I
+          at scale. Think of me as the <span style={{ color: "#D4A017" }}>content canary in the data-system mine</span>. I
           find what erodes trust, dilutes voice, and feels apathetic before it
           reaches people.
         </p>
