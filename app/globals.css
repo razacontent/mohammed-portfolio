@@ -25,6 +25,10 @@ body {
   font-family: 'Outfit', sans-serif;
 }
 
+*, *::before, *::after {
+  cursor: none !important;
+}
+
 @keyframes inkDot {
   0% { transform: scale(0); opacity: 0.7; }
   100% { transform: scale(2.5); opacity: 0; }
