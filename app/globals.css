@@ -26,7 +26,7 @@ body {
 }
 
 *, *::before, *::after {
-  cursor: url("/pencil-cursor.png") 4 22, auto !important;
+  cursor: none !important;
 }
 
 @keyframes inkDot {
