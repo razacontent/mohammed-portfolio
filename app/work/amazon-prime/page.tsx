@@ -161,9 +161,9 @@ export default function AmazonPrimePage() {
               <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3 }}>Framework-grounded content experiments across the membership lifecycle</div>
             </div>
             <div onMouseEnter={() => setS3H(true)} onMouseLeave={() => setS3H(false)} style={{ background: s3H ? "#fff" : "#F0D4D1", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
-              <div style={{ fontSize: 28, fontWeight: 700, lineHeight: 1, marginBottom: 4, letterSpacing: "-0.02em" }}>47.4%</div>
-              <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>Cancellations targeted</div>
-              <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3 }}>Emotional storytelling retention system for voluntary cancellation flow</div>
+              <div style={{ fontSize: 28, fontWeight: 700, lineHeight: 1, marginBottom: 4, letterSpacing: "-0.02em" }}>+1.8%</div>
+              <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>Renewal rate lift</div>
+              <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3 }}>Annual renewal rate increase among members who received Milestones touchpoints</div>
             </div>
           </div>
           </div>

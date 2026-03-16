@@ -31,7 +31,7 @@ export const caseStudies: CaseStudy[] = [
     dotColor: "#1D9E75",
     headline: "When the ad is the product",
     subhead:
-      "How do you introduce advertising to 10M+ members of a deeply passionate fanbase \u2014 without eroding the trust that makes them fans in the first place?",
+      "How do you introduce advertising to 10M+ members of a deeply passionate fanbase without eroding the trust that makes them fans in the first place?",
     tags: [
       "Streaming",
       "Ad experience",
@@ -47,7 +47,7 @@ export const caseStudies: CaseStudy[] = [
       "Content practice creation",
     ],
     summary:
-      'As sole content designer for Crunchyroll\'s global ad experience, I built the content system governing how members encountered advertising across <strong style="color: #1a1a1a; font-weight: 500;">CTV, mobile, and web</strong>. Internal research showed only <strong style="color: #1a1a1a; font-weight: 500;">18% of members trusted platform recommendations</strong> \u2014 meaning every ad surface was a high-stakes trust moment before a single ad ran. I designed language for ad break bridges, behavioral targeting opt-outs, ad flagging flows, and cross-surface content patterns \u2014 ensuring consistent member experience despite fundamentally different viewing contexts on each platform. The result: a <strong style="color: #1a1a1a; font-weight: 500;">30% reduction in support contacts</strong>, signaling that members could navigate the ad experience without escalating.',
+      'As sole content designer for Crunchyroll\'s global ad experience, I built the content system governing how members encountered advertising across <strong style="color: #1a1a1a; font-weight: 500;">CTV, mobile, and web</strong>. Internal research showed only <strong style="color: #1a1a1a; font-weight: 500;">18% of members trusted platform recommendations</strong>, meaning every ad surface was a high-stakes trust moment before a single ad ran. I designed language for ad break bridges, behavioral targeting opt-outs, ad flagging flows, and cross-surface content patterns, ensuring consistent member experience despite fundamentally different viewing contexts on each platform. The result: a <strong style="color: #1a1a1a; font-weight: 500;">30% reduction in support contacts</strong>, signaling that members could navigate the ad experience without escalating.',
   },
   {
     slug: "amazon-prime",
@@ -83,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
     dotColor: "#1D9E75",
     headline: "Abandonment to adoption",
     subhead:
-      "How do you turn a 12% adoption analytics tool into a decision-making system \u2014 when the data is there but the interface gives merchants no reason to trust it and no path to act on it?",
+      "How do you turn a 12% adoption analytics tool into a decision-making system when the data is there but the interface gives merchants no reason to trust it and no path to act on it?",
     tags: [
       "E-commerce",
       "SaaS",
@@ -104,14 +104,27 @@ export const caseStudies: CaseStudy[] = [
       'Led content strategy for Shopify\u2019s Marketing Analytics redesign, transforming a <strong style="color: #1a1a1a; font-weight: 500;">12% adoption</strong> reporting tool into a <strong style="color: #1a1a1a; font-weight: 500;">28% adoption</strong> decision-making system. Built three foundational artifacts that changed how the organization understood the problem, then designed three content strategy shifts and a <strong style="color: #1a1a1a; font-weight: 500;">three-part tooltip pattern adopted across 12 metrics</strong>. The work drove +29% attribution engagement, +37% automation activation, and established metric governance standards that scaled across Marketing products.',
   },
   {
-    slug: "turbotax",
-    company: "TurboTax / Intuit",
+    slug: "turbotax-fbar",
+    company: "Intuit TurboTax",
     icon: ICON_TURBOTAX,
     dotColor: "#378ADD",
-    headline: "",
-    subhead: "",
-    tags: [],
-    proficiencies: [],
-    summary: "",
+    headline: "Making tax law feel human",
+    subhead:
+      "The FBAR filing experience was written for compliance lawyers, not for the people who actually had to file. I rebuilt the content system using prompt engineering and GenAI tooling, increasing FBAR adoption by 341%.",
+    tags: [
+      "FinTech",
+      "Compliance content",
+      "Content engineering",
+    ],
+    proficiencies: [
+      "Compliance content",
+      "Prompt engineering",
+      "GenAI tooling",
+      "Legal review navigation",
+      "Readability optimization",
+      "Content systems",
+    ],
+    summary:
+      'Rebuilt TurboTax\u2019s FBAR filing content from the ground up using a prompt engineering workflow with Writer.ai. Cut reading level from college-graduate to <strong style="color: #1a1a1a; font-weight: 500;">8th grade</strong> while maintaining 100% legal compliance. The work drove a <strong style="color: #1a1a1a; font-weight: 500;">341% increase in FBAR adoption</strong> year-over-year, with every rewrite clearing legal review without a single compliance failure.',
   },
 ];
