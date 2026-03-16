@@ -1,10 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
+
+const sideNavItems = [
+  { label: "Experience", id: "experience" },
+  { label: "Skills", id: "skills" },
+  { label: "Languages", id: "languages" },
+  { label: "Education", id: "education" },
+];
 
 export default function ResumePage() {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState("experience");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px" }
+    );
+    for (const item of sideNavItems) {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   const roles = [
     {
@@ -136,7 +162,45 @@ export default function ResumePage() {
         }}
       />
 
-      <div style={{ maxWidth: 800, margin: "0 auto", padding: "80px 32px 120px" }}>
+      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "80px 32px 120px", display: "flex", gap: 0 }}>
+
+        {/* Side nav */}
+        <nav
+          style={{
+            position: "sticky",
+            top: 100,
+            alignSelf: "flex-start",
+            width: 140,
+            flexShrink: 0,
+            paddingTop: 280,
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {sideNavItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                style={{
+                  fontSize: 12,
+                  fontWeight: activeSection === item.id ? 600 : 400,
+                  color: activeSection === item.id ? "#1a1a1a" : "rgba(26,26,26,0.35)",
+                  textDecoration: "none",
+                  padding: "4px 0",
+                  transition: "all 0.2s ease",
+                  fontFamily: "'Outfit', sans-serif",
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <div style={{ flex: 1, maxWidth: 800 }}>
 
         {/* Header */}
         <div style={{ marginBottom: 48 }}>
@@ -163,7 +227,7 @@ export default function ResumePage() {
         </article>
 
         {/* Experience */}
-        <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(26,26,26,0.4)", marginBottom: "1.5rem", marginTop: "2rem" }}>Experience</p>
+        <p id="experience" style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(26,26,26,0.4)", marginBottom: "1.5rem", marginTop: "2rem", scrollMarginTop: 80 }}>Experience</p>
 
         {roles.map((role) => (
           <article
@@ -217,7 +281,7 @@ export default function ResumePage() {
         ))}
 
         {/* Skills */}
-        <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(26,26,26,0.4)", marginBottom: "1.5rem", marginTop: "2rem" }}>Skills</p>
+        <p id="skills" style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(26,26,26,0.4)", marginBottom: "1.5rem", marginTop: "2rem", scrollMarginTop: 80 }}>Skills</p>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: 48 }}>
           {skills.map((skill, idx) => (
@@ -238,6 +302,7 @@ export default function ResumePage() {
         </div>
 
         {/* Languages */}
+        <div id="languages" style={{ scrollMarginTop: 80 }} />
         <article
           onMouseEnter={() => setHovered("lang")}
           onMouseLeave={() => setHovered(null)}
@@ -255,7 +320,7 @@ export default function ResumePage() {
         </article>
 
         {/* Education */}
-        <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(26,26,26,0.4)", marginBottom: "1.5rem" }}>Education</p>
+        <p id="education" style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(26,26,26,0.4)", marginBottom: "1.5rem", scrollMarginTop: 80 }}>Education</p>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: 48 }}>
           <article
@@ -283,6 +348,7 @@ export default function ResumePage() {
         <p style={{ fontSize: 12, fontWeight: 400, color: "rgba(26,26,26,0.4)", textAlign: "center" }}>
           Mohammed Raza &middot; Sr. Content Designer &amp; UX Writer &middot; razacontent.com
         </p>
+        </div>
       </div>
     </div>
   );
