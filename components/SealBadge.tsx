@@ -27,7 +27,7 @@ export default function SealBadge({ size = 220 }: { size?: number }) {
         viewBox={`0 0 ${size} ${size}`}
         style={{ position: "absolute", top: 0, left: 0 }}
       >
-        <path d={path} fill="#fff" stroke="#1a1a1a" strokeWidth="1.5" />
+        <path d={path} fill="#fff" stroke="#E8B100" strokeWidth="1.5" />
       </svg>
       <div
         style={{
