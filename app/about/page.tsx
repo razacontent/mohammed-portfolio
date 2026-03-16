@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import PencilCursor from "@/components/PencilCursor";
 import Footer from "@/components/Footer";
 
 export default function AboutPage() {
@@ -13,7 +12,6 @@ export default function AboutPage() {
         position: "relative",
       }}
     >
-      <PencilCursor />
       <Navigation />
       <div
         style={{

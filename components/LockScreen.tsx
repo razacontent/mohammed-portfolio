@@ -166,7 +166,6 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
               alignItems: "center",
               justifyContent: "center",
               transition: "all 0.15s ease",
-              cursor: "pointer",
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget;
@@ -199,7 +198,6 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            cursor: "pointer",
             transition: "all 0.15s ease",
           }}
           onMouseEnter={(e) => {
@@ -227,7 +225,6 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
             alignItems: "center",
             justifyContent: "center",
             transition: "all 0.15s ease",
-            cursor: "pointer",
           }}
           onMouseEnter={(e) => {
             const el = e.currentTarget;

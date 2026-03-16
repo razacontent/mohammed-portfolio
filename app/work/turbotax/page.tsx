@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import PencilCursor from "@/components/PencilCursor";
 import Footer from "@/components/Footer";
 import { caseStudies } from "@/lib/data";
 
@@ -16,7 +15,6 @@ export default function TurbotaxPage() {
         position: "relative",
       }}
     >
-      <PencilCursor />
       <Navigation />
       <div
         style={{

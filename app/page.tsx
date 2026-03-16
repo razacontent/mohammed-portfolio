@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import SealBadge from "@/components/SealBadge";
 import CaseStudyCard from "@/components/CaseStudyCard";
-import PencilCursor from "@/components/PencilCursor";
 import Footer from "@/components/Footer";
 import { caseStudies } from "@/lib/data";
 
@@ -16,7 +15,6 @@ export default function HomePage() {
         position: "relative",
       }}
     >
-      <PencilCursor />
       <Navigation />
 
       {/* Divider */}

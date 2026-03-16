@@ -1,7 +1,6 @@
 "use client";
 
 import Navigation from "@/components/Navigation";
-import PencilCursor from "@/components/PencilCursor";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 
@@ -322,7 +321,6 @@ export default function CrunchyrollPage() {
         padding: "0 1.5rem 8rem",
       }}
     >
-      <PencilCursor />
       <Navigation />
 
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
