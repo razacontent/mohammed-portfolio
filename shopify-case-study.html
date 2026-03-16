@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abandonment to Adoption · Shopify · Mohammed Raza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F0D4D1;
+      --text: #1a1a1a;
+      --text-sec: rgba(26,26,26,0.6);
+      --text-muted: rgba(26,26,26,0.4);
+      --border: 1.5px solid rgba(26,26,26,0.1);
+      --border-mid: 1.5px solid rgba(26,26,26,0.2);
+      --divider: 0.5px solid rgba(26,26,26,0.15);
+      --white: #ffffff;
+      --radius-card: 14px;
+      --radius-pill: 100px;
+      --green: #1D9E75;
+      --blue: #378ADD;
+      --amber: #c47f0a;
+      --font: 'Outfit', system-ui, sans-serif;
+      --max-w: 860px;
+    }
+    html { font-size: 16px; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; padding: 0 1.5rem 8rem; }
+    .nav { max-width: var(--max-w); margin: 0 auto; padding: 2rem 0 0; display: flex; align-items: center; justify-content: space-between; }
+    .nav-back { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-sec); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .nav-back:hover { color: var(--text); }
+    .page { max-width: var(--max-w); margin: 0 auto; }
+    .divider { border: none; border-top: var(--divider); margin: 2.75rem 0; }
+    .hero { padding: 4rem 0 2rem; }
+    .hero-company { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .hero-title { font-size: clamp(32px, 5vw, 52px); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+    .hero-problem { font-size: 17px; font-weight: 400; color: var(--text-sec); line-height: 1.7; max-width: 660px; margin-bottom: 2rem; }
+    .hero-problem strong { color: var(--text); font-weight: 600; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+    .tag { font-size: 12px; color: var(--text-sec); border: var(--border); border-radius: var(--radius-pill); padding: 4px 12px; background: rgba(26,26,26,0.04); }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+    .section-title { font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
+    .section-body { font-size: 15px; line-height: 1.8; color: var(--text-sec); margin-bottom: 2rem; }
+    .section-body strong { color: var(--text); font-weight: 600; }
+    .card { background: transparent; border: var(--border); border-radius: var(--radius-card); padding: 1.5rem; transition: background 0.2s; }
+    .card:hover { background: var(--white); }
+    .card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .card-title { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
+    .card-body { font-size: 13.5px; line-height: 1.7; color: var(--text-sec); }
+    .card-body strong { color: var(--text); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+    .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+    .stat-card { background: transparent; border: var(--border); border-radius: var(--radius-card); padding: 1.5rem; text-align: center; transition: background 0.2s; }
+    .stat-card:hover { background: var(--white); }
+    .stat-num { font-size: 2.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.25rem; }
+    .stat-label { font-size: 12px; color: var(--text-sec); line-height: 1.4; }
+    .screen-frame { background: #1a1a1a; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; }
+    .screen-frame img { width: 100%; display: block; }
+    .screen-caption { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: rgba(26,26,26,0.03); border: var(--border); border-top: none; border-radius: 0 0 10px 10px; margin-bottom: 1.5rem; }
+    .screen-caption-label { font-size: 12px; color: var(--text-sec); }
+    .screen-caption-tag { font-size: 11px; color: var(--text-sec); border: var(--border); border-radius: var(--radius-pill); padding: 2px 10px; }
+    .pull-quote { font-size: 1.2rem; font-weight: 500; line-height: 1.6; color: var(--text); padding: 1.5rem 0; border-top: 2px solid rgba(26,26,26,0.08); margin-bottom: 2rem; max-width: 640px; }
+    .outcome-card { border: var(--border); border-radius: var(--radius-card); padding: 2rem; margin-bottom: 2rem; }
+    .outcome-grid { display: grid; grid-template-columns: 160px 1fr; gap: 2rem; align-items: start; }
+    .outcome-num { font-size: 2.5rem; font-weight: 700; line-height: 1.1; }
+    .outcome-num-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .outcome-heading { font-size: 14px; font-weight: 600; margin-bottom: 0.5rem; }
+    .outcome-body { font-size: 14px; line-height: 1.8; color: var(--text-sec); }
+    .outcome-body strong { color: var(--text); font-weight: 500; }
+    .outcome-divider { border: none; border-top: var(--divider); margin: 1.5rem 0; height: 0; }
+    .bridge-card { border: var(--border); border-radius: var(--radius-card); padding: 2rem; margin-bottom: 2rem; }
+    .bridge-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .bridge-text { font-size: 15px; line-height: 1.8; color: var(--text-sec); }
+    .bridge-text strong { color: var(--text); font-weight: 600; }
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+    .ba-card { border: var(--border); border-radius: var(--radius-card); padding: 1.5rem; transition: background 0.2s; }
+    .ba-card:hover { background: var(--white); }
+    .ba-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .ba-label.before { color: var(--amber); }
+    .ba-label.after { color: var(--green); }
+    @media (max-width: 640px) {
+      .two-col, .three-col, .before-after { grid-template-columns: 1fr; }
+      .four-col { grid-template-columns: 1fr 1fr; }
+      .outcome-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-back">← Back to work</a>
+  </nav>
+
+  <div class="page">
+
+    <div class="hero">
+      <p class="hero-company">Shopify</p>
+      <h1 class="hero-title">Abandonment<br>to adoption</h1>
+      <p class="hero-problem">
+        12% of merchants used Shopify's Marketing Analytics. The rest opened it and closed the tab. The tool presented data without direction, cross-platform discrepancies eroded trust, and the product architecture was organized by data type rather than by how merchants actually make marketing decisions. <strong>This is the story of how content design turned a reporting tool into a decision-making system.</strong>
+      </p>
+      <div class="hero-tags">
+        <span class="tag">E-commerce</span>
+        <span class="tag">SaaS</span>
+        <span class="tag">Analytics</span>
+        <span class="tag">B2B</span>
+        <span class="tag">Progressive disclosure</span>
+        <span class="tag">Content systems</span>
+        <span class="tag">Information architecture</span>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- THE PROBLEM -->
+    <div class="section-label">The problem</div>
+    <h2 class="section-title">Why merchants weren't using Analytics</h2>
+    <p class="section-body">
+      Only 12% of Shopify merchants were using Marketing Analytics. Not because the data wasn't there, but because the interface gave them no reason to trust it and no path to act on it.
+    </p>
+
+    <div class="four-col">
+      <div class="card">
+        <div class="card-label">Problem 01</div>
+        <div class="card-title">Not actionable</div>
+        <div class="card-body">The tool presented data without direction. "I can see my numbers. I don't know what to do about them."</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Problem 02</div>
+        <div class="card-title">Trust deficit</div>
+        <div class="card-body">Cross-platform discrepancies between Shopify, Google, and Meta led merchants to distrust the numbers entirely.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Problem 03</div>
+        <div class="card-title">Sophistication mismatch</div>
+        <div class="card-body">Expert merchants found it not insightful enough. Beginners found it overwhelming. The same interface had to serve both.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Problem 04</div>
+        <div class="card-title">Product architecture</div>
+        <div class="card-body">Navigation was organized by data type, not by merchant workflow. Answering "should I increase Facebook spend?" required four pages across two nav sections.</div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- USERS -->
+    <div class="section-label">The users</div>
+    <h2 class="section-title">Merchant sophistication spectrum</h2>
+    <p class="section-body">The same product had to serve two fundamentally different users. Understanding this tension shaped every content decision.</p>
+
+    <div class="before-after">
+      <div class="ba-card">
+        <div class="card-label">Marketing Expert</div>
+        <div class="card-title">South Africa, Jerky</div>
+        <div class="card-body" style="margin-bottom: 1rem;">
+          <strong>Current behavior:</strong> Uses 3+ analytics tools. Exports to spreadsheets. Manually reconciles data across platforms.
+        </div>
+        <div class="card-body">
+          <strong>What they need:</strong> Unify my campaigns. Compare attribution models. Automate decisions. Show me methodology, not just numbers.
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="card-label">First-Time Entrepreneur</div>
+        <div class="card-title">Toronto, Jewelry</div>
+        <div class="card-body" style="margin-bottom: 1rem;">
+          <strong>Current behavior:</strong> Opens analytics, closes tab. Doesn't know where to start. Can't interpret the numbers.
+        </div>
+        <div class="card-body">
+          <strong>What they need:</strong> Tell me what to do. Give me templates. Show me benchmarks. Make the path obvious.
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      Progressive disclosure became the architectural answer: surface-level metrics visible at a glance, detailed breakdowns on-demand, calculation transparency via tooltips. Both audiences served. Neither overwhelmed.
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ARTIFACT 1 -->
+    <div class="section-label">Artifact 01 of 03</div>
+    <h2 class="section-title">Cross-platform terminology audit</h2>
+    <p class="section-body">
+      Merchants reported attribution discrepancies between Shopify and other platforms. Engineering assumed bugs. Leadership wanted simplification. But no one knew how we'd arrived at our current metric definitions. Prior content decisions had no documentation.
+      <br><br>
+      I tracked down teams who'd worked on marketing analytics, reviewed journal entries, and scheduled 1:1s with content designers on adjacent product spaces to understand historical context and map the holistic merchant journey. This revealed a critical insight: <strong>platforms calculate differently, and obscuring this creates false precision.</strong>
+      <br><br>
+      I audited Google Analytics, Meta Ads, Triple Whale, and Amplitude documentation, confirming these were methodology differences, not errors. I presented findings to product leadership: transparency over simplification. They initially resisted exposing formulas, concerned about overwhelming merchants. I proposed phased testing with power users, which proved adoption increased. <strong>This reframed our content strategy from hiding complexity to exposing calculation logic</strong>, influencing tooltip implementation and metric definition standards across marketing products.
+    </p>
+
+    <!-- Image placeholder for the cross-platform audit table -->
+    <div class="screen-frame">
+      <img src="/images/shopify-audit-table.png" alt="Cross-platform terminology audit comparing ROAS and Conversion Rate across Shopify, Google Analytics, Meta Ads, Triple Whale, and Amplitude" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Cross-platform metrics comparison matrix</span>
+      <span class="screen-caption-tag">Research artifact</span>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ARTIFACT 2 -->
+    <div class="section-label">Artifact 02 of 03</div>
+    <h2 class="section-title">Merchant workflow maps</h2>
+    <p class="section-body">
+      Initial problem framing positioned merchants as lacking analytics sophistication. User interviews suggested otherwise: <strong>interface structure didn't match decision-making workflow.</strong>
+      <br><br>
+      I partnered with data scientists for instrument tracking, engineering to validate technical feasibility, and product managers across Campaigns, Attribution, and Automations to align on roadmap implications. I designed a shadowing study with 12 merchants, documenting their marketing workflow.
+      <br><br>
+      The core issue: answering "Should I increase Facebook spend?" required synthesizing data from four pages across two navigation sections. I synthesized findings into six workflow principles prioritizing comparison over trends and single-screen budget decisions. Presented analysis to VP of Product, demonstrating that incremental UI changes wouldn't resolve structural misalignment. <strong>This shifted the team's scope from surface improvements to full information architecture redesign</strong>, informing sidebar restructure and homepage prioritization.
+    </p>
+
+    <div class="screen-frame">
+      <img src="/images/shopify-workflow-map.png" alt="Merchant workflow map showing current state vs desired state for Monday morning marketing review" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Current state vs. desired state: Monday morning marketing review</span>
+      <span class="screen-caption-tag">Workflow artifact</span>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ARTIFACT 3 -->
+    <div class="section-label">Artifact 03 of 03</div>
+    <h2 class="section-title">Internal alignment workshop</h2>
+    <p class="section-body">
+      Cross-team audit revealed engineering, data science, and marketing teams calculated and perceived some terms differently. I recognized this as a blocker: we couldn't write consistent merchant-facing definitions until internal teams agreed on source of truth.
+      <br><br>
+      I proposed and facilitated an alignment workshop with technical leads, data scientists, and product managers, using merchant confusion quotes as the decision-making framework. Engineering initially wanted platform-specific definitions to match backend logic. Marketing wanted merchant-friendly simplifications. <strong>I anchored the workshop around merchant confusion quotes, which shifted the conversation from "what's technically accurate" to "what prevents merchant errors."</strong>
+      <br><br>
+      We reached consensus on a shared definition matrix covering 23 core metrics with standardized scope, exclusions, and attribution models. This artifact became the reference standard for feature development and tooltip implementation, establishing governance that prevented future definition drift across marketing products. This consensus-building approach resolved a 6-month stalemate.
+    </p>
+
+    <div class="screen-frame">
+      <img src="/images/shopify-alignment-workshop.png" alt="Metrics Definition Alignment workshop tool with voting cards" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Metrics Definition Alignment: interactive workshop facilitation tool</span>
+      <span class="screen-caption-tag">Alignment artifact</span>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SIDEBAR REDESIGN -->
+    <div class="section-label">The redesign</div>
+    <h2 class="section-title">Execution without insight: the sidebar problem</h2>
+    <p class="section-body">
+      The sidebar positioned marketing as binary: create campaigns and automate workflows. But it offered no path to understanding what was working. Attribution lived buried three clicks deep in Analytics > Reports > Marketing attribution. It was treated as a reporting feature rather than a strategic decision-making tool.
+      <br><br>
+      Workflow mapping revealed merchants operate in continuous loops: launch campaign, check attribution, adjust budget, repeat. But the interface forced context switching across separate navigation sections. <strong>Redesigned sidebar elevated Attribution to equal hierarchy within Marketing</strong>, eliminating the four-click detour. This structural change aligned information architecture with the iterative nature of campaign optimization. Attribution page visits increased 43% post-launch.
+    </p>
+
+    <div class="before-after">
+      <div class="ba-card">
+        <div class="ba-label before">Before</div>
+        <div class="card-body">Marketing contained only Campaigns and Automations. Attribution buried under Analytics > Reports. Four clicks to get there. Merchants abandoned the journey.</div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-label after">After</div>
+        <div class="card-body">Marketing now contains Campaigns, Attribution, and Automations. Attribution is one click away. The sidebar reflects how merchants actually work: launch, measure, adjust, repeat.</div>
+      </div>
+    </div>
+
+    <div class="screen-frame">
+      <img src="/images/shopify-sidebar-before.png" alt="Shopify Marketing sidebar before redesign" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Previous sidebar: execution without insight</span>
+      <span class="screen-caption-tag">Before</span>
+    </div>
+
+    <div class="screen-frame">
+      <img src="/images/shopify-sidebar-after.png" alt="Shopify Marketing sidebar after redesign" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Redesigned sidebar: merchant-obsessed mental model</span>
+      <span class="screen-caption-tag">After</span>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- HOMEPAGE REDESIGN -->
+    <div class="section-label">The redesign</div>
+    <h2 class="section-title">Performance data above the fold</h2>
+    <p class="section-body">
+      The previous homepage prioritized educational content like video tutorials and feature explanations over performance data. Experienced merchants saw onboarding content and questioned whether the platform could support sophisticated operations. Inexperienced merchants felt overwhelmed by choices before understanding their baseline.
+      <br><br>
+      Both segments needed performance data first, education second. I proposed repositioning educational content to email campaigns and help documentation, using the homepage's above-the-fold space for glanceable metrics instead. <strong>This reframed the page from "learn how to use marketing tools" to "understand how your marketing is performing."</strong>
+    </p>
+
+    <div class="screen-frame">
+      <img src="/images/shopify-homepage-before.png" alt="Previous Shopify Marketing homepage" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Previous homepage: education over performance</span>
+      <span class="screen-caption-tag">Before</span>
+    </div>
+
+    <div class="screen-frame">
+      <img src="/images/shopify-homepage-after.png" alt="Redesigned Shopify Marketing homepage" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Redesigned homepage: performance data above the fold</span>
+      <span class="screen-caption-tag">After</span>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- THREE CONTENT SHIFTS -->
+    <div class="section-label">Content strategy shifts</div>
+    <h2 class="section-title">Three decisions that reshaped the interface</h2>
+
+    <div class="three-col">
+      <div class="card">
+        <div class="card-label">Shift 01</div>
+        <div class="card-title">Feature → Task</div>
+        <div class="card-body">Reframed primary content module as "Top marketing channels," shifting from what Shopify can do to what merchants need to accomplish. Merchant feedback validated the shift: "Finally shows me what I actually came here for."</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Shift 02</div>
+        <div class="card-title">Causation → Attribution</div>
+        <div class="card-body">Changed metric labels from "from marketing" (implying direct causation) to "attributed to marketing" (acknowledging model-based calculation). This signaled measurement sophistication and set up transparent tooltip explanations.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Shift 03</div>
+        <div class="card-title">Builder → Analyst</div>
+        <div class="card-body">Replaced the sole creation CTA with three data controls: date range selector, comparison toggle, and attribution model switcher. Post-launch, attribution model switching increased 36%.</div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- TOOLTIP SYSTEM -->
+    <div class="section-label">The system</div>
+    <h2 class="section-title">Campaign page tooltips: making metric logic explicit</h2>
+    <p class="section-body">
+      Formula tooltips required solving a scalability problem: make complex attribution calculations comprehensible without overwhelming every metric card with technical details. I used a progressive disclosure pattern: plain language definition on the first line, formula on the second.
+      <br><br>
+      I developed a three-part tooltip pattern that the team applied across 12 metrics and later adopted for Attribution reports and Automations tables:
+    </p>
+
+    <div class="three-col">
+      <div class="card">
+        <div class="card-label">Part 01</div>
+        <div class="card-title">Scope</div>
+        <div class="card-body">What the metric measures. Plain language, no jargon. A novice merchant reads this and understands what the number represents.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Part 02</div>
+        <div class="card-title">Boundaries</div>
+        <div class="card-body">What the metric excludes. This is where trust is built. Naming what's not counted prevents the false precision that eroded merchant confidence.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Part 03</div>
+        <div class="card-title">Formula</div>
+        <div class="card-body">How it's calculated. The exact math, visible on demand. Expert merchants audit this. Novices skip it. Both trust the number more because it's there.</div>
+      </div>
+    </div>
+
+    <div class="screen-frame">
+      <img src="/images/shopify-tooltips.png" alt="Campaign page tooltip examples showing scope, boundaries, and formula pattern" />
+    </div>
+    <div class="screen-caption">
+      <span class="screen-caption-label">Three-part tooltip pattern: scope, boundaries, formula</span>
+      <span class="screen-caption-tag">Content system</span>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- OUTCOMES -->
+    <div class="section-label">Outcome</div>
+    <div class="outcome-card">
+
+      <div class="outcome-grid">
+        <div>
+          <div class="outcome-num">12%→28%</div>
+          <div class="outcome-num-label">Marketing Analytics adoption</div>
+        </div>
+        <div>
+          <div class="outcome-heading">More than doubling adoption through content architecture</div>
+          <div class="outcome-body">Merchant adoption of Marketing Analytics more than doubled. Not through feature additions, but through structural clarity. <strong>When the interface matched how merchants think about marketing decisions, they stopped closing the tab.</strong></div>
+        </div>
+      </div>
+
+      <div class="outcome-divider"></div>
+
+      <div class="outcome-grid">
+        <div>
+          <div class="outcome-num">+29%</div>
+          <div class="outcome-num-label">Attribution page engagement</div>
+        </div>
+        <div>
+          <div class="outcome-heading">Discoverability drove engagement with performance data</div>
+          <div class="outcome-body">Elevating Attribution to the Marketing sidebar eliminated the four-click detour. Merchants who previously never found it now used it as part of their weekly workflow. <strong>The content was always valuable. It was the architecture that was failing.</strong></div>
+        </div>
+      </div>
+
+      <div class="outcome-divider"></div>
+
+      <div class="outcome-grid">
+        <div>
+          <div class="outcome-num">+34%</div>
+          <div class="outcome-num-label">Educational email CTR vs. in-product</div>
+        </div>
+        <div>
+          <div class="outcome-heading">Education works better outside the decision-making moment</div>
+          <div class="outcome-body">Moving educational content from the homepage to email campaigns achieved 34% higher click-through than in-product placement. <strong>Merchants want to learn on their own time, not when they're trying to decide where to spend money.</strong></div>
+        </div>
+      </div>
+
+      <div class="outcome-divider"></div>
+
+      <div class="outcome-grid">
+        <div>
+          <div class="outcome-num">+37%</div>
+          <div class="outcome-num-label">Automation activation rate</div>
+        </div>
+        <div>
+          <div class="outcome-heading">Content frameworks scaled without content design bottlenecks</div>
+          <div class="outcome-body">The tooltip pattern, terminology standards, and metric definitions I created were adopted across Attribution reports and Automations tables by other teams. <strong>A content system that only works when the content designer is in the room is not a system.</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider" />
+
+    <!-- BRIDGE -->
+    <div class="section-label">Why this matters</div>
+    <div class="bridge-card">
+      <div class="bridge-eyebrow">The problem this case study is about</div>
+      <div class="bridge-text">
+        Analytics products fail when they treat data presentation as the deliverable instead of decision-making as the outcome. The merchants weren't unsophisticated. The interface was. It organized information by technical category rather than by the questions merchants actually need answered.
+        <br><br>
+        <strong>Content design was the lever that transformed a 12% adoption reporting tool into a 28% adoption decision-making system.</strong> Not through better labels on the same structure, but through three artifacts that changed how the organization understood the problem, and three content strategy shifts that changed how the interface served its users.
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ROLE -->
+    <div class="section-label">My role</div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Scope</div>
+        <div class="card-title">Content Designer, Marketing Analytics</div>
+        <div class="card-body">Led content strategy for the entire Marketing Analytics redesign. Partnered with data scientists, engineers, and product managers across Campaigns, Attribution, and Automations. Conducted primary research including 12-merchant shadowing study. Facilitated cross-team alignment workshop that resolved a 6-month definition stalemate.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Proficiencies demonstrated</div>
+        <div class="card-title">What this work required</div>
+        <div class="card-body">Information architecture redesign · Cross-platform terminology audit · Progressive disclosure systems · Merchant workflow research · Tooltip content patterns · Internal alignment facilitation · Metric governance standards · Dual-audience content strategy</div>
+      </div>
+    </div>
+
+    <!-- FEEDBACK -->
+    <hr class="divider" />
+    <div class="section-label">Feedback</div>
+    <div class="bridge-card">
+      <div class="bridge-eyebrow">Alison Munn Garcia, UX Manager</div>
+      <div class="bridge-text">
+        "Mohammed is an incredible content designer with a thoughtful and passionate approach to UX writing and building a solid content strategy. We were lucky to have him on the team. He was able to make a huge impact on a difficult project with a large scope, helping us to form a strong story around what we were doing, and what needs to be done."
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
