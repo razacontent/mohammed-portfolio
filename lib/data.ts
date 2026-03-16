@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "amazon-prime",
-    company: "Amazon",
+    company: "Amazon Prime",
     icon: ICON_AMAZON,
     dotColor: "#378ADD",
     headline: "Rewriting how Prime earns loyalty",
