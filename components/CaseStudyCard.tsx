@@ -24,19 +24,6 @@ export default function CaseStudyCard({ study }: { study: CaseStudy }) {
           transition: "all 0.2s ease",
         }}
       >
-        {/* Status dot */}
-        <div
-          style={{
-            position: "absolute",
-            top: "2.25rem",
-            right: "2.25rem",
-            width: 7,
-            height: 7,
-            borderRadius: "50%",
-            background: study.dotColor,
-          }}
-        />
-
         {/* Company label */}
         <p
           style={{

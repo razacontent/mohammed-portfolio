@@ -79,11 +79,27 @@ export const caseStudies: CaseStudy[] = [
     company: "Shopify",
     icon: ICON_SHOPIFY,
     dotColor: "#1D9E75",
-    headline: "",
-    subhead: "",
-    tags: [],
-    proficiencies: [],
-    summary: "",
+    headline: "Abandonment to adoption",
+    subhead:
+      "How do you turn a 12% adoption analytics tool into a decision-making system \u2014 when the data is there but the interface gives merchants no reason to trust it and no path to act on it?",
+    tags: [
+      "E-commerce",
+      "SaaS",
+      "Analytics",
+      "B2B",
+      "Progressive disclosure",
+      "Content systems",
+    ],
+    proficiencies: [
+      "Information architecture",
+      "Cross-platform audit",
+      "Progressive disclosure",
+      "Merchant research",
+      "Tooltip content systems",
+      "Internal alignment",
+    ],
+    summary:
+      'Led content strategy for Shopify\u2019s Marketing Analytics redesign, transforming a <strong style="color: #1a1a1a; font-weight: 500;">12% adoption</strong> reporting tool into a <strong style="color: #1a1a1a; font-weight: 500;">28% adoption</strong> decision-making system. Built three foundational artifacts that changed how the organization understood the problem, then designed three content strategy shifts and a <strong style="color: #1a1a1a; font-weight: 500;">three-part tooltip pattern adopted across 12 metrics</strong>. The work drove +29% attribution engagement, +37% automation activation, and established metric governance standards that scaled across Marketing products.',
   },
   {
     slug: "turbotax",
