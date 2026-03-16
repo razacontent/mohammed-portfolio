@@ -25,12 +25,6 @@ body {
   font-family: 'Outfit', sans-serif;
 }
 
-html, body, *, *::before, *::after,
-a, button, input, select, textarea,
-a:hover, button:hover, [role="button"]:hover {
-  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAC0lEQVQI12NgAAIABAABInkUTwAAAABJRU5ErkJggg==") 0 0, none !important;
-}
-
 @keyframes inkDot {
   0% { transform: scale(0); opacity: 0.7; }
   100% { transform: scale(2.5); opacity: 0; }

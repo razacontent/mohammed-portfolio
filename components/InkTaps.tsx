@@ -46,6 +46,14 @@ export default function InkTaps() {
     []
   );
 
+  // Inject cursor:none directly into document head — bypasses Tailwind layers
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = "*, *::before, *::after { cursor: none !important; }";
+    document.head.appendChild(style);
+    return () => { document.head.removeChild(style); };
+  }, []);
+
   useEffect(() => {
     window.addEventListener("mousemove", handleMove);
     window.addEventListener("mousedown", handleDown);
