@@ -2,7 +2,21 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const crSideNavItems = [
+  { label: "Context", id: "cr-context" },
+  { label: "Role", id: "cr-role" },
+  { label: "Before", id: "cr-before" },
+  { label: "Approach", id: "cr-approach" },
+  { label: "Pre-Play", id: "cr-preplay" },
+  { label: "Core-Play", id: "cr-coreplay" },
+  { label: "Documentation", id: "cr-docs" },
+  { label: "Post-Play", id: "cr-postplay" },
+  { label: "Privacy", id: "cr-privacy" },
+  { label: "Why It Matters", id: "cr-bridge" },
+  { label: "Outcomes", id: "cr-outcomes" },
+];
 
 const WHITE = "#fff";
 const BG = "#F0D4D1";
@@ -309,6 +323,23 @@ export default function CrunchyrollPage() {
   const [stat2Hovered, setStat2Hovered] = useState(false);
   const [stat3Hovered, setStat3Hovered] = useState(false);
   const [stat4Hovered, setStat4Hovered] = useState(false);
+  const [crActiveSection, setCrActiveSection] = useState("cr-context");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setCrActiveSection(entry.target.id);
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px" }
+    );
+    for (const item of crSideNavItems) {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
@@ -323,7 +354,36 @@ export default function CrunchyrollPage() {
     >
       <Navigation />
 
-      <div style={{ maxWidth: 860, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1060, margin: "0 auto", display: "flex", gap: 0 }}>
+
+        {/* Side nav */}
+        <nav style={{ position: "sticky", top: 100, alignSelf: "flex-start", width: 140, flexShrink: 0, paddingTop: 280 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {crSideNavItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                style={{
+                  fontSize: 12,
+                  fontWeight: crActiveSection === item.id ? 600 : 400,
+                  color: crActiveSection === item.id ? TEXT : "rgba(26,26,26,0.35)",
+                  textDecoration: "none",
+                  padding: "4px 0",
+                  transition: "all 0.2s ease",
+                  fontFamily: "'Outfit', sans-serif",
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <div style={{ flex: 1, maxWidth: 860 }}>
 
         {/* ── HERO ───────────────────────────────────────────────── */}
         <header style={{ padding: "4rem 0 2rem" }}>
@@ -675,6 +735,7 @@ export default function CrunchyrollPage() {
         </div>
 
         {/* ── CONTEXT ────────────────────────────────────────────── */}
+        <div id="cr-context" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor="rgba(26,26,26,0.2)">
           The starting point
         </SectionLabel>
@@ -710,7 +771,32 @@ There was no content practice, no design guidelines, and no precedent. I built t
 
         <Divider />
 
+        {/* ── ROLE ───────────────────────────────────────────────── */}
+        <div id="cr-role" style={{ scrollMarginTop: 80 }} />
+        <SectionLabel dotColor="rgba(26,26,26,0.2)">My role</SectionLabel>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "1rem",
+          }}
+        >
+          <Card
+            label="Scope"
+            title="Lead Content Designer"
+            body="Owned every content decision across the entire Crunchyroll product, not just ads. The ad experience had no prior content design thinking behind it, but neither did most of the product. That meant building consistency and a systems approach across every member touchpoint simultaneously: player states, account settings, privacy controls, onboarding, and the full ad experience across CTV, mobile, and web for 10M+ global members. Worked across product, engineering, ad sales, legal, and research."
+          />
+          <Card
+            label="Proficiencies demonstrated"
+            title="What this work required"
+            body="Ad experience content design · Cross-surface content systems · Trust and privacy UX language · Member feedback and research translation · Cross-functional influence · Stakeholder decision defense · Content practice creation · Player state documentation · Social proof framing"
+          />
+        </div>
+
+        <Divider />
+
         {/* ── BEFORE THE SYSTEM ──────────────────────────────────── */}
+        <div id="cr-before" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor="rgba(26,26,26,0.2)">
           Before the system
         </SectionLabel>
@@ -780,6 +866,7 @@ There was no content practice, no design guidelines, and no precedent. I built t
         <Divider />
 
         {/* ── STRATEGIC APPROACH ──────────────────────────────────── */}
+        <div id="cr-approach" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor="rgba(26,26,26,0.2)">
           Strategic approach
         </SectionLabel>
@@ -878,6 +965,7 @@ There was no content practice, no design guidelines, and no precedent. I built t
         </div>
 
         {/* ── PRE-PLAY ───────────────────────────────────────────── */}
+        <div id="cr-preplay" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor={GREEN}>Phase 01: Pre-play</SectionLabel>
         <div>
           <MetricPill color={GREEN} bg="rgba(29,158,117,0.12)">SVOD conversion</MetricPill>
@@ -971,6 +1059,7 @@ The answer matters beyond the experience. A member who feels respected through t
         <Divider />
 
         {/* ── CORE-PLAY ──────────────────────────────────────────── */}
+        <div id="cr-coreplay" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor={AMBER}>Phase 02: Core-play</SectionLabel>
         <div>
           <MetricPill color={GREEN} bg="rgba(29,158,117,0.12)">Ad completion rate</MetricPill>
@@ -1116,6 +1205,7 @@ The table below maps member state to content decisions across the lifecycle. CTV
         <Divider />
 
         {/* ── DOCUMENTATION ──────────────────────────────────────── */}
+        <div id="cr-docs" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor="rgba(26,26,26,0.2)">Documentation</SectionLabel>
         <h2
           style={{
@@ -1187,6 +1277,7 @@ The table below maps member state to content decisions across the lifecycle. CTV
         <Divider />
 
         {/* ── POST-PLAY ──────────────────────────────────────────── */}
+        <div id="cr-postplay" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor={BLUE}>Phase 03: Post-play</SectionLabel>
         <div>
           <MetricPill color={BLUE} bg="rgba(55,138,221,0.12)">Tier retention</MetricPill>
@@ -1273,6 +1364,7 @@ The flywheel closes here only if every earlier stage earned it. The promo earns 
         <Divider />
 
         {/* ── PRIVACY AND CONSENT ────────────────────────────────── */}
+        <div id="cr-privacy" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor="#8b5cf6">Privacy and consent</SectionLabel>
         <h2
           style={{
@@ -1470,6 +1562,7 @@ The Personalized Ads description in the first screenshot read "Allows sharing of
         <Divider />
 
         {/* ── BRIDGE ─────────────────────────────────────────────── */}
+        <div id="cr-bridge" style={{ scrollMarginTop: 80 }} />
         <SectionLabel dotColor="rgba(26,26,26,0.2)">
           Why this matters now
         </SectionLabel>
@@ -1477,25 +1570,63 @@ The Personalized Ads description in the first screenshot read "Allows sharing of
 
         <Divider />
 
-        {/* ── ROLE ───────────────────────────────────────────────── */}
-        <SectionLabel dotColor="rgba(26,26,26,0.2)">My role</SectionLabel>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1rem",
-          }}
-        >
-          <Card
-            label="Scope"
-            title="Only content designer in the organization"
-            body="Owned every content decision across the entire Crunchyroll product, not just ads. The ad experience had no prior content design thinking behind it, but neither did most of the product. That meant building consistency and a systems approach across every member touchpoint simultaneously: player states, account settings, privacy controls, onboarding, and the full ad experience across CTV, mobile, and web for 10M+ global members. Worked across product, engineering, ad sales, legal, and research."
-          />
-          <Card
-            label="Proficiencies demonstrated"
-            title="What this work required"
-            body="Ad experience content design · Cross-surface content systems · Trust and privacy UX language · Member feedback and research translation · Cross-functional influence · Stakeholder decision defense · Content practice creation · Player state documentation · Social proof framing"
-          />
+        {/* ── OUTCOMES ────────────────────────────────────────────── */}
+        <div id="cr-outcomes" style={{ scrollMarginTop: 80 }} />
+        <SectionLabel dotColor="rgba(26,26,26,0.2)">Outcomes</SectionLabel>
+        <div style={{ border: BORDER, borderRadius: RADIUS_CARD, padding: "2rem", marginBottom: "2rem" }}>
+
+          <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", alignItems: "start" }}>
+            <div>
+              <div style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.1 }}>+22%</div>
+              <div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>Ad completion rate</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.5rem" }}>Mid-roll pod completion after content system shipped</div>
+              <div style={{ fontSize: 14, lineHeight: 1.8, color: TEXT_SEC }}>Measured as the percentage of members who watched through the entire mid-roll ad pod without abandoning the session. The counter language (&ldquo;Ad 2 of 3&rdquo;) set a transparent contract, and the bridge copy (&ldquo;Your show continues in...&rdquo;) reinforced the promise. Together, these reduced mid-pod drop-offs by giving members predictability through a moment they didn&rsquo;t choose. <strong style={{ color: TEXT, fontWeight: 500 }}>The content system turned an interruption into a navigable experience.</strong></div>
+            </div>
+          </div>
+
+          <hr style={{ border: "none", borderTop: DIVIDER, margin: "1.5rem 0" }} />
+
+          <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", alignItems: "start" }}>
+            <div>
+              <div style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.1 }}>+18 pts</div>
+              <div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>NPS, ad-tier members</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.5rem" }}>Tier satisfaction lift against pre-launch baseline</div>
+              <div style={{ fontSize: 14, lineHeight: 1.8, color: TEXT_SEC }}>Net Promoter Score for ad-tier members, measured via quarterly member survey comparing pre-launch and post-launch cohorts. The lift reflected cumulative improvements across the full ad experience: transparent counters, honest bridge language, privacy controls with plain-language explanations, and end slates that respected the member&rsquo;s viewing intent. <strong style={{ color: TEXT, fontWeight: 500 }}>No single surface drove this. The system did.</strong></div>
+            </div>
+          </div>
+
+          <hr style={{ border: "none", borderTop: DIVIDER, margin: "1.5rem 0" }} />
+
+          <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", alignItems: "start" }}>
+            <div>
+              <div style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.1 }}>+34%</div>
+              <div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>SVOD promo conversion</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.5rem" }}>Watchlist adds from pre-play promo after social proof framework</div>
+              <div style={{ fontSize: 14, lineHeight: 1.8, color: TEXT_SEC }}>Measured as the percentage of members who added a show to their watchlist after seeing the SVOD promo before episode playback. The social proof headline framework (&ldquo;Watched by 2.1M fans&rdquo;) combined with genre-specific descriptions grounded in the finding that 79% of members use story description to make viewing decisions. <strong style={{ color: TEXT, fontWeight: 500 }}>The promo earned attention by borrowing trust from the community rather than asserting platform authority.</strong></div>
+            </div>
+          </div>
+
+          <hr style={{ border: "none", borderTop: DIVIDER, margin: "1.5rem 0" }} />
+
+          <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", alignItems: "start" }}>
+            <div>
+              <div style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.1 }}>&minus;30%</div>
+              <div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>Support contacts</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.5rem" }}>Fewer member escalations after ad-moment clarity gaps addressed</div>
+              <div style={{ fontSize: 14, lineHeight: 1.8, color: TEXT_SEC }}>Measured as the reduction in ad-related support tickets filed through the member help center. The content system addressed the root causes: members no longer needed to ask how many ads were left (counter), when their show would return (bridge), what data was being used for targeting (privacy controls), or why they were seeing certain promotions (ad flagging flows). <strong style={{ color: TEXT, fontWeight: 500 }}>Support volume dropped because the interface answered questions before members had to ask.</strong></div>
+            </div>
+          </div>
+
+        </div>
+
         </div>
       </div>
 
