@@ -122,7 +122,18 @@ export default function ShopifyPage() {
       const el = document.getElementById(item.id);
       if (el) observer.observe(el);
     }
-    return () => observer.disconnect();
+
+    const lastId = sideNavItems[sideNavItems.length - 1].id;
+    const handleScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
+        setActiveSection(lastId);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (

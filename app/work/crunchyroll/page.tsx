@@ -338,7 +338,18 @@ export default function CrunchyrollPage() {
       const el = document.getElementById(item.id);
       if (el) observer.observe(el);
     }
-    return () => observer.disconnect();
+
+    const lastId = crSideNavItems[crSideNavItems.length - 1].id;
+    const handleScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
+        setCrActiveSection(lastId);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
