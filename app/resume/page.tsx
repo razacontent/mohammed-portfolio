@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
+import BackArrow from "@/components/BackArrow";
 
 const sideNavItems = [
   { label: "Experience", id: "experience" },
@@ -163,6 +164,7 @@ export default function ResumePage() {
         color: "#1a1a1a",
       }}
     >
+      <BackArrow />
       <Navigation />
       <div
         style={{

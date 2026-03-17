@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
+import BackArrow from "@/components/BackArrow";
 
 export default function AboutPage() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -24,6 +25,7 @@ export default function AboutPage() {
         color: "#1a1a1a",
       }}
     >
+      <BackArrow />
       <Navigation />
       <div
         style={{

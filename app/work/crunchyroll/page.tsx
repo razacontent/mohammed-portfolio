@@ -2,6 +2,7 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackArrow from "@/components/BackArrow";
 import { useState, useEffect } from "react";
 
 const crSideNavItems = [
@@ -363,6 +364,7 @@ export default function CrunchyrollPage() {
         padding: "0 1.5rem 8rem",
       }}
     >
+      <BackArrow />
       <Navigation />
 
       <div style={{ maxWidth: 1060, margin: "0 auto", display: "flex", gap: 0 }}>

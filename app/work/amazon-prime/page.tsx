@@ -2,6 +2,7 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackArrow from "@/components/BackArrow";
 import { useState, useEffect } from "react";
 
 const TEXT = "#1a1a1a";
@@ -141,6 +142,7 @@ export default function AmazonPrimePage() {
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#F0D4D1", fontFamily: "'Outfit', sans-serif", color: TEXT }}>
+      <BackArrow />
       <Navigation />
       <div style={{ width: "100%", height: 0.5, backgroundColor: "rgba(26,26,26,0.15)", marginTop: 12 }} />
 
