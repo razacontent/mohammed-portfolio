@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import LockScreen from "./LockScreen";
+import InkDots from "./InkDots";
 
 const STORAGE_KEY = "portfolio_unlocked";
 
@@ -32,6 +33,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <InkDots />
       {locked && <LockScreen onUnlock={handleUnlock} />}
       <div
         style={{

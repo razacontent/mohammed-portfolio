@@ -73,8 +73,8 @@ export default function HomePage() {
 
         <p
           style={{
-            fontSize: 14,
-            lineHeight: 1.7,
+            fontSize: 16,
+            lineHeight: 1.75,
             fontWeight: 400,
             color: "rgba(26,26,26,0.8)",
             textAlign: "left",
