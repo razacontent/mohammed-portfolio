@@ -25,6 +25,33 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "amazon-prime",
+    company: "Amazon Prime",
+    icon: ICON_AMAZON,
+    dotColor: "#378ADD",
+    headline: "Rewriting how Prime earns loyalty",
+    subhead:
+      "Prime had 200 million members and a trust problem. Research showed members saw the service as a useful necessity: habitual, transactional, and emotionally flat. The benefits were there. The language wasn\u2019t earning them.",
+    tags: [
+      "Membership",
+      "Content systems",
+      "Voice and tone",
+      "Retention",
+      "Localization",
+      "AI content design",
+    ],
+    proficiencies: [
+      "Content strategy & systems",
+      "Voice and tone frameworks",
+      "Retention writing",
+      "Localization & RTL",
+      "AI content frameworks",
+      "Research synthesis",
+    ],
+    summary:
+      'Built the <strong style="color: #1a1a1a; font-weight: 500;">Value Communication Framework</strong> adopted across Prime\u2019s organization. Led the Milestones retention program driving <strong style="color: #1a1a1a; font-weight: 500;">+77K annualized member impact</strong>. Designed content for 4 simultaneous market launches, 3 GenAI personalization initiatives, and a retention system targeting <strong style="color: #1a1a1a; font-weight: 500;">47.4% of voluntary cancellations</strong>. The work changed how Prime communicates value across the design system, membership growth, and global markets.',
+  },
+  {
     slug: "crunchyroll",
     company: "Crunchyroll",
     icon: ICON_CRUNCHYROLL,
@@ -48,33 +75,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     summary:
       'As sole content designer for Crunchyroll\'s global ad experience, I built the content system governing how members encountered advertising across <strong style="color: #1a1a1a; font-weight: 500;">CTV, mobile, and web</strong>. Internal research showed only <strong style="color: #1a1a1a; font-weight: 500;">18% of members trusted platform recommendations</strong>, meaning every ad surface was a high-stakes trust moment before a single ad ran. I designed language for ad break bridges, behavioral targeting opt-outs, ad flagging flows, and cross-surface content patterns, ensuring consistent member experience despite fundamentally different viewing contexts on each platform. The result: a <strong style="color: #1a1a1a; font-weight: 500;">30% reduction in support contacts</strong>, signaling that members could navigate the ad experience without escalating.',
-  },
-  {
-    slug: "amazon-prime",
-    company: "Amazon Prime",
-    icon: ICON_AMAZON,
-    dotColor: "#378ADD",
-    headline: "Rewriting how Prime earns loyalty",
-    subhead:
-      "Prime had 200 million members and a trust problem. Research showed members saw the service as a useful necessity: habitual, transactional, and emotionally flat. The benefits were there. The language wasn\u2019t earning them.",
-    tags: [
-      "Membership",
-      "Content systems",
-      "Retention",
-      "Localization",
-      "AI content design",
-      "Design systems",
-    ],
-    proficiencies: [
-      "Content strategy & systems",
-      "Voice and tone frameworks",
-      "Retention writing",
-      "Localization & RTL",
-      "AI content frameworks",
-      "Research synthesis",
-    ],
-    summary:
-      'Built the <strong style="color: #1a1a1a; font-weight: 500;">Value Communication Framework</strong> adopted across Prime\u2019s organization. Led the Milestones retention program driving <strong style="color: #1a1a1a; font-weight: 500;">+77K annualized member impact</strong>. Designed content for 4 simultaneous market launches, 3 GenAI personalization initiatives, and a retention system targeting <strong style="color: #1a1a1a; font-weight: 500;">47.4% of voluntary cancellations</strong>. The work changed how Prime communicates value across the design system, membership growth, and global markets.',
   },
   {
     slug: "shopify",

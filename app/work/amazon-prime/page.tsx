@@ -124,9 +124,6 @@ function ToolkitRow({ tool, desc }: { tool: string; desc: React.ReactNode }) {
 
 export default function AmazonPrimePage() {
   const [activeSection, setActiveSection] = useState("ap-role");
-  const [s1H, setS1H] = useState(false);
-  const [s2H, setS2H] = useState(false);
-  const [s3H, setS3H] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -170,24 +167,6 @@ export default function AmazonPrimePage() {
               ))}
             </div>
 
-            {/* Outcome bar */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "rgba(26,26,26,0.1)", border: BORDER, borderRadius: 14, overflow: "hidden", marginBottom: "3rem" }}>
-              <div onMouseEnter={() => setS1H(true)} onMouseLeave={() => setS1H(false)} style={{ background: s1H ? "#fff" : "#F0D4D1", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
-                <div style={{ fontSize: 28, fontWeight: 700, lineHeight: 1, marginBottom: 4, letterSpacing: "-0.02em" }}>+77K</div>
-                <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>Member impact</div>
-                <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3 }}>Annualized retention lift from non-incentivized Milestones celebrations</div>
-              </div>
-              <div onMouseEnter={() => setS2H(true)} onMouseLeave={() => setS2H(false)} style={{ background: s2H ? "#fff" : "#F0D4D1", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
-                <div style={{ fontSize: 28, fontWeight: 700, lineHeight: 1, marginBottom: 4, letterSpacing: "-0.02em" }}>10+</div>
-                <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>Experiments shipped</div>
-                <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3 }}>Framework-grounded content experiments across the membership lifecycle</div>
-              </div>
-              <div onMouseEnter={() => setS3H(true)} onMouseLeave={() => setS3H(false)} style={{ background: s3H ? "#fff" : "#F0D4D1", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
-                <div style={{ fontSize: 28, fontWeight: 700, lineHeight: 1, marginBottom: 4, letterSpacing: "-0.02em" }}>+1.8%</div>
-                <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>Renewal rate lift</div>
-                <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3 }}>Annual renewal rate increase among members who received Milestones touchpoints</div>
-              </div>
-            </div>
           </div>
 
           <Divider />
