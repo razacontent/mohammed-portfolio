@@ -12,457 +12,1694 @@ const BORDER = "1.5px solid rgba(26,26,26,0.1)";
 const DIVIDER = "0.5px solid rgba(26,26,26,0.15)";
 
 const sideNavItems = [
-  { label: "Role", id: "ap-role" },
-  { label: "Problem", id: "ap-problem" },
-  { label: "Framework", id: "ap-framework" },
-  { label: "Lifecycle", id: "ap-lifecycle" },
-  { label: "Toolkit", id: "ap-toolkit" },
-  { label: "Milestones", id: "ap-milestones" },
-  { label: "Value in Product", id: "ap-value" },
-  { label: "Global & AI", id: "ap-global" },
-  { label: "Outcomes", id: "ap-outcomes" },
-  { label: "Why It Matters", id: "ap-bridge" },
+  { label: "The problem", id: "problem" },
+  { label: "The system", id: "system" },
+  { label: "The conviction", id: "conviction" },
+  { label: "Copy decisions", id: "craft" },
+  { label: "Pillar taxonomy", id: "pillars" },
+  { label: "Principles", id: "principles" },
+  { label: "Aurora", id: "aurora" },
+  { label: "Milestones", id: "milestones" },
+  { label: "In product", id: "product" },
+  { label: "Socialization", id: "socialization" },
+  { label: "Outcomes", id: "outcomes" },
+  { label: "Figma score", id: "score" },
 ];
 
-function Card({ label, title, body }: { label?: string; title?: string; body?: React.ReactNode }) {
+/* ── Sub-components ─────────────────────────────────────────────── */
+
+function Card({
+  label,
+  title,
+  body,
+}: {
+  label?: string;
+  title?: string;
+  body?: React.ReactNode;
+}) {
   const [h, setH] = useState(false);
   return (
-    <div onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} style={{ background: h ? "#fff" : "transparent", border: BORDER, borderColor: h ? "rgba(26,26,26,0.2)" : "rgba(26,26,26,0.1)", borderRadius: 14, padding: "1.5rem", transition: "background 0.2s, border-color 0.2s" }}>
-      {label && <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.10em", textTransform: "uppercase", color: TEXT_MUTED, marginBottom: "0.5rem" }}>{label}</div>}
-      {title && <div style={{ fontSize: 16, fontWeight: 600, marginBottom: "0.5rem" }}>{title}</div>}
-      {body && <div style={{ fontSize: 13.5, lineHeight: 1.7, color: TEXT_SEC }}>{body}</div>}
+    <div
+      onMouseEnter={() => setH(true)}
+      onMouseLeave={() => setH(false)}
+      style={{
+        background: h ? "#fff" : "transparent",
+        border: BORDER,
+        borderColor: h ? "rgba(26,26,26,0.2)" : "rgba(26,26,26,0.1)",
+        borderRadius: 14,
+        padding: "1.25rem 1.5rem",
+        transition: "background 0.2s, border-color 0.2s",
+      }}
+    >
+      {label && (
+        <div
+          style={{
+            fontSize: 10,
+            fontWeight: 600,
+            letterSpacing: "0.10em",
+            textTransform: "uppercase",
+            color: "rgba(26,26,26,0.35)",
+            marginBottom: 4,
+          }}
+        >
+          {label}
+        </div>
+      )}
+      {title && (
+        <div
+          style={{
+            fontSize: 14,
+            fontWeight: 700,
+            color: TEXT,
+            marginBottom: 6,
+          }}
+        >
+          {title}
+        </div>
+      )}
+      {body && (
+        <div
+          style={{
+            fontSize: 13,
+            lineHeight: 1.7,
+            color: TEXT_SEC,
+          }}
+        >
+          {body}
+        </div>
+      )}
     </div>
+  );
+}
+
+function Divider() {
+  return (
+    <hr
+      style={{
+        border: "none",
+        borderTop: DIVIDER,
+        margin: "2.5rem 0",
+      }}
+    />
   );
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.10em", textTransform: "uppercase", color: TEXT_MUTED, marginBottom: "1rem" }}>{children}</div>;
-}
-function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <h2 style={{ fontSize: "1.5rem", fontWeight: 700, lineHeight: 1.2, marginBottom: "0.75rem" }}>{children}</h2>;
-}
-function SectionSubtitle({ children }: { children: React.ReactNode }) {
-  return <h3 style={{ fontSize: 18, fontWeight: 700, lineHeight: 1.3, marginBottom: "0.75rem" }}>{children}</h3>;
-}
-function SectionBody({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 15, lineHeight: 1.8, color: TEXT_SEC, marginBottom: "2rem" }}>{children}</div>;
-}
-function PullQuote({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: "1.3rem", fontWeight: 500, lineHeight: 1.55, color: TEXT, padding: "2rem 0", borderTop: "2px solid rgba(26,26,26,0.08)", marginBottom: "2rem", maxWidth: 640 }}>{children}</div>;
-}
-function Divider() {
-  return <hr style={{ border: "none", borderTop: DIVIDER, margin: "2.75rem 0" }} />;
-}
-
-function ScreenAnnotation({ children }: { children: React.ReactNode }) {
-  return <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "1.5rem", alignItems: "start", marginBottom: "2rem" }}>{children}</div>;
-}
-function AnnotationBlock({ children }: { children: React.ReactNode }) {
-  return <div style={{ background: "transparent", border: BORDER, borderRadius: 14, padding: "1.5rem" }}>{children}</div>;
-}
-function AnnotationLabel({ children, first }: { children: React.ReactNode; first?: boolean }) {
-  return <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.10em", textTransform: "uppercase", color: TEXT_MUTED, marginBottom: "0.4rem", marginTop: first ? 0 : "1rem" }}>{children}</div>;
-}
-function AnnotationCopy({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 13.5, fontStyle: "italic", fontWeight: 500, color: TEXT, marginBottom: "0.75rem", lineHeight: 1.6 }}>{children}</div>;
-}
-function AnnotationBody({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 13.5, lineHeight: 1.7, color: TEXT_SEC, marginBottom: "0.5rem" }}>{children}</div>;
-}
-
-function ToneItem({ name, desc }: { name: string; desc: React.ReactNode }) {
   return (
-    <div>
-      <div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.25rem" }}>{name}</div>
-      <div style={{ fontSize: 13, lineHeight: 1.65, color: TEXT_SEC }}>{desc}</div>
+    <div
+      style={{
+        fontSize: 11,
+        fontWeight: 500,
+        letterSpacing: "0.10em",
+        textTransform: "uppercase",
+        color: TEXT_MUTED,
+        marginBottom: "0.75rem",
+      }}
+    >
+      {children}
     </div>
   );
 }
 
-function StageCard({ num, name, sub, researchText, feelings, tones }: {
-  num: string; name: string; sub: string;
-  researchText: React.ReactNode;
-  feelings: string[];
-  tones: { section: string; items: { name: string; desc: React.ReactNode }[] }[];
-}) {
+function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ border: BORDER, borderRadius: 14, marginBottom: "1.5rem", overflow: "hidden" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "1rem 1.5rem", borderBottom: BORDER, background: "rgba(26,26,26,0.03)" }}>
-        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.10em", textTransform: "uppercase", color: TEXT_MUTED }}>{num}</span>
-        <span style={{ fontSize: 16, fontWeight: 700 }}>{name}</span>
-        <span style={{ fontSize: 13, color: TEXT_MUTED }}>{sub}</span>
-      </div>
-      <div style={{ padding: "1.5rem" }}>
-        <div style={{ marginBottom: "1.5rem" }}>
-          <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.10em", textTransform: "uppercase", color: TEXT_MUTED, marginBottom: "0.5rem" }}>Research insight</div>
-          <div style={{ fontSize: 14, lineHeight: 1.75, color: TEXT_SEC, marginBottom: "0.75rem" }}>{researchText}</div>
-          <div style={{ display: "flex", gap: 8 }}>
-            {feelings.map(f => <span key={f} style={{ fontSize: 12, color: TEXT_SEC, border: BORDER, borderRadius: 100, padding: "3px 12px", background: "rgba(26,26,26,0.04)" }}>{f}</span>)}
+    <h2
+      style={{
+        fontSize: "1.35rem",
+        fontWeight: 700,
+        lineHeight: 1.2,
+        marginBottom: "0.75rem",
+      }}
+    >
+      {children}
+    </h2>
+  );
+}
+
+function SectionBody({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+  return (
+    <div
+      style={{
+        fontSize: 15,
+        lineHeight: 1.8,
+        color: "rgba(26,26,26,0.65)",
+        marginBottom: "1.5rem",
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function CraftBlock({
+  quote,
+  from,
+  sections,
+}: {
+  quote: string;
+  from: string;
+  sections: { label: string; body: React.ReactNode }[];
+}) {
+  const [h, setH] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setH(true)}
+      onMouseLeave={() => setH(false)}
+      style={{
+        border: BORDER,
+        borderColor: h ? "rgba(26,26,26,0.25)" : "rgba(26,26,26,0.1)",
+        borderRadius: 14,
+        overflow: "hidden",
+        marginBottom: "1.5rem",
+        transition: "border-color 0.2s",
+      }}
+    >
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1.75fr",
+          gap: 0,
+        }}
+      >
+        <div
+          style={{
+            background: TEXT,
+            padding: "1.75rem",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 15,
+              fontWeight: 500,
+              lineHeight: 1.6,
+              color: "#fff",
+              fontStyle: "italic",
+              marginBottom: "0.75rem",
+            }}
+          >
+            {quote}
+          </div>
+          <div
+            style={{
+              fontSize: 10,
+              fontWeight: 600,
+              letterSpacing: "0.10em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.35)",
+            }}
+          >
+            {from}
           </div>
         </div>
-        {tones.map((section, si) => (
-          <div key={si}>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.10em", textTransform: "uppercase", color: TEXT_MUTED, marginBottom: "0.75rem", marginTop: si > 0 ? "1.25rem" : 0 }}>{section.section}</div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginBottom: "0.5rem" }}>
-              {section.items.map((item, ii) => <ToneItem key={ii} name={item.name} desc={item.desc} />)}
+        <div style={{ padding: "1.5rem" }}>
+          {sections.map((s, i) => (
+            <div key={i}>
+              {i > 0 && (
+                <hr
+                  style={{
+                    border: "none",
+                    borderTop: "0.5px solid rgba(26,26,26,0.08)",
+                    margin: "0.85rem 0",
+                  }}
+                />
+              )}
+              <div style={{ marginBottom: i < sections.length - 1 ? "1rem" : 0 }}>
+                <div
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "rgba(26,26,26,0.35)",
+                    marginBottom: 5,
+                  }}
+                >
+                  {s.label}
+                </div>
+                <div
+                  style={{
+                    fontSize: 13,
+                    lineHeight: 1.7,
+                    color: "rgba(26,26,26,0.65)",
+                  }}
+                >
+                  {s.body}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-function ToolkitRow({ tool, desc }: { tool: string; desc: React.ReactNode }) {
+function ScoreRow({
+  dimension,
+  note,
+  fillWidth,
+  value,
+  isLast,
+}: {
+  dimension: string;
+  note: string;
+  fillWidth: string;
+  value: string;
+  isLast?: boolean;
+}) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: "1.5rem", padding: "1rem 0", borderBottom: BORDER }}>
-      <div style={{ fontSize: 14, fontWeight: 600 }}>{tool}</div>
-      <div style={{ fontSize: 13.5, lineHeight: 1.7, color: TEXT_SEC }}>{desc}</div>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 70px",
+        gap: "1rem",
+        alignItems: "start",
+        padding: "1rem 0",
+        borderBottom: isLast ? "none" : "0.5px solid rgba(26,26,26,0.08)",
+      }}
+    >
+      <div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: TEXT, marginBottom: 3 }}>
+          {dimension}
+        </div>
+        <div style={{ fontSize: 12, color: "rgba(26,26,26,0.55)", lineHeight: 1.55 }}>
+          {note}
+        </div>
+        <div
+          style={{
+            height: 3,
+            borderRadius: 2,
+            background: "rgba(26,26,26,0.08)",
+            marginTop: 8,
+          }}
+        >
+          <div
+            style={{
+              height: 3,
+              borderRadius: 2,
+              background: TEXT,
+              width: fillWidth,
+            }}
+          />
+        </div>
+      </div>
+      <div style={{ textAlign: "right", paddingTop: 2 }}>
+        <div style={{ fontSize: 22, fontWeight: 700, lineHeight: 1 }}>{value}</div>
+        <div style={{ fontSize: 11, color: "rgba(26,26,26,0.35)" }}>/10</div>
+      </div>
     </div>
   );
 }
 
+/* ── Main page ──────────────────────────────────────────────────── */
+
 export default function AmazonPrimePage() {
-  const [activeSection, setActiveSection] = useState("ap-role");
+  const [activeSection, setActiveSection] = useState("problem");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => { for (const e of entries) { if (e.isIntersecting) setActiveSection(e.target.id); } },
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
       { rootMargin: "-20% 0px -60% 0px" }
     );
-    for (const item of sideNavItems) { const el = document.getElementById(item.id); if (el) observer.observe(el); }
+    for (const item of sideNavItems) {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    }
     const lastId = sideNavItems[sideNavItems.length - 1].id;
-    const handleScroll = () => { if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) setActiveSection(lastId); };
+    const handleScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
+        setActiveSection(lastId);
+      }
+    };
     window.addEventListener("scroll", handleScroll);
-    return () => { observer.disconnect(); window.removeEventListener("scroll", handleScroll); };
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#F0D4D1", fontFamily: "'Outfit', sans-serif", color: TEXT }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#F0D4D1",
+        fontFamily: "'Outfit', sans-serif",
+        color: TEXT,
+      }}
+    >
       <BackArrow />
       <Navigation />
-      <div style={{ width: "100%", height: 0.5, backgroundColor: "rgba(26,26,26,0.15)", marginTop: 12 }} />
+      <div
+        style={{
+          width: "100%",
+          height: 0.5,
+          backgroundColor: "rgba(26,26,26,0.15)",
+          marginTop: 12,
+        }}
+      />
 
-      <div style={{ maxWidth: 1060, margin: "0 auto", padding: "0 1.5rem 8rem", display: "flex", gap: 0 }}>
-        <nav style={{ position: "sticky", top: 100, alignSelf: "flex-start", width: 140, flexShrink: 0, paddingTop: 280 }}>
+      <div
+        style={{
+          maxWidth: 1060,
+          margin: "0 auto",
+          padding: "0 24px 160px",
+          display: "flex",
+          gap: 0,
+        }}
+      >
+        {/* Side nav */}
+        <nav
+          style={{
+            position: "sticky",
+            top: 100,
+            alignSelf: "flex-start",
+            width: 140,
+            flexShrink: 0,
+            paddingTop: 380,
+          }}
+        >
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {sideNavItems.map((item) => (
-              <a key={item.id} href={`#${item.id}`} onClick={(e) => { e.preventDefault(); document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" }); }} style={{ fontSize: 12, fontWeight: activeSection === item.id ? 600 : 400, color: activeSection === item.id ? TEXT : TEXT_MUTED, textDecoration: "none", padding: "4px 0", transition: "all 0.2s ease", fontFamily: "'Outfit', sans-serif" }}>{item.label}</a>
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                style={{
+                  fontSize: 12,
+                  fontWeight: activeSection === item.id ? 600 : 400,
+                  color: activeSection === item.id ? TEXT : "rgba(26,26,26,0.35)",
+                  textDecoration: "none",
+                  padding: "4px 0",
+                  transition: "all 0.2s",
+                  fontFamily: "'Outfit', sans-serif",
+                }}
+              >
+                {item.label}
+              </a>
             ))}
           </div>
         </nav>
 
+        {/* Main content */}
         <div style={{ flex: 1, maxWidth: 860 }}>
 
-          {/* Hero */}
-          <div style={{ padding: "4rem 0 2rem" }}>
-            <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: TEXT_MUTED, marginBottom: "1rem" }}>Amazon World Wide Prime</p>
-            <h1 style={{ fontSize: "clamp(32px, 5vw, 52px)", fontWeight: 600, lineHeight: 1.08, letterSpacing: "-0.02em", marginBottom: "1.25rem" }}>Rewriting how Prime earns loyalty</h1>
-            <p style={{ fontSize: 17, fontWeight: 400, color: TEXT_SEC, lineHeight: 1.7, maxWidth: 660, marginBottom: "2rem" }}>
-              Prime had 200 million members and a trust problem. Research showed members saw the service as a useful necessity: habitual, transactional, and emotionally flat. The benefits were there. The language wasn&rsquo;t earning them. <strong style={{ color: TEXT, fontWeight: 600 }}>I built the content system that changed how Prime communicates value across its design system, membership growth initiatives, and global markets.</strong>
+          {/* ── HERO ───────────────────────────────────────────────── */}
+          <div style={{ padding: "64px 0 32px" }}>
+            <p
+              style={{
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "0.10em",
+                textTransform: "uppercase",
+                color: TEXT_MUTED,
+                marginBottom: "1rem",
+              }}
+            >
+              Amazon World Wide Prime &middot; Content Engineering
             </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: "2.5rem" }}>
-              {["Membership", "Content systems", "Voice and tone", "Retention", "Localization", "AI content design"].map(t => (
-                <span key={t} style={{ fontSize: 12, color: TEXT_SEC, border: BORDER, borderRadius: 100, padding: "4px 12px", background: "rgba(26,26,26,0.04)" }}>{t}</span>
+            <h1
+              style={{
+                fontSize: "clamp(28px, 4.5vw, 46px)",
+                fontWeight: 600,
+                lineHeight: 1.08,
+                letterSpacing: "-0.02em",
+                marginBottom: "1.25rem",
+              }}
+            >
+              I built Prime&rsquo;s first content strategy.<br />Then I made it run without me.
+            </h1>
+            <p
+              style={{
+                fontSize: 16,
+                color: "rgba(26,26,26,0.65)",
+                lineHeight: 1.8,
+                maxWidth: 660,
+                marginBottom: "2rem",
+              }}
+            >
+              Every benefit was real. Not one of them was felt. I built the content architecture that changed that: a research-grounded naming taxonomy, a lifecycle framework, and an AI content schema that now governs 400M+ personalized touchpoints across onboarding, engagement, retention, and three GenAI programs.
+            </p>
+            <p
+              style={{
+                fontSize: 16,
+                color: "rgba(26,26,26,0.65)",
+                lineHeight: 1.8,
+                maxWidth: 660,
+                marginBottom: "2rem",
+              }}
+            >
+              This is a content engineering case study &mdash; but it is also a naming case study, a design system case study, and a case study in making the complex feel inevitable. The same instinct that makes a tax flow feel like a conversation or a design tool feel learnable makes a membership product feel like it actually knows you.
+            </p>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 8,
+                marginBottom: "2.5rem",
+              }}
+            >
+              {[
+                "Content engineering",
+                "AI content systems",
+                "Voice architecture",
+                "Lifecycle strategy",
+                "Prompt engineering",
+                "Measurement frameworks",
+                "Localization",
+                "Retention",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  style={{
+                    fontSize: 12,
+                    color: TEXT_SEC,
+                    border: BORDER,
+                    borderRadius: 100,
+                    padding: "4px 12px",
+                  }}
+                >
+                  {tag}
+                </span>
               ))}
             </div>
 
+            {/* Stat bar */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: "1px",
+                background: "rgba(26,26,26,0.1)",
+                border: BORDER,
+                borderRadius: 14,
+                overflow: "hidden",
+                marginBottom: "3rem",
+              }}
+            >
+              {[
+                { n: "+77K", l: "Members retained", d: "Annualized, non-incentivized Milestones" },
+                { n: "+1.8%", l: "Renewal rate lift", d: "Annual, framework-driven" },
+                { n: "400M+", l: "AI touchpoints", d: "Governed by the content schema I built" },
+                { n: "15+", l: "Teams adopted", d: "Using the framework independently" },
+              ].map((stat) => (
+                <StatCell key={stat.l} n={stat.n} l={stat.l} d={stat.d} />
+              ))}
+            </div>
           </div>
 
           <Divider />
 
-          <div id="ap-role" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>My role</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: "2rem" }}>
-            <Card label="Scope" title="UX Writer, Membership Growth" body="I held a dual mandate: building the content layer of Lumix, Prime's next-generation design system, while serving as content design lead for Membership Growth. I partnered with design, product, and CX teams across the US, Japan, Brazil, Germany, and Saudi Arabia. My work touched acquisition, onboarding, engagement, retention, and cancellation simultaneously." />
-            <Card label="Proficiencies demonstrated" title="What this work required" body="Content strategy · Content systems · Voice and tone architecture · Lifecycle content design · Retention writing · Localization · RTL design · AI content frameworks · Research synthesis · Stakeholder influence · Cross-functional leadership" />
-          </div>
-
-          <Divider />
-
-          <div id="ap-problem" style={{ scrollMarginTop: 80 }} />
+          {/* ── PROBLEM ────────────────────────────────────────────── */}
+          <div id="problem" style={{ scrollMarginTop: 80 }} />
           <SectionLabel>The problem</SectionLabel>
-          <SectionTitle>Prime had a trust problem, not a value problem</SectionTitle>
+          <SectionTitle>No shared language. No strategy. A product talking to 200M members with no connective tissue.</SectionTitle>
           <SectionBody>
-            <>Nobody had assembled the full picture. Across Prime&rsquo;s organization, four separate research studies existed in isolation, each sitting in its own team, its own doc, its own quarterly review. <strong style={{ color: TEXT, fontWeight: 600 }}>I was the one who saw the through-line.</strong> I pulled those studies together, synthesized the findings into a coherent narrative, and brought that narrative to the team as the strategic foundation for everything that followed. What emerged was consistent and uncomfortable: members weren&rsquo;t confused about what Prime was. They just didn&rsquo;t feel anything about it.</>
+            Three separate frameworks governed Prime&rsquo;s voice. Four research studies sat in separate folders, each containing part of the same answer. The UXD team had never produced a content strategy deck. I joined with a dual mandate &mdash; content layer for Lumix (Prime&rsquo;s design system) and content lead for Membership Growth &mdash; and chose to solve the infrastructure problem while delivering both.
           </SectionBody>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: "2rem" }}>
-            <Card label="Research 01" title="Manipulated and overwhelmed" body={<>Love Letters to Prime found members felt the service nudged them toward impulse purchases rather than genuine savings. They felt <strong style={{ color: TEXT, fontWeight: 500 }}>connected but manipulated.</strong> Prime was useful, but they were suspicious of its intent.</>} />
-            <Card label="Research 02" title="Gaming it, not embracing it" body={<>Prime Passengers research showed passive members treated Prime as an expendable convenience, timing renewals for deals, not engaging with the ecosystem. <strong style={{ color: TEXT, fontWeight: 500 }}>Prime was infrastructure, not identity.</strong></>} />
-            <Card label="Research 03" title="Curious but unappreciated" body={<>The Milestones concept study found value communication reached too few members and failed to create emotional connection. <strong style={{ color: TEXT, fontWeight: 500 }}>Members actively wanted recognition.</strong> They just weren&rsquo;t getting it.</>} />
-            <Card label="Research 04" title="Pragmatic, not loyal" body={<>US Prime Value Perception research found loyalty was habitual, not emotional. Conditional, and therefore fragile. <strong style={{ color: TEXT, fontWeight: 500 }}>The moment something better appeared, members would leave.</strong></>} />
-          </div>
-
-          <PullQuote>Prime knew how to tell members what they saved. It didn&rsquo;t know how to make them feel like they mattered. That gap was the brief.</PullQuote>
-
-          <Divider />
-
-          {/* Artifact 01: Framework */}
-          <div id="ap-framework" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Artifact 01 of 06</SectionLabel>
-          <SectionTitle>The Value Communication Framework</SectionTitle>
-          <SectionBody>
-            <>The team&rsquo;s existing content guidance was fragmented: three overlapping sets of principles from Brand, Amazon RIO, and Prime itself, with separate strategies for acquisition, engagement, and retention. Everyone who touched Prime copy was working from a different map. I built a framework from first principles, grounded in four inputs: what Prime actually stands for (Values), what members actually feel (the four research studies I synthesized), how Prime&rsquo;s voice intersects with Amazon&rsquo;s brand (Guidelines), and how high-trust brands communicate value in the market (a competitive audit of AllTrails, Nike, Starbucks, Thrive Market, Headspace, Duolingo, and Spotify).<br /><br />The competitive audit surfaced four consistent behaviors from brands members actually trust: they build relationships through transparency, they celebrate beyond transactions, they show up at the right moment, and they make the abstract concrete. <strong style={{ color: TEXT, fontWeight: 600 }}>These weren&rsquo;t new ideas. They were gaps. Prime was doing none of them consistently.</strong><br /><br />The framework synthesized into three content principles. Critically, the principles aren&rsquo;t mutually exclusive. They&rsquo;re a scale for measuring emphasis. A retention surface for a Tenured member may lead with Pertinent and layer in Empathetic. An acquisition surface leads with Intuitive. The framework gives writers the vocabulary to make those calls deliberately, not instinctively.</>
-          </SectionBody>
-
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.25rem", marginBottom: "2rem" }}>
-            <Card label="Principle 01" title="Intuitive" body={<>For monetary and convenience value. <strong style={{ color: TEXT, fontWeight: 500 }}>Clear · Efficient · Tangible.</strong> Membership values are easy to understand. Prime connects value to habits, focusing on real-world applications. Benefits are straightforward and require little effort to use.</>} />
-            <Card label="Principle 02" title="Pertinent" body={<>For convenience, access, and personalization. <strong style={{ color: TEXT, fontWeight: 500 }}>Adaptive · Contextual · Relevant.</strong> Prime evolves with a member&rsquo;s growing needs. It anticipates and shares the right value at the right time. It personalizes, knowing what to prioritize.</>} />
-            <Card label="Principle 03" title="Empathetic" body={<>For emotion and trust. <strong style={{ color: TEXT, fontWeight: 500 }}>Dependable · Considerate · Celebratory and Delightful.</strong> Prime delivers on what it says, building confidence through consistency. It respects members&rsquo; privacy, current tasks, and preferences. It recognizes achievements and creates moments of joy.</>} />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <Card
+              label="What the research said"
+              title="Members used Prime. They did not feel it."
+              body="Four studies, one through-line: loyalty was habitual, not emotional. Members renewed out of utility. They had never been acknowledged, never shown cumulative proof, never given language that made the product feel like it knew them."
+            />
+            <Card
+              label="What I built in response"
+              title="A content system built for humans and AI simultaneously"
+              body="A Value Communications Playbook with research synthesis, value pillar taxonomy, content principles with lifecycle emphasis, a measurement rubric, and CX briefs — designed from the start to serve both human writers making copy decisions and AI models generating content at scale."
+            />
           </div>
 
           <Divider />
 
-          {/* Artifact 02: Lifecycle */}
-          <div id="ap-lifecycle" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Artifact 02 of 06</SectionLabel>
-          <SectionTitle>The lifecycle content strategy</SectionTitle>
-          <SectionBody>
-            <>The Value Communication Content Strategy document I authored mapped the full membership arc into three distinct stages, each grounded in its own research summary, member emotional state, and voice and tone specification. This wasn&rsquo;t a style guide. It was a strategic tool that gave every writer, PM, and content marketer a shared language for making content decisions at each moment in the member journey. <strong style={{ color: TEXT, fontWeight: 600 }}>The insight that shaped the whole system: the same member feels differently depending on where they are, and content that works at acquisition actively fails at retention.</strong></>
-          </SectionBody>
+          {/* ── THE SYSTEM ─────────────────────────────────────────── */}
+          <div id="system" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>The content engineering architecture</SectionLabel>
+          <SectionTitle>From research brief to 400M AI-generated touchpoints</SectionTitle>
 
-          <StageCard num="Stage 01" name="Promised Value" sub="Discovery and Acquisition"
-            researchText={<>Potential customers perceive Prime primarily as a shipping service. This creates a significant barrier to acquisition: most potential members remain unaware of Prime&rsquo;s broader benefit ecosystem. <strong style={{ color: TEXT, fontWeight: 600 }}>Content must strike a delicate balance: lead with compelling, emotionally resonant messaging that captures attention, then transition into practical, customer-backwards information that builds trust and enables informed decisions.</strong></>}
-            feelings={["Skeptical", "Anxious", "Curious"]}
-            tones={[
-              { section: "Clear", items: [
-                { name: "Welcoming", desc: "Warm, approachable language that makes Prime feel accessible. Break down the membership into simple, friendly terms that invite exploration without pressure." },
-                { name: "Direct", desc: "Get to the point about what's included and what it costs. Respect their time and intelligence, avoiding fluff that increases skepticism." },
-                { name: "Concrete", desc: "Connect abstract benefits to real-world moments. Turn \"streaming service\" into \"watch Thursday Night Football without cable.\"" },
-              ]},
-              { section: "Relevant", items: [
-                { name: "Attuned", desc: "Show awareness of their evaluation mindset without assuming commitment. Acknowledge they're comparing options and need information to decide." },
-                { name: "Timely", desc: "Surface the right information at the right moment in their consideration journey. Answer questions as they naturally arise." },
-                { name: "Personalized", desc: "Address their specific interests based on browsing behavior or stated needs, rather than listing every benefit generically." },
-              ]},
-              { section: "Empathetic", items: [
-                { name: "Transparent", desc: "Be honest about costs, commitments, and what to expect. Build credibility through truthfulness that addresses anxiety about making a commitment." },
-                { name: "Reassuring", desc: "Convey stability through calm, confident language. Reduce decision anxiety by emphasizing risk-free trials and easy cancellation." },
-                { name: "Inviting", desc: "Show genuine enthusiasm about what Prime offers without being pushy. Respect that they're not ready to commit yet." },
-              ]},
-            ]}
-          />
+          {/* Architecture diagram */}
+          <div
+            style={{
+              border: BORDER,
+              borderRadius: 14,
+              overflow: "hidden",
+              background: "#fff",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <svg
+              viewBox="0 0 820 152"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: "block", width: "100%", fontFamily: "'Outfit',sans-serif" }}
+            >
+              <rect width="820" height="152" fill="#fff" />
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0 0L10 5L0 10z" fill="rgba(26,26,26,0.35)" />
+                </marker>
+              </defs>
 
-          <StageCard num="Stage 02" name="Perceived Value" sub="Activation and Engagement"
-            researchText={<>New members are building their understanding of Prime&rsquo;s value, but there&rsquo;s a critical gap: <strong style={{ color: TEXT, fontWeight: 600 }}>increased usage doesn&rsquo;t automatically translate to stronger value perception.</strong> Members are discovering how Prime fits into their lives but haven&rsquo;t yet felt the full weight of what they&rsquo;re receiving. Content must guide them toward meaningful experiences and help them see the growing return on their investment.</>}
-            feelings={["Curious", "Uncertain", "Hopeful"]}
-            tones={[
-              { section: "Clear", items: [
-                { name: "Encouraging", desc: "Celebrate their usage and early wins with positive reinforcement. Turn \"you ordered twice\" into \"you're already getting value.\"" },
-                { name: "Guiding", desc: "Provide clear direction toward relevant next benefits based on what they're using. Show them the path forward without overwhelming them with everything at once." },
-                { name: "Tangible", desc: "Connect actual usage to measurable outcomes: \"That order arrived in 1 day instead of 5. You saved $8.99 and 4 days of waiting.\"" },
-              ]},
-              { section: "Relevant", items: [
-                { name: "Pertinent", desc: "Show awareness of their specific usage patterns. Reflect back what they're doing in ways that feel insightful rather than intrusive." },
-                { name: "Contextual", desc: "Surface benefits at precisely the right moments in their routine. Suggest Prime Video when they're planning movie night, not randomly on Tuesday morning." },
-                { name: "Tailored", desc: "Recommend based on what they're actually using. Make every suggestion feel personally relevant rather than generic." },
-              ]},
-              { section: "Empathetic", items: [
-                { name: "Validating", desc: "Reinforce that their membership decision was smart through concrete evidence. Build confidence and reduce buyer's remorse." },
-                { name: "Supportive", desc: "Acknowledge their learning curve and make discovery feel easy. Help them navigate Prime's breadth without judgment." },
-                { name: "Appreciative", desc: "Express genuine recognition for their engagement and trust. Celebrate their milestones authentically, making them feel valued as they build their relationship with Prime." },
-              ]},
-            ]}
-          />
+              <rect x="20" y="36" width="120" height="80" rx="8" fill="rgba(26,26,26,0.04)" stroke="rgba(26,26,26,0.12)" strokeWidth="1.5" />
+              <text x="80" y="64" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.35)" letterSpacing="0.5">RESEARCH</text>
+              <text x="80" y="82" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Synthesis</text>
+              <text x="80" y="98" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.45)">4 studies → 1 brief</text>
 
-          <StageCard num="Stage 03" name="Proved Value" sub="Retention and Loyalty"
-            researchText={<>Long-term members demonstrate frequent usage but don&rsquo;t perceive Prime as superior to alternatives. <strong style={{ color: TEXT, fontWeight: 600 }}>Higher engagement correlates with heightened price sensitivity, not stronger value perception.</strong> Members need content that makes their Prime ROI undeniable, that celebrates their loyalty without gimmicks, and that proves Prime knows them as individuals, not as a subscription line item.</>}
-            feelings={["Habitual", "Underappreciated", "Conditional"]}
-            tones={[
-              { section: "Clear", items: [
-                { name: "Definitive", desc: "Present cumulative value with confidence. Use strong, data-driven language: \"You saved $847. That's 19x your membership fee.\"" },
-                { name: "Comprehensive", desc: "Show the full scope of their Prime relationship across all touchpoints and time periods. Paint the complete picture of consistent value delivery." },
-                { name: "Confident", desc: "Quantify everything with specific numbers: \"127 deliveries, 89 hours streamed, $2,341 saved over 3 years.\"" },
-              ]},
-              { section: "Relevant", items: [
-                { name: "Reflective", desc: "Look back on their membership arc with thoughtful acknowledgment of their loyalty. Show how Prime has evolved with their changing life stages." },
-                { name: "Insightful", desc: "Demonstrate deep understanding of their complete usage history. Surface patterns that prove Prime truly knows them, transforming habitual use into recognized relationship." },
-                { name: "Personalized", desc: "Honor their unique, long-term relationship with precision. Address their exact circumstances and multi-year patterns, making them feel seen as an individual." },
-              ]},
-              { section: "Empathetic", items: [
-                { name: "Grateful", desc: "Express appreciation for their years of loyalty. Make them feel genuinely valued and recognized for their commitment, not taken for granted." },
-                { name: "Sincere", desc: "Let transparent, comprehensive data speak about cumulative value. Be straightforward about what they've gained, building renewed trust through evidence rather than claims." },
-                { name: "Celebratory", desc: "Honor their achievements and anniversaries with authentic enthusiasm. Make their tenure feel special and worthy of celebration." },
-              ]},
-            ]}
-          />
+              <path d="M142 76 L162 76" stroke="rgba(26,26,26,0.3)" strokeWidth="1.5" markerEnd="url(#arr)" />
 
-          <Divider />
+              <rect x="164" y="36" width="130" height="80" rx="8" fill="rgba(26,26,26,0.04)" stroke="rgba(26,26,26,0.12)" strokeWidth="1.5" />
+              <text x="229" y="64" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.35)" letterSpacing="0.5">PLAYBOOK</text>
+              <text x="229" y="82" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Architecture</text>
+              <text x="229" y="98" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.45)">Values · Principles · Tone</text>
 
-          {/* Artifact 03: Toolkit */}
-          <div id="ap-toolkit" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Artifact 03 of 06</SectionLabel>
-          <SectionTitle>The content toolkit</SectionTitle>
-          <SectionBody>
-            <>Alongside the lifecycle framework, I defined a content toolkit: the tactical techniques that operationalize the principles at the copy level. These weren&rsquo;t writing tips. They were the mechanics that make the framework show up in a headline, a notification, or a savings dashboard. <strong style={{ color: TEXT, fontWeight: 600 }}>Each technique maps to a specific research finding about what was missing from Prime&rsquo;s existing content.</strong></>
-          </SectionBody>
+              <path d="M296 76 L316 76" stroke="rgba(26,26,26,0.3)" strokeWidth="1.5" markerEnd="url(#arr)" />
 
-          <div style={{ border: BORDER, borderRadius: 14, padding: "0 1.5rem", marginBottom: "2rem" }}>
-            <ToolkitRow tool="Value Verbs" desc={<>Lead with action words that demonstrate clear, tangible value. <strong style={{ color: TEXT, fontWeight: 500 }}>Save, Get, Unlock, Discover, Explore, Enjoy, Stream, Shop, Earn.</strong> Value verbs transform passive descriptions into active invitations that show customers what they can do, not what the product is.</>} />
-            <ToolkitRow tool="Specific Data and Proof Points" desc={<>Quantify value wherever possible. <strong style={{ color: TEXT, fontWeight: 500 }}>&ldquo;Save $6.99 in shipping.&rdquo; &ldquo;Stream thousands of titles.&rdquo; &ldquo;Get free Same-Day Delivery on over 3 million items.&rdquo;</strong> Specific data makes abstract value tangible and measurable.</>} />
-            <ToolkitRow tool="Personalization Signals" desc={<>Leverage customer behavior, preferences, and history to make content feel relevant and timely. <strong style={{ color: TEXT, fontWeight: 500 }}>&ldquo;You&rsquo;ve saved $XX with Prime this year&rdquo;</strong> demonstrates that Prime understands and serves individual needs.</>} />
-            <ToolkitRow tool="Progressive Disclosure" desc="Present Prime's extensive benefit set through clear hierarchy and layered information. Lead with what matters most for each audience, then reveal depth on demand. Use scannable formats and visual hierarchy to prevent overwhelm while making breadth accessible." />
-            <ToolkitRow tool="Lifecycle-Specific Framing" desc="Adapt messaging to match where customers are in their journey. For Non-Prime: emphasize discovery and reasons to join. For New members: focus on activation and first experiences. For Tenured: highlight ongoing value and hidden gems. For Returning: show what they've been missing." />
-            <ToolkitRow tool="Contextual Clarity" desc="Ensure every piece of content answers the customer's immediate question within their current context. Avoid jargon, provide clear next steps, and make wayfinding effortless." />
-            <ToolkitRow tool="Social Proof and Credibility" desc="Show cumulative savings, highlight popular benefits, and demonstrate real member outcomes to build trust and reinforce worth. Credibility markers reduce the skepticism that research identified as a core barrier at every stage of the lifecycle." />
+              <rect x="318" y="26" width="152" height="100" rx="8" fill="#1a1a1a" />
+              <text x="394" y="58" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(255,255,255,0.4)" letterSpacing="0.5">AI SCHEMA</text>
+              <text x="394" y="76" textAnchor="middle" fontSize="12" fontWeight="700" fill="#fff">Content System</text>
+              <text x="394" y="93" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.5)">Aurora · PriME · Binoculars</text>
+              <text x="394" y="108" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.4)">Kairos · Locked/open vars</text>
+
+              <path d="M472 76 L492 76" stroke="rgba(26,26,26,0.3)" strokeWidth="1.5" markerEnd="url(#arr)" />
+
+              <rect x="494" y="36" width="130" height="80" rx="8" fill="rgba(26,26,26,0.04)" stroke="rgba(26,26,26,0.12)" strokeWidth="1.5" />
+              <text x="559" y="64" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.35)" letterSpacing="0.5">PRODUCT</text>
+              <text x="559" y="82" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Copy</text>
+              <text x="559" y="98" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.45)">Milestones · AR Off · Lumix</text>
+
+              <path d="M626 76 L646 76" stroke="rgba(26,26,26,0.3)" strokeWidth="1.5" markerEnd="url(#arr)" />
+
+              <rect x="648" y="36" width="152" height="80" rx="8" fill="rgba(26,26,26,0.04)" stroke="rgba(26,26,26,0.12)" strokeWidth="1.5" />
+              <text x="724" y="64" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.35)" letterSpacing="0.5">OUTCOMES</text>
+              <text x="724" y="82" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Business impact</text>
+              <text x="724" y="98" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.45)">+77K members · +1.8% renewal</text>
+            </svg>
+            <div
+              style={{
+                padding: "0.6rem 1.25rem",
+                borderTop: "0.5px solid rgba(26,26,26,0.1)",
+                fontSize: 11,
+                color: TEXT_MUTED,
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <span>Research → Playbook → AI schema → Product copy → Outcomes</span>
+              <span>Content engineering system</span>
+            </div>
+          </div>
+
+          {/* People */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 8,
+              margin: "0.75rem 0 1.5rem",
+            }}
+          >
+            {[
+              { color: "#1a6bb5", name: "UX PM" },
+              { color: "#1d7a6b", name: "UX Design Lead" },
+              { color: "#c47f0a", name: "Brand Content Designer" },
+              { color: "#8b5cf6", name: "Membership Growth" },
+              { color: "#c44a2a", name: "Prime Design Library (Lumix)" },
+              { color: "#378add", name: "Engineering & AI" },
+              { color: "#1a1a1a", name: "Global partners — JP, BR, DE, SA" },
+            ].map((p) => (
+              <span
+                key={p.name}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  fontSize: 12,
+                  color: "rgba(26,26,26,0.7)",
+                  border: BORDER,
+                  borderRadius: 100,
+                  padding: "4px 12px 4px 8px",
+                }}
+              >
+                <span
+                  style={{
+                    width: 7,
+                    height: 7,
+                    borderRadius: "50%",
+                    flexShrink: 0,
+                    background: p.color,
+                  }}
+                />
+                {p.name}
+              </span>
+            ))}
           </div>
 
           <Divider />
 
-          {/* Artifact 04: Milestones */}
-          <div id="ap-milestones" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Artifact 04 of 06</SectionLabel>
-          <SectionTitle>Milestones: celebrating members who weren&rsquo;t being celebrated</SectionTitle>
+          {/* ── CONVICTION ─────────────────────────────────────────── */}
+          <div id="conviction" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>The conviction that proved it</SectionLabel>
+          <SectionTitle>Emotional design outperforms incentives for membership retention</SectionTitle>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 2fr",
+              gap: 0,
+              border: BORDER,
+              borderRadius: 14,
+              overflow: "hidden",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <div
+              style={{
+                background: TEXT,
+                padding: "2.5rem 2rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
+              }}
+            >
+              <div style={{ fontSize: "4rem", fontWeight: 700, color: "#fff", lineHeight: 1 }}>+77K</div>
+              <div
+                style={{
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: "rgba(255,255,255,0.5)",
+                  marginTop: 4,
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                }}
+              >
+                members retained, annualized
+              </div>
+            </div>
+            <div
+              style={{
+                padding: "2rem",
+                background: "rgba(26,26,26,0.02)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ fontSize: 15, fontWeight: 700, color: TEXT, marginBottom: "0.6rem" }}>
+                The team wanted to attach an offer. I argued against it.
+              </div>
+              <div style={{ fontSize: 13.5, lineHeight: 1.75, color: "rgba(26,26,26,0.65)" }}>
+                The instinct in every retention meeting was the same: give members a credit, a discount, something tangible to justify staying. I pushed back. Four research studies showed that members did not feel Prime &mdash; they used it. Attaching an offer to every milestone moment would make the celebration transactional, which was exactly the problem the framework was built to solve.
+                <br /><br />
+                Milestones was Prime&rsquo;s first systematic effort to celebrate members without attaching an incentive. The A/B test result validated the argument: non-incentivized messaging outperformed incentivized messaging among New to Prime and Frequent cohorts. The content did the work. The coupon was not needed.
+              </div>
+            </div>
+          </div>
+
+          <Divider />
+
+          {/* ── COPY DECISIONS ─────────────────────────────────────── */}
+          <div id="craft" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Copy decisions &mdash; the writing behind the system</SectionLabel>
+          <SectionTitle>Four moments where the framework became a specific word</SectionTitle>
           <SectionBody>
-            <>The existing assumption was that the fix for churn was a better deal: a discount, a credit, a promotion tied to anniversary dates. I pushed back on that framing. The research I had compiled didn&rsquo;t show members wanted more offers. <strong style={{ color: TEXT, fontWeight: 600 }}>It showed they wanted acknowledgment.</strong> A member who had been with Prime for a year had never once been told that Prime knew they&rsquo;d been there for a year.<br /><br />Milestones was Prime&rsquo;s first systematic effort to celebrate members simply for being members. Not because they were about to cancel, not because they clicked something, but because they belonged. I designed three distinct content moments, each drawing directly from the Perceived and Proved Value frameworks I authored.</>
+            Systems architecture is only half the story. Each decision below shows a constraint from the framework translating into a specific copy choice &mdash; and why the alternative would have failed.
           </SectionBody>
 
-          <SectionSubtitle>General welcome: Stage 01 Empathetic (Considerate)</SectionSubtitle>
-          <ScreenAnnotation>
-            <div><div style={{ background: "#1a1a1a", borderRadius: 10, overflow: "hidden" }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/amazon-prime-01.jpg" alt="Thanks for being a part of Prime screen" style={{ width: "100%", display: "block" }} /></div></div>
-            <AnnotationBlock>
-              <AnnotationLabel first>The copy</AnnotationLabel>
-              <AnnotationCopy>&ldquo;Thanks for being a part of Prime!&rdquo;<br />&ldquo;From wishlists to watchlists, we&rsquo;re grateful you are here.&rdquo;</AnnotationCopy>
-              <AnnotationLabel>Framework in action</AnnotationLabel>
-              <AnnotationBody>&ldquo;Wishlists to watchlists&rdquo; activates the Unified Story principle from the content strategy: introducing Prime as an integrated ecosystem rather than isolated features, spanning shopping and streaming in four words.</AnnotationBody>
-              <AnnotationBody>&ldquo;We&rsquo;re grateful you are here&rdquo; centers Prime&rsquo;s gratitude, not the member&rsquo;s obligation. This is the <strong style={{ color: TEXT, fontWeight: 500 }}>Inviting tone from Stage 01</strong>: showing genuine enthusiasm while respecting that they&rsquo;re not yet fully committed.</AnnotationBody>
-              <AnnotationLabel>Toolkit technique</AnnotationLabel>
-              <AnnotationBody>Lifecycle-Specific Framing for a new member: emphasizing the warmth of belonging over the breadth of benefits. The CTA (Shop Prime deals) is low-pressure, nudging engagement rather than demanding it.</AnnotationBody>
-            </AnnotationBlock>
-          </ScreenAnnotation>
+          {/* Decision 1 */}
+          <CraftBlock
+            quote={"\u201CFrom wishlists to watchlists, we\u2019re grateful you are here.\u201D"}
+            from="Milestones — General welcome · Stage 01"
+            sections={[
+              {
+                label: "The challenge",
+                body: "Welcome a brand new Prime member without listing benefits. A list would signal that membership is a catalogue of features — the opposite of how the framework defines the Emotional and Access pillars.",
+              },
+              {
+                label: "The decision",
+                body: (
+                  <>
+                    &ldquo;Wishlists to watchlists&rdquo; activates two value pillars &mdash; shopping and entertainment &mdash; through parallel structure in four words. No enumeration. The brevity implies breadth rather than listing it. The rhyme creates a sense of craft that signals Prime is paying attention.
+                    <br /><br />
+                    &ldquo;We&rsquo;re grateful you are here&rdquo; centers Prime&rsquo;s gratitude, not the member&rsquo;s obligation. The Inviting tone from Stage 01: open a door, make no demands.
+                  </>
+                ),
+              },
+              {
+                label: "What it accomplished",
+                body: "A member reads this and feels welcomed into an integrated ecosystem, not catalogued into a benefit tier. The emotional register is warm and specific — it does not read like it was written by a system.",
+              },
+            ]}
+          />
 
-          <SectionSubtitle>30-day and 1-year milestones: Stage 02 and 03 Empathetic (Celebratory and Delightful)</SectionSubtitle>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: "2rem" }}>
+          {/* Decision 2 */}
+          <CraftBlock
+            quote={"\u201CYour membership just paid for itself!\u201D"}
+            from="Lumix CX — Stage 03 · Definitive tone"
+            sections={[
+              {
+                label: "The challenge",
+                body: (
+                  <>
+                    Communicate cumulative savings to a Tenured Prime member. The conventional approach: &ldquo;You&rsquo;ve saved $X with Prime.&rdquo; Accurate, cold, forgettable.
+                  </>
+                ),
+              },
+              {
+                label: "The decision",
+                body: (
+                  <>
+                    &ldquo;Paid for itself&rdquo; converts a number into a verdict. The member does not calculate whether Prime was worth it &mdash; the copy does the math emotionally and delivers the conclusion. This is the Definitive tone from Stage 03 (Proved Value): strong, unqualified, data-backed without leading with the data.
+                    <br /><br />
+                    The alternative &mdash; &ldquo;You&rsquo;ve saved $87&rdquo; &mdash; asks the member to evaluate. This headline tells them what to conclude. One requires cognitive work. The other creates felt value.
+                  </>
+                ),
+              },
+              {
+                label: "What it accomplished",
+                body: (
+                  <>
+                    This became the governing pattern for all aggregate value communication in Lumix. Any surface showing cumulative savings uses the &ldquo;paid for itself&rdquo; framing rather than raw numbers. The decision scaled across 30+ product surfaces.
+                  </>
+                ),
+              },
+            ]}
+          />
+
+          {/* Decision 3 */}
+          <CraftBlock
+            quote={"\u201CTell us a bit about your interests to help us personalize your Amazon Prime experience.\u201D"}
+            from="Aurora — Preference collection · New to Prime"
+            sections={[
+              {
+                label: "The challenge",
+                body: (
+                  <>
+                    Design the prompt that collects member preference signals to train Aurora&rsquo;s personalization model. Low completion rates produce poor signal quality. Poor signal quality produces worse AI output.
+                  </>
+                ),
+              },
+              {
+                label: "The decision",
+                body: (
+                  <>
+                    &ldquo;Tell us a bit&rdquo; is deliberately low-stakes &mdash; it signals this is a conversation, not a form. &ldquo;To help us personalize your Amazon Prime experience&rdquo; makes the data exchange explicit and promises something specific in return. The word &ldquo;personalize&rdquo; is a commitment, not a feature descriptor.
+                    <br /><br />
+                    This is a content engineering decision as much as a copy decision: the tone of this prompt directly determines the quality of the AI input it collects.
+                  </>
+                ),
+              },
+              {
+                label: "What it accomplished",
+                body: "A warm, low-commitment prompt produces more honest, high-signal responses than a direct data request. Better preference signals produce better AI-generated recommendations — this copy choice has measurable downstream impact on Aurora\u2019s personalization quality.",
+              },
+            ]}
+          />
+
+          {/* Decision 4 */}
+          <CraftBlock
+            quote={"\u201CHere\u2019s how your membership has been working for you \u2014 and what you can unlock next.\u201D"}
+            from="Aurora Milestone — 30-day · Value realization"
+            sections={[
+              {
+                label: "The challenge",
+                body: "Introduce a 30-day membership recap to a member who is beginning to evaluate whether Prime is worth keeping. Voluntary churn was 47.4% of all cancellations. This is a high-stakes moment.",
+              },
+              {
+                label: "The decision",
+                body: (
+                  <>
+                    &ldquo;Working for you&rdquo; positions Prime as active and purposeful &mdash; the membership is doing something on their behalf. This is the Trust pillar in the Perceived state: the member has moved past potential and is beginning to build belief.
+                    <br /><br />
+                    &ldquo;What you can unlock next&rdquo; introduces forward motion without pressure. It implies there is more value to realize &mdash; without framing it as &ldquo;you&rsquo;re missing out.&rdquo; The Considerate tone from Stage 02: respect the member&rsquo;s moment and agency.
+                  </>
+                ),
+              },
+              {
+                label: "What it accomplished",
+                body: "This copy leads into the milestone celebration with no guilt, no urgency, and no offer attached. The milestone data and a $5 credit follow — but the opening sets a relational tone that makes the credit feel like a gift rather than a retention mechanism.",
+              },
+            ]}
+          />
+
+          <Divider />
+
+          {/* ── PILLAR TAXONOMY ─────────────────────────────────────── */}
+          <div id="pillars" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Artifact 02 &mdash; Value pillar taxonomy</SectionLabel>
+          <SectionTitle>The schema that serves humans and AI simultaneously</SectionTitle>
+          <SectionBody>
+            Each pillar maps the member journey from abstract promise to concrete proof. For human writers, it answers: what should this copy lead with at this lifecycle stage? For AI programs, it answers: what content category, what emotional register, what proof type to generate for this member state.
+          </SectionBody>
+
+          {/* Pillar table */}
+          <div
+            style={{
+              width: "100%",
+              border: BORDER,
+              borderRadius: 14,
+              overflow: "hidden",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <table
+              style={{
+                width: "100%",
+                borderCollapse: "collapse",
+                fontSize: 13,
+              }}
+            >
+              <thead>
+                <tr style={{ background: "rgba(26,26,26,0.04)" }}>
+                  {["Pillar", "Potential (Promise)", "Perceived (Belief)", "Realized (Proof)"].map((h) => (
+                    <th
+                      key={h}
+                      style={{
+                        padding: "10px 14px",
+                        textAlign: "left",
+                        fontSize: 10,
+                        fontWeight: 600,
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        color: TEXT_MUTED,
+                        borderBottom: "0.5px solid rgba(26,26,26,0.12)",
+                      }}
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { pillar: "Monetary", potential: "\u201CPrime might save me money\u201D", perceived: "\u201CI believe Prime pays for itself\u201D", realized: "\u201CI saved $87 on shipping this month\u201D" },
+                  { pillar: "Convenience", potential: "\u201CPrime could simplify shopping\u201D", perceived: "\u201CLife runs smoother with Prime\u201D", realized: "\u201CMy orders arrived early 8 times\u201D" },
+                  { pillar: "Access", potential: "\u201CMembers get things I might want\u201D", perceived: "\u201CBeing a member feels special\u201D", realized: "\u201CI got early access to the deal I wanted\u201D" },
+                  { pillar: "Emotional", potential: "\u201CPrime says it cares about me\u201D", perceived: "\u201CI feel recognized as a member\u201D", realized: "\u201CPrime celebrates me\u201D" },
+                  { pillar: "Trust", potential: "\u201CPrime promises reliability\u201D", perceived: "\u201CI believe Prime is transparent\u201D", realized: "\u201CI trust Prime\u201D" },
+                ].map((row, i, arr) => (
+                  <tr key={row.pillar}>
+                    <td
+                      style={{
+                        padding: "11px 14px",
+                        lineHeight: 1.5,
+                        fontWeight: 700,
+                        color: TEXT,
+                        borderBottom: i < arr.length - 1 ? "0.5px solid rgba(26,26,26,0.06)" : "none",
+                        verticalAlign: "top",
+                      }}
+                    >
+                      {row.pillar}
+                    </td>
+                    <td
+                      style={{
+                        padding: "11px 14px",
+                        lineHeight: 1.5,
+                        color: TEXT_MUTED,
+                        fontStyle: "italic",
+                        borderBottom: i < arr.length - 1 ? "0.5px solid rgba(26,26,26,0.06)" : "none",
+                        verticalAlign: "top",
+                      }}
+                    >
+                      {row.potential}
+                    </td>
+                    <td
+                      style={{
+                        padding: "11px 14px",
+                        lineHeight: 1.5,
+                        color: TEXT_SEC,
+                        borderBottom: i < arr.length - 1 ? "0.5px solid rgba(26,26,26,0.06)" : "none",
+                        verticalAlign: "top",
+                      }}
+                    >
+                      {row.perceived}
+                    </td>
+                    <td
+                      style={{
+                        padding: "11px 14px",
+                        lineHeight: 1.5,
+                        color: "#1d7a6b",
+                        fontWeight: 600,
+                        borderBottom: i < arr.length - 1 ? "0.5px solid rgba(26,26,26,0.06)" : "none",
+                        verticalAlign: "top",
+                      }}
+                    >
+                      {row.realized}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <SectionBody style={{ marginTop: "-0.5rem" }}>
+            &ldquo;I trust Prime&rdquo; is the target state the entire content system was engineered to create. Three words. The full arc.
+          </SectionBody>
+
+          <div
+            style={{
+              fontSize: "1.1rem",
+              fontWeight: 500,
+              lineHeight: 1.6,
+              color: TEXT,
+              padding: "1.5rem 0",
+              borderTop: "2px solid rgba(26,26,26,0.08)",
+              marginBottom: "1.75rem",
+              maxWidth: 620,
+            }}
+          >
+            The pillar names themselves are a naming exercise. &ldquo;Monetary&rdquo; not &ldquo;Savings.&rdquo; &ldquo;Convenience&rdquo; not &ldquo;Speed.&rdquo; &ldquo;Emotional&rdquo; not &ldquo;Loyalty.&rdquo; Each word had to be precise enough to anchor a content decision, broad enough to survive across 30+ surfaces and four languages, and clear enough that any PM or engineer reading the framework understood immediately what territory it covered.
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: "1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <Card
+              label="Naming decision 01"
+              title={"\u201CMonetary\u201D over \u201CSavings\u201D or \u201CValue\u201D"}
+              body={<>&ldquo;Savings&rdquo; implies a comparison to a non-Prime price. &ldquo;Value&rdquo; is abstract. &ldquo;Monetary&rdquo; is the precise category: real financial return, quantifiable, verifiable. The name needed to hold for a $6.99 delivery waiver and a $150 Prime Day saving simultaneously.</>}
+            />
+            <Card
+              label="Naming decision 02"
+              title={"\u201CPertinent\u201D over \u201CRelevant\u201D or \u201CTimely\u201D"}
+              body={<>&ldquo;Relevant&rdquo; is already a tone attribute inside this pillar. &ldquo;Timely&rdquo; collapses the principle to one dimension. &ldquo;Pertinent&rdquo; covers both contextual fit and lifecycle fit &mdash; the right content for the right person at the right moment &mdash; without privileging either.</>}
+            />
+            <Card
+              label="Naming decision 03"
+              title={"\u201CEmpathetic\u201D over \u201CEmotional\u201D or \u201CHuman\u201D"}
+              body={<>&ldquo;Emotional&rdquo; is a pillar name, not a principle name &mdash; the overlap would create confusion. &ldquo;Human&rdquo; is too broad to be useful as a decision-making tool. &ldquo;Empathetic&rdquo; is directional: it tells a writer which audience instinct to activate, not just which register to use.</>}
+            />
+          </div>
+
+          <Divider />
+
+          {/* ── PRINCIPLES ─────────────────────────────────────────── */}
+          <div id="principles" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Artifact 03 &mdash; Content principles</SectionLabel>
+          <SectionTitle>A scale of emphasis, not a checklist</SectionTitle>
+
+          {/* Principles diagram */}
+          <div
+            style={{
+              border: BORDER,
+              borderRadius: 14,
+              overflow: "hidden",
+              background: "#fff",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <svg
+              viewBox="0 0 820 195"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: "block", width: "100%", fontFamily: "'Outfit',sans-serif" }}
+            >
+              <rect width="820" height="195" fill="#fff" />
+              <text x="110" y="26" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.3)" letterSpacing="0.8">VALUES</text>
+              <text x="380" y="26" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.3)" letterSpacing="0.8">PRINCIPLES</text>
+              <text x="650" y="26" textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.3)" letterSpacing="0.8">TONE ATTRIBUTES</text>
+
+              <rect x="32" y="36" width="155" height="148" rx="8" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.1)" strokeWidth="1.5" />
+              <text x="109" y="63" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1a1a1a">Monetary</text>
+              <line x1="50" y1="74" x2="169" y2="74" stroke="rgba(26,26,26,0.07)" strokeWidth="1" />
+              <text x="109" y="96" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1a1a1a">Convenience</text>
+              <line x1="50" y1="107" x2="169" y2="107" stroke="rgba(26,26,26,0.07)" strokeWidth="1" />
+              <text x="109" y="128" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1a1a1a">Access</text>
+              <line x1="50" y1="139" x2="169" y2="139" stroke="rgba(26,26,26,0.07)" strokeWidth="1" />
+              <text x="109" y="158" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1a1a1a">Emotion</text>
+              <line x1="50" y1="168" x2="169" y2="168" stroke="rgba(26,26,26,0.07)" strokeWidth="1" />
+              <text x="109" y="178" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1a1a1a">Trust</text>
+
+              <text x="220" y="115" textAnchor="middle" fontSize="18" fill="rgba(26,26,26,0.18)">&rarr;</text>
+
+              <rect x="248" y="36" width="138" height="44" rx="7" fill="rgba(26,26,26,0.04)" stroke="rgba(26,26,26,0.1)" strokeWidth="1.5" />
+              <text x="317" y="55" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Intuitive</text>
+              <text x="317" y="71" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.45)">Monetary + Convenience</text>
+
+              <rect x="248" y="90" width="138" height="44" rx="7" fill="rgba(26,26,26,0.04)" stroke="rgba(26,26,26,0.1)" strokeWidth="1.5" />
+              <text x="317" y="109" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Pertinent</text>
+              <text x="317" y="125" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.45)">Convenience + Access</text>
+
+              <rect x="248" y="144" width="138" height="44" rx="7" fill="#1a1a1a" />
+              <text x="317" y="163" textAnchor="middle" fontSize="12" fontWeight="700" fill="#fff">Empathetic</text>
+              <text x="317" y="179" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.45)">Emotion + Trust</text>
+
+              <text x="425" y="115" textAnchor="middle" fontSize="18" fill="rgba(26,26,26,0.18)">&rarr;</text>
+
+              <rect x="450" y="36" width="340" height="148" rx="8" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.1)" strokeWidth="1.5" />
+              <text x="468" y="61" fontSize="11" fontWeight="700" fill="#1a1a1a">Comprehensible</text>
+              <text x="593" y="61" fontSize="11" fontWeight="700" fill="#1a1a1a">Efficient</text>
+              <text x="686" y="61" fontSize="11" fontWeight="700" fill="#1a1a1a">Tangible</text>
+              <line x1="460" y1="71" x2="780" y2="71" stroke="rgba(26,26,26,0.07)" strokeWidth="1" />
+              <text x="468" y="93" fontSize="11" fontWeight="700" fill="#1a1a1a">Adaptive</text>
+              <text x="593" y="93" fontSize="11" fontWeight="700" fill="#1a1a1a">Contextual</text>
+              <text x="686" y="93" fontSize="11" fontWeight="700" fill="#1a1a1a">Relevant</text>
+              <line x1="460" y1="103" x2="780" y2="103" stroke="rgba(26,26,26,0.07)" strokeWidth="1" />
+              <text x="468" y="127" fontSize="11" fontWeight="700" fill="#1a1a1a">Dependable</text>
+              <text x="593" y="127" fontSize="11" fontWeight="700" fill="#1a1a1a">Considerate</text>
+              <text x="686" y="127" fontSize="11" fontWeight="700" fill="#1a1a1a">Celebratory</text>
+              <line x1="460" y1="137" x2="780" y2="137" stroke="rgba(26,26,26,0.07)" strokeWidth="1" />
+              <text x="615" y="157" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.35)">+ Personalised · Insightful · Sincere · Validating · Appreciative · Inviting</text>
+            </svg>
+            <div
+              style={{
+                padding: "0.6rem 1.25rem",
+                borderTop: "0.5px solid rgba(26,26,26,0.1)",
+                fontSize: 11,
+                color: TEXT_MUTED,
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <span>Non-Prime surfaces prioritize Intuitive. Tenured anniversary moments prioritize Empathetic. A decision-making tool, not a style guide.</span>
+              <span>Artifact 03</span>
+            </div>
+          </div>
+
+          <Divider />
+
+          {/* ── AURORA ─────────────────────────────────────────────── */}
+          <div id="aurora" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Project Aurora &mdash; the playbook as AI content schema</SectionLabel>
+          <SectionTitle>Re-imagined Prime Onboarding: how the framework became an agentic system</SectionTitle>
+
+          <SectionBody>
+            Project Aurora is AI-powered agentic Prime onboarding for 2026 &mdash; a personalized, concierge-like experience across four stages: Welcome, Activate, Value Realization, Retention. I led content design alongside UX design and PM. The five CX Goals that govern Aurora are a direct translation of the playbook into AI content constraints.
+          </SectionBody>
+
+          {/* Aurora CX Goals diagram */}
+          <div
+            style={{
+              border: BORDER,
+              borderRadius: 14,
+              overflow: "hidden",
+              background: "#fff",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <svg
+              viewBox="0 0 820 230"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ display: "block", width: "100%", fontFamily: "'Outfit',sans-serif" }}
+            >
+              <rect width="820" height="230" fill="#fff" />
+              <text x="32" y="26" fontSize="9" fontWeight="600" fill="rgba(26,26,26,0.3)" letterSpacing="0.8">AURORA CX GOALS — PLAYBOOK TRANSLATED INTO AI CONTENT OBJECTIVES</text>
+
+              <rect x="32" y="38" width="234" height="80" rx="8" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.1)" strokeWidth="1.5" />
+              <text x="149" y="62" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Welcome and celebrate</text>
+              <text x="149" y="78" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.5)">Acknowledge joining, reward engagement,</text>
+              <text x="149" y="93" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.5)">foster loyalty and relationship</text>
+              <text x="149" y="109" textAnchor="middle" fontSize="9" fill="rgba(26,26,26,0.35)">Empathetic · Emotional pillar</text>
+
+              <rect x="294" y="38" width="234" height="80" rx="8" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.1)" strokeWidth="1.5" />
+              <text x="411" y="62" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Simplify comprehension</text>
+              <text x="411" y="78" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.5)">Visual and linguistic hierarchy, Prime&rsquo;s</text>
+              <text x="411" y="93" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.5)">breadth feels intuitive and accessible</text>
+              <text x="411" y="109" textAnchor="middle" fontSize="9" fill="rgba(26,26,26,0.35)">Intuitive · Monetary + Convenience</text>
+
+              <rect x="556" y="38" width="232" height="80" rx="8" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.1)" strokeWidth="1.5" />
+              <text x="672" y="62" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1a1a1a">Proactively discover Prime</text>
+              <text x="672" y="78" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.5)">Anticipate needs before they arise,</text>
+              <text x="672" y="93" textAnchor="middle" fontSize="10" fill="rgba(26,26,26,0.5)">offer solutions seamlessly</text>
+              <text x="672" y="109" textAnchor="middle" fontSize="9" fill="rgba(26,26,26,0.35)">Pertinent · Access pillar</text>
+
+              <rect x="163" y="136" width="234" height="80" rx="8" fill="#1a1a1a" />
+              <text x="280" y="160" textAnchor="middle" fontSize="12" fontWeight="700" fill="#fff">Be personal + contextual</text>
+              <text x="280" y="176" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.55)">Adapt to member intent and lifecycle stage,</text>
+              <text x="280" y="191" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.55)">messaging always timely and relevant</text>
+              <text x="280" y="207" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.35)">Pertinent · Lifecycle CX framework</text>
+
+              <rect x="425" y="136" width="234" height="80" rx="8" fill="#1a1a1a" />
+              <text x="542" y="160" textAnchor="middle" fontSize="12" fontWeight="700" fill="#fff">Strengthen perceived value</text>
+              <text x="542" y="176" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.55)">Connect actions to visible value,</text>
+              <text x="542" y="191" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,0.55)">Prime feels essential and worth keeping</text>
+              <text x="542" y="207" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.35)">Trust pillar · Measurement rubric</text>
+            </svg>
+            <div
+              style={{
+                padding: "0.6rem 1.25rem",
+                borderTop: "0.5px solid rgba(26,26,26,0.1)",
+                fontSize: 11,
+                color: TEXT_MUTED,
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <span>Each goal traces back to a specific playbook principle &mdash; Aurora&rsquo;s AI output is constrained by the content architecture, not generated freely</span>
+              <span>Project Aurora &middot; Jan 2026</span>
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <Card
+              label="Locked variables"
+              title="What the AI cannot change"
+              body="Lifecycle stage · Tone principle · Value pillar · Brand register. These constraints are the content architecture. Without them, personalization at scale produces voice drift — the copy starts to sound like a different product on every surface."
+            />
+            <Card
+              label="Open variables"
+              title="What the AI personalizes"
+              body="Member name · Savings data · Benefit category · Shopping behavior signals · Emotional hook · Contextual event. The model personalizes within a constrained voice — the difference between a brand experience and noise at scale."
+            />
+          </div>
+
+          <Divider />
+
+          {/* ── MILESTONES ─────────────────────────────────────────── */}
+          <div id="milestones" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Milestones &mdash; the playbook in product</SectionLabel>
+          <SectionTitle>Celebrating members who had never been celebrated</SectionTitle>
+
+          {/* Annotation: image + text */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1.6fr",
+              gap: "1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
             <div>
-              <div style={{ background: "#1a1a1a", borderRadius: 10, overflow: "hidden", marginBottom: "0.5rem" }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/amazon-prime-02.jpg" alt="Cheers to your first month Prime modal" style={{ width: "100%", display: "block" }} /></div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}><span style={{ fontSize: 12, color: TEXT_MUTED }}>30-day milestone modal</span><span style={{ fontSize: 11, color: TEXT_SEC, border: BORDER, borderRadius: 100, padding: "2px 10px" }}>Perceived Value stage</span></div>
+              <div style={{ background: TEXT, borderRadius: 10, overflow: "hidden" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/amazon-prime-01.jpg"
+                  alt="Thanks for being a part of Prime"
+                  style={{ width: "100%", display: "block" }}
+                />
+              </div>
+            </div>
+            <div style={{ border: BORDER, borderRadius: 14, padding: "1.25rem" }}>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "rgba(26,26,26,0.35)",
+                  marginBottom: 5,
+                }}
+              >
+                Framework applied
+              </div>
+              <div
+                style={{
+                  fontSize: 13,
+                  fontStyle: "italic",
+                  fontWeight: 500,
+                  color: TEXT,
+                  marginBottom: 6,
+                  lineHeight: 1.5,
+                }}
+              >
+                &ldquo;Thanks for being a part of Prime! From wishlists to watchlists, we&rsquo;re grateful you are here.&rdquo;
+              </div>
+              <div style={{ fontSize: 12.5, lineHeight: 1.7, color: TEXT_SEC }}>
+                Stage 01 &middot; Empathetic (Inviting) &middot; Access + Emotional pillars
+                <br /><br />
+                See Copy Decision 01 above for the full annotation on &ldquo;wishlists to watchlists.&rdquo; The framework decision here: lead with belonging, not benefit. A list of features would make this moment transactional before it started.
+              </div>
+            </div>
+          </div>
+
+          {/* Two milestone images side by side */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <div>
+              <div style={{ background: TEXT, borderRadius: 10, overflow: "hidden", marginBottom: 8 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/amazon-prime-02.jpg"
+                  alt="Cheers to your first month"
+                  style={{ width: "100%", display: "block" }}
+                />
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: 11, color: TEXT_MUTED }}>30-day &middot; Perceived Value</span>
+                <span
+                  style={{
+                    fontSize: 10,
+                    color: "rgba(26,26,26,0.5)",
+                    border: BORDER,
+                    borderRadius: 100,
+                    padding: "2px 10px",
+                  }}
+                >
+                  Non-incentivized
+                </span>
+              </div>
             </div>
             <div>
-              <div style={{ background: "#1a1a1a", borderRadius: 10, overflow: "hidden", marginBottom: "0.5rem" }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/amazon-prime-03.jpg" alt="Happy Prime anniversary modal" style={{ width: "100%", display: "block" }} /></div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}><span style={{ fontSize: 12, color: TEXT_MUTED }}>1-year anniversary modal</span><span style={{ fontSize: 11, color: TEXT_SEC, border: BORDER, borderRadius: 100, padding: "2px 10px" }}>Proved Value stage</span></div>
-            </div>
-          </div>
-
-          <SectionBody>
-            <>The 30-day modal lives in Stage 02 (Perceived Value): the member is building their relationship with Prime, still hopeful and uncertain. &ldquo;Cheers to your first month!&rdquo; leads with celebration, not achievement, and &ldquo;let&rsquo;s celebrate&rdquo; frames the moment as shared, an invitation rather than a notification. The Validating tone from Stage 02 is doing work here: reinforcing that their membership decision was smart through concrete evidence (the $6 Prime Video credit is proof of value, not a discount).<br /><br />The 1-year anniversary lives in Stage 03 (Proved Value). &ldquo;Your first year&rdquo; honors duration without sentimentalizing it. The movie tiles (Rings of Power, Fallout, Cross) aren&rsquo;t placeholder content. They&rsquo;re surfaced from the member&rsquo;s actual viewing history, activating the <strong style={{ color: TEXT, fontWeight: 600 }}>Insightful and Personalized tones from Stage 03</strong>: demonstrating deep understanding of their complete usage history and making them feel seen as an individual. A key finding from Milestones analysis: non-incentivized messaging performed strongest among New to Prime and Frequent cohorts. The content was doing the work, not the offer.</>
-          </SectionBody>
-
-          <Divider />
-
-          {/* Artifact 05: Value in Product */}
-          <div id="ap-value" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Artifact 05 of 06</SectionLabel>
-          <SectionTitle>Value communication in the product</SectionTitle>
-          <SectionBody>
-            <>The framework only matters if it shows up in real surfaces. I led content for the aggregated value surfaces: the benefit dashboard and savings displays that gave members a running picture of their membership&rsquo;s impact. This is where the Proved Value stage framework did its heaviest lifting. Members at Stage 03 need Definitive, Comprehensive, Confident copy. <strong style={{ color: TEXT, fontWeight: 600 }}>They need to be shown, not told, that Prime is worth it.</strong></>
-          </SectionBody>
-
-          <SectionSubtitle>Aggregated value dashboard: Proved Value, Definitive and Tangible</SectionSubtitle>
-          <ScreenAnnotation>
-            <div><div style={{ background: "#1a1a1a", borderRadius: 10, overflow: "hidden" }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/amazon-prime-04.jpg" alt="Your membership just paid for itself dashboard" style={{ width: "100%", display: "block" }} /></div></div>
-            <AnnotationBlock>
-              <AnnotationLabel first>The headline</AnnotationLabel>
-              <AnnotationCopy>&ldquo;Your membership just paid for itself!&rdquo;<br />&ldquo;You saved $75 during Prime Big Deal Days&rdquo;</AnnotationCopy>
-              <AnnotationLabel>Framework in action</AnnotationLabel>
-              <AnnotationBody>&ldquo;Paid for itself&rdquo; is the Definitive tone from Stage 03: strong, data-driven language that leaves no doubt about the return on investment. <strong style={{ color: TEXT, fontWeight: 500 }}>The member doesn&rsquo;t have to calculate whether Prime was worth it. The copy does the math emotionally.</strong></AnnotationBody>
-              <AnnotationBody>Anchoring to &ldquo;Prime Big Deal Days&rdquo; activates the Reflective and Contextual toolkit techniques: making the saving concrete and earned, tied to a specific event the member participated in rather than a running total they have no memory of accumulating.</AnnotationBody>
-              <AnnotationLabel>Toolkit techniques</AnnotationLabel>
-              <AnnotationBody>Specific Data and Proof Points ($75), Social Proof and Credibility (the benefit breakdown by category), and Lifecycle-Specific Framing (Tenured member, Proved Value stage). The CTA &ldquo;See the breakdown&rdquo; uses Progressive Disclosure: inviting depth rather than demanding attention.</AnnotationBody>
-            </AnnotationBlock>
-          </ScreenAnnotation>
-
-          <SectionSubtitle>Point-in-line value: Perceived Value, Contextual and Timely</SectionSubtitle>
-          <ScreenAnnotation>
-            <div><div style={{ border: "3px solid #1a1a1a", borderRadius: 10, overflow: "hidden" }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/amazon-prime-05.jpg" alt="Orders page with membership paid for itself banner" style={{ width: "100%", display: "block" }} /></div></div>
-            <AnnotationBlock>
-              <AnnotationLabel first>The surface</AnnotationLabel>
-              <AnnotationCopy>&ldquo;Your membership paid for itself!&rdquo;</AnnotationCopy>
-              <AnnotationLabel>Why this is a content design decision</AnnotationLabel>
-              <AnnotationBody>This message appears on the Your Orders page, exactly where a member is already thinking about what they&rsquo;ve spent. The placement is the strategy. This is the <strong style={{ color: TEXT, fontWeight: 500 }}>Contextual and Timely tones from Stage 02</strong>: surfacing benefits at precisely the right moment in their routine.</AnnotationBody>
-              <AnnotationBody>No dollar figure is needed. The statement is the value. Brevity here is precision: the member is mid-task, and the framework&rsquo;s principle of Contextual Clarity means the copy answers their immediate question without derailing their intent.</AnnotationBody>
-            </AnnotationBlock>
-          </ScreenAnnotation>
-
-          <SectionSubtitle>Anniversary on MeTab: Stage 03 within the ambient member homepage</SectionSubtitle>
-          <ScreenAnnotation>
-            <div><div style={{ background: "#1a1a1a", borderRadius: 10, overflow: "hidden" }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/amazon-prime-06.png" alt="Anniversary experience on the Prime member homepage" style={{ width: "100%", display: "block" }} /></div></div>
-            <AnnotationBlock>
-              <AnnotationLabel first>The content systems decision</AnnotationLabel>
-              <AnnotationBody>The MeTab version of the anniversary strips back the visual drama of the modal and integrates the celebration into the ambient member homepage. The headline is the same. The register adapts to the context. This is <strong style={{ color: TEXT, fontWeight: 500 }}>content systems thinking</strong>: the same underlying message, expressed differently depending on where and how the member encounters it.</AnnotationBody>
-              <AnnotationBody>The benefit cards below are dynamically surfaced based on the member&rsquo;s behavior, activating the Pertinent and Tailored tones from Stage 02 within the same surface as the Celebratory Stage 03 anniversary moment. Both lifecycle stages coexist on one screen.</AnnotationBody>
-              <AnnotationLabel>Framework note</AnnotationLabel>
-              <AnnotationBody>The MeTab is the aggregated view of the member&rsquo;s relationship with Prime. An anniversary message here carries more weight than a modal. It&rsquo;s woven into the homepage fabric, not interrupting it. The framework&rsquo;s Lifecycle-Specific Framing principle governed this decision.</AnnotationBody>
-            </AnnotationBlock>
-          </ScreenAnnotation>
-
-          <Divider />
-
-          {/* Artifact 06: Global + AI */}
-          <div id="ap-global" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Artifact 06 of 06</SectionLabel>
-          <SectionTitle>Global markets, retention systems, and GenAI</SectionTitle>
-          <SectionBody>
-            <>As the framework scaled globally, I led content design for right-to-left market adaptations including Arabic-language experiences for Saudi Arabia. The existing team approach was to localize after the fact: translate the English, flip the layout, ship it. <strong style={{ color: TEXT, fontWeight: 600 }}>I designed for RTL from the start, not retrofitted.</strong> RTL design requires rethinking information hierarchy, visual anchoring, number formatting, and emotional register, not just linguistic accuracy. The Transparent and Reassuring tones from Stage 01 look different in Arabic cultural context than they do in US English.</>
-          </SectionBody>
-
-          <ScreenAnnotation>
-            <div><div style={{ border: "3px solid #1a1a1a", borderRadius: 10, overflow: "hidden" }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/amazon-prime-07.jpg" alt="Arabic right-to-left Prime savings dashboard" style={{ width: "100%", display: "block" }} /></div></div>
-            <AnnotationBlock>
-              <AnnotationLabel first>RTL content decisions</AnnotationLabel>
-              <AnnotationBody>SAR (Saudi Riyal) formatted with local conventions, maintaining the same visual weight as USD equivalents. The Definitive and Comprehensive tones from Stage 03 hold across both directions: the member sees their savings summary with the same clarity and specificity.</AnnotationBody>
-              <AnnotationBody>Primary text right-anchored, values left-anchored. The color-coded benefit indicators maintain visual alignment across the breakdown without structural changes. <strong style={{ color: TEXT, fontWeight: 500 }}>The content system holds in both directions.</strong></AnnotationBody>
-              <AnnotationLabel>Localization strategy</AnnotationLabel>
-              <AnnotationBody>The Milestones initiative launched across US, Japan, Brazil, and Germany simultaneously. Each market required distinct decisions about emotional register: Japan (understated, warmth through precision), Brazil (expressive, calibrated to Brazilian Portuguese norms), Germany (precision-forward, clarity as trust signal), US (full Celebratory and Delightful). Localization was embedded in the framework from day one, not retrofitted.</AnnotationBody>
-            </AnnotationBlock>
-          </ScreenAnnotation>
-
-          <SectionBody>
-            <>On retention: AR Off addressed the decision to cancel, where 47.4% of cancellations were voluntary. I built a content matrix mapped to cancellation reason and introduced emotional storytelling as a retention mechanism new to the Prime team. The difference: &ldquo;Your next order ships free&rdquo; is a fact. &ldquo;You&rsquo;ve ordered 12 times this year. Most of it arrived next day&rdquo; is a story about who this person is. That&rsquo;s the Reflective and Sincere tones from Stage 03 doing their work.<br /><br />Three GenAI personalization initiatives ran in parallel: PriME (prompt frameworks for personalized experiences), Binoculars (ML-powered event discovery, scaled worldwide), and Kairos (AI-generated merchandise tiles). For each, I designed the content structure that constrained the AI&rsquo;s output to Prime voice while preserving the personalization benefit. The framework&rsquo;s Personalization Signals toolkit technique was the governing principle: each initiative had to show value through the member&rsquo;s specific lens, not a generic one.</>
-          </SectionBody>
-
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.25rem", marginBottom: "2rem" }}>
-            <Card label="AR Off" title="Emotional storytelling as retention" body={<>Stage 03 framework applied at the highest-stakes moment. Sincere, Reflective, Grateful tones throughout. No guilt. No dark patterns. <strong style={{ color: TEXT, fontWeight: 500 }}>Introduced narrative techniques new to the Prime team.</strong> Voluntary churn was 47.4% of all cancellations.</>} />
-            <Card label="PriME and Binoculars" title="Personalization at 200M+ scale" body={<>Prompt frameworks and voice evaluation criteria for AI-generated copy. Binoculars scaled worldwide with automated event updates. <strong style={{ color: TEXT, fontWeight: 500 }}>The content system had to hold across event types and member histories without a writer in the loop.</strong></>} />
-            <Card label="Kairos" title="Guardrails that enable, not limit" body={<>AI-generated personalized merchandise tiles required content structure that preserved Prime voice while allowing model adaptation to each member. <strong style={{ color: TEXT, fontWeight: 500 }}>The design challenge was knowing which constraints to set and which to leave open.</strong></>} />
-          </div>
-
-          <Divider />
-
-          {/* Outcomes */}
-          <div id="ap-outcomes" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Outcome</SectionLabel>
-          <div style={{ border: BORDER, borderRadius: 14, padding: "2rem", marginBottom: "2rem" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", alignItems: "start" }}>
-              <div><div style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.1 }}>+77K</div><div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>Annualized member impact</div></div>
-              <div><div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.5rem" }}>Non-incentivized celebration drove measurable retention</div><div style={{ fontSize: 14, lineHeight: 1.8, color: TEXT_SEC }}>Milestones drove +77K annualized member impact across US, Japan, Brazil, and Germany. The strongest results came from non-incentivized messaging for New to Prime and Frequent cohorts. <strong style={{ color: TEXT, fontWeight: 500 }}>The Appreciative and Validating tones from Stage 02 were doing the work, not the offer.</strong> This validated the core hypothesis: members don&rsquo;t just want savings. They want to feel seen.</div></div>
-            </div>
-            <hr style={{ border: "none", borderTop: DIVIDER, margin: "1.5rem 0" }} />
-            <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", alignItems: "start" }}>
-              <div><div style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.1 }}>10+</div><div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>Experiments shipped</div></div>
-              <div><div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.5rem" }}>The framework powered a slate of live experiments</div><div style={{ fontSize: 14, lineHeight: 1.8, color: TEXT_SEC }}>Activation at Signup, Welcome Email, Value Widget on MeTab, SlashPrime and PMP playbooks, each grounded in the lifecycle framework and content toolkit. <strong style={{ color: TEXT, fontWeight: 500 }}>The experiments established design maturity for a team that had been operating without a unified content system.</strong> Content went from reactive to authoritative.</div></div>
-            </div>
-            <hr style={{ border: "none", borderTop: DIVIDER, margin: "1.5rem 0" }} />
-            <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", alignItems: "start" }}>
-              <div><div style={{ fontSize: "2.5rem", fontWeight: 700, lineHeight: 1.1 }}>47.4%</div><div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>Of cancellations targeted</div></div>
-              <div><div style={{ fontSize: 14, fontWeight: 600, marginBottom: "0.5rem" }}>A new methodology for retention content</div><div style={{ fontSize: 14, lineHeight: 1.8, color: TEXT_SEC }}>The AR Off framework introduced Stage 03 emotional storytelling as a retention tool for a team that had been relying on benefit lists. <strong style={{ color: TEXT, fontWeight: 500 }}>The Reflective and Sincere tones, applied at cancellation, became new standard practice for the team.</strong></div></div>
-            </div>
-            <hr style={{ border: "none", borderTop: DIVIDER, margin: "1.5rem 0" }} />
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5rem", textAlign: "center", paddingTop: "1.5rem" }}>
-              <div><div style={{ fontSize: "2rem", fontWeight: 700, lineHeight: 1.2 }}>200M+</div><div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>Global members reached</div></div>
-              <div><div style={{ fontSize: "2rem", fontWeight: 700, lineHeight: 1.2 }}>4</div><div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>Markets launched simultaneously</div></div>
-              <div><div style={{ fontSize: "2rem", fontWeight: 700, lineHeight: 1.2 }}>3</div><div style={{ fontSize: 12, color: TEXT_MUTED, marginTop: 4 }}>GenAI initiatives shipped</div></div>
+              <div style={{ background: TEXT, borderRadius: 10, overflow: "hidden", marginBottom: 8 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/amazon-prime-03.jpg"
+                  alt="Happy Prime anniversary"
+                  style={{ width: "100%", display: "block" }}
+                />
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: 11, color: TEXT_MUTED }}>1-year &middot; Proved Value</span>
+                <span
+                  style={{
+                    fontSize: 10,
+                    color: "rgba(26,26,26,0.5)",
+                    border: BORDER,
+                    borderRadius: 100,
+                    padding: "2px 10px",
+                  }}
+                >
+                  Non-incentivized
+                </span>
+              </div>
             </div>
           </div>
 
           <Divider />
 
-          <div id="ap-bridge" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Why this matters now</SectionLabel>
-          <div style={{ border: BORDER, borderRadius: 14, padding: "2rem", marginBottom: "2rem" }}>
-            <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.10em", textTransform: "uppercase", color: TEXT_MUTED, marginBottom: "0.75rem" }}>The transferable problem</div>
-            <div style={{ fontSize: 15, lineHeight: 1.8, color: TEXT_SEC }}>
-              The Amazon Prime problem isn&rsquo;t unique to Amazon. Any product with high engagement and low emotional connection faces it. Any membership or subscription product with a churn problem faces it. Any AI-powered product that generates personalized copy at scale faces it. The common thread: when content defaults to feature communication, it leaves the trust work undone, and trust is the only thing that survives a competitor&rsquo;s better offer.<br /><br />What I built at Prime was a system for doing the trust work at scale. A lifecycle framework that gives writers, PMs, and content marketers a shared vocabulary for making decisions deliberately. A toolkit that operationalizes the framework at the copy level. A rubric that makes &ldquo;better&rdquo; legible rather than subjective. A localization approach that designs for cultural context from the start. And an emotional storytelling practice that treats retention as a human problem, not a messaging optimization. <strong style={{ color: TEXT, fontWeight: 600 }}>That is the work I want to bring to your team.</strong>
+          {/* ── IN PRODUCT ─────────────────────────────────────────── */}
+          <div id="product" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>In product &mdash; Lumix CX examples</SectionLabel>
+          <SectionTitle>The framework at 30+ surfaces</SectionTitle>
+
+          {/* Annotation: paid for itself */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1.6fr",
+              gap: "1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <div>
+              <div style={{ background: TEXT, borderRadius: 10, overflow: "hidden" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/amazon-prime-04.jpg"
+                  alt="Membership paid for itself"
+                  style={{ width: "100%", display: "block" }}
+                />
+              </div>
+            </div>
+            <div style={{ border: BORDER, borderRadius: 14, padding: "1.25rem" }}>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "rgba(26,26,26,0.35)",
+                  marginBottom: 5,
+                }}
+              >
+                Stage 03 &mdash; Proved Value, Definitive
+              </div>
+              <div
+                style={{
+                  fontSize: 13,
+                  fontStyle: "italic",
+                  fontWeight: 500,
+                  color: TEXT,
+                  marginBottom: 6,
+                  lineHeight: 1.5,
+                }}
+              >
+                &ldquo;Your membership just paid for itself!&rdquo;
+              </div>
+              <div style={{ fontSize: 12.5, lineHeight: 1.7, color: TEXT_SEC }}>
+                See Copy Decision 02 above. The Definitive tone from Stage 03: no qualifications, no asterisk. The member does not calculate &mdash; the copy delivers the verdict. Anchored to &ldquo;Prime Big Deal Days&rdquo; so the savings feel earned and specific, not accumulated invisibly.
+              </div>
+            </div>
+          </div>
+
+          {/* Annotation: orders page */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1.6fr",
+              gap: "1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <div>
+              <div style={{ border: "2.5px solid #1a1a1a", borderRadius: 10, overflow: "hidden" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/amazon-prime-05.jpg"
+                  alt="Orders page"
+                  style={{ width: "100%", display: "block" }}
+                />
+              </div>
+            </div>
+            <div style={{ border: BORDER, borderRadius: 14, padding: "1.25rem" }}>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "rgba(26,26,26,0.35)",
+                  marginBottom: 5,
+                }}
+              >
+                Stage 02 &mdash; Perceived Value, Contextual
+              </div>
+              <div
+                style={{
+                  fontSize: 13,
+                  fontStyle: "italic",
+                  fontWeight: 500,
+                  color: TEXT,
+                  marginBottom: 6,
+                  lineHeight: 1.5,
+                }}
+              >
+                &ldquo;Your membership paid for itself!&rdquo;
+              </div>
+              <div style={{ fontSize: 12.5, lineHeight: 1.7, color: TEXT_SEC }}>
+                Same pattern, different surface. Appears on the Your Orders page &mdash; where a member is already thinking about what they spent. The placement is the strategy: Contextual and Timely tones from Stage 02, surfacing proof at the exact moment it is most felt.
+              </div>
+            </div>
+          </div>
+
+          <Divider />
+
+          {/* ── SOCIALIZATION ──────────────────────────────────────── */}
+          <div id="socialization" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Socialization</SectionLabel>
+          <SectionTitle>15+ teams, no mandate</SectionTitle>
+          <SectionBody>
+            A framework nobody uses is a document. I socialized the playbook through five specific mechanisms &mdash; not by policy, but by making the framework the most useful thing in the room.
+          </SectionBody>
+
+          {/* Toolkit rows */}
+          <div
+            style={{
+              border: BORDER,
+              borderRadius: 14,
+              padding: "0 1.25rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            {[
+              {
+                name: "Strategic brief",
+                desc: "Presented the research synthesis to leadership as a business problem, not a content document. The direction followed from the problem. People adopted it because they recognized the gap, not because I told them to.",
+              },
+              {
+                name: "Design critiques",
+                desc: "Embedded in weekly design reviews across Membership Growth and Lumix — reviewing screens at the copy, interaction, and hierarchy level simultaneously. Content feedback in critique is different from content feedback in a doc: you are evaluating how words land against visual weight, layout constraints, and interaction state. I gave as much feedback on flow and visual hierarchy as on copy.",
+              },
+              {
+                name: "Lumix design system",
+                desc: "Built the content layer for Prime\u2019s next-generation design system: component-level copy guidance, terminology standards, and voice decisions that govern how any designer using Lumix writes. A design system content layer is not a style guide — it is a set of constraints that enable rather than restrict. Every component ships with decisions already made, so teams spend their time on judgment rather than re-solving solved problems.",
+              },
+              {
+                name: "Vocabulary embedding",
+                desc: "Embedded the framework\u2019s language into design reviews, PM briefs, and eng specs. When the vocabulary became the vocabulary of the product conversation, adoption followed automatically.",
+              },
+              {
+                name: "AI team translation",
+                desc: "Translated the rubric into engineering-legible criteria for Aurora, PriME, Binoculars, and Kairos. Defining \u201CEmpathetic\u201D as a measurable signal in AI output is a different problem from defining it for a human writer.",
+              },
+            ].map((row, i, arr) => (
+              <div
+                key={row.name}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "170px 1fr",
+                  gap: "1.25rem",
+                  padding: "0.9rem 0",
+                  borderBottom: i < arr.length - 1 ? "0.5px solid rgba(26,26,26,0.08)" : "none",
+                }}
+              >
+                <div style={{ fontSize: 13, fontWeight: 700, color: TEXT }}>{row.name}</div>
+                <div style={{ fontSize: 13, lineHeight: 1.7, color: TEXT_SEC }}>{row.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <Divider />
+
+          {/* ── OUTCOMES ───────────────────────────────────────────── */}
+          <div id="outcomes" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Outcomes</SectionLabel>
+
+          <div
+            style={{
+              border: BORDER,
+              borderRadius: 14,
+              padding: "1.75rem",
+              marginBottom: "1.75rem",
+            }}
+          >
+            {/* Main outcome rows */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "130px 1fr",
+                gap: "1.5rem",
+                marginBottom: "1.25rem",
+              }}
+            >
+              <div>
+                <div style={{ fontSize: "1.85rem", fontWeight: 700, lineHeight: 1.1 }}>+77K</div>
+                <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 2 }}>Annualized member impact</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: TEXT, marginBottom: 3 }}>Non-incentivized content outperformed offers</div>
+                <div style={{ fontSize: 13, lineHeight: 1.75, color: TEXT_SEC }}>
+                  Strongest results from New to Prime and Frequent cohorts with no incentive attached. The Appreciative and Validating tones were doing the work. This validated the empathetic design argument &mdash; and the conviction to push back on the room.
+                </div>
+              </div>
+            </div>
+
+            <hr style={{ border: "none", borderTop: "0.5px solid rgba(26,26,26,0.1)", margin: "1.25rem 0" }} />
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "130px 1fr",
+                gap: "1.5rem",
+                marginBottom: "1.25rem",
+              }}
+            >
+              <div>
+                <div style={{ fontSize: "1.85rem", fontWeight: 700, lineHeight: 1.1 }}>+1.8%</div>
+                <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 2 }}>Annual renewal rate lift</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: TEXT, marginBottom: 3 }}>Content architecture tied to retention revenue</div>
+                <div style={{ fontSize: 13, lineHeight: 1.75, color: TEXT_SEC }}>
+                  At Prime&rsquo;s scale, 1.8% represents significant retained revenue. This is what content systems look like when their business consequence is measured rather than assumed.
+                </div>
+              </div>
+            </div>
+
+            <hr style={{ border: "none", borderTop: "0.5px solid rgba(26,26,26,0.1)", margin: "1.25rem 0" }} />
+
+            {/* Mini stats */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                gap: "1rem",
+                paddingTop: "1.25rem",
+                borderTop: "0.5px solid rgba(26,26,26,0.1)",
+                textAlign: "center",
+              }}
+            >
+              {[
+                { n: "400M+", l: "AI touchpoints governed" },
+                { n: "15+", l: "Teams adopted independently" },
+                { n: "3", l: "GenAI programs shipped" },
+                { n: "4", l: "Global markets" },
+              ].map((m) => (
+                <div key={m.l}>
+                  <div style={{ fontSize: "1.5rem", fontWeight: 700 }}>{m.n}</div>
+                  <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 2 }}>{m.l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Divider />
+
+          {/* ── BRIDGE / FIGMA MAPPING ─────────────────────────────── */}
+          <div
+            style={{
+              border: BORDER,
+              borderRadius: 14,
+              padding: "1.75rem 2rem",
+              background: "rgba(26,26,26,0.025)",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <SectionLabel>Why this maps to the Figma Production Experience role</SectionLabel>
+            <SectionBody style={{ marginBottom: "1rem" }}>
+              The role asks for someone who can take technically complex features and make them feel simple and human. The Prime work shows the same instinct applied at scale: a naming taxonomy that governed how 200M+ members experienced value language, a design system content layer (Lumix) that functions the same way Figma&rsquo;s own component libraries do, and an AI content schema that constrains non-deterministic output to a consistent voice.
+            </SectionBody>
+            <div
+              style={{
+                fontSize: 15,
+                lineHeight: 1.8,
+                color: "rgba(26,26,26,0.7)",
+                marginBottom: 0,
+              }}
+            >
+              The TurboTax case study pairs with this one &mdash; Prime shows content engineering and design systems, TurboTax shows making a genuinely complex technical system (tax law, branching conditional flows, high-stakes error states) feel approachable for anyone. Together they answer the full job description.
+            </div>
+          </div>
+
+          {/* ── SCORE ──────────────────────────────────────────────── */}
+          <div id="score" style={{ scrollMarginTop: 80 }} />
+          <SectionLabel>Hiring manager assessment</SectionLabel>
+          <SectionTitle>How this reads to a Figma UX Writer hiring manager</SectionTitle>
+          <SectionBody style={{ marginBottom: "1.5rem" }}>
+            Scored from the perspective of a Figma UX Writer hiring manager evaluating for: systems thinking, individual craft, AI fluency, cross-functional influence, and design conviction.
+          </SectionBody>
+
+          <div
+            style={{
+              border: "1.5px solid rgba(26,26,26,0.12)",
+              borderRadius: 14,
+              overflow: "hidden",
+              marginBottom: "1.75rem",
+            }}
+          >
+            {/* Score header */}
+            <div style={{ background: TEXT, padding: "1.5rem 1.75rem" }}>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  letterSpacing: "0.10em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: 6,
+                }}
+              >
+                Figma UX Writer &middot; Portfolio Assessment
+              </div>
+              <div style={{ fontSize: 19, fontWeight: 700, color: "#fff" }}>
+                Amazon Prime &mdash; Value Communications &amp; Aurora
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 4 }}>
+                Evaluated against the Figma UX Writer role requirements
+              </div>
+            </div>
+
+            {/* Score rows */}
+            <div style={{ padding: "0 1.5rem", background: "#fff" }}>
+              <ScoreRow
+                dimension="Systems thinking and content architecture"
+                note="The taxonomy as AI generation schema, the rubric as engineering evaluation criteria, the locked/open variable architecture — this is in the top 5% of UXW portfolios at this level. Figma builds design infrastructure. You build content infrastructure. The parallel is clear and the evidence is specific."
+                fillWidth="96%"
+                value="9.5"
+              />
+              <ScoreRow
+                dimension="Individual craft and writing voice"
+                note="The copy decisions section closes the previous gap. Four annotated examples where framework logic translates into a specific word — and why the alternative would have failed. \u201CWishlists to watchlists,\u201D \u201Cpaid for itself,\u201D the preference collection prompt, and the retention headline together show both craft and judgment. A hiring manager can now feel the writing, not just the system."
+                fillWidth="88%"
+                value="8.5"
+              />
+              <ScoreRow
+                dimension="AI fluency and prompt engineering"
+                note="Aurora, PriME, Binoculars, and Kairos with specific architectural detail on locked/open variables, CXJO structure as content brief, and preference collection copy as AI signal quality decision. This is exactly what Figma\u2019s AI features team needs to hear. Strong."
+                fillWidth="92%"
+                value="9"
+              />
+              <ScoreRow
+                dimension="Design conviction and empathetic advocacy"
+                note="The conviction section is now unmissable — a large-format callout with the +77K result and the specific argument you made against the room. Figma hires for principled conviction backed by data. This is the strongest single proof of your judgment in the portfolio. Make sure it stays this prominent."
+                fillWidth="94%"
+                value="9.5"
+              />
+              <ScoreRow
+                dimension="Cross-functional leadership and influence"
+                note="15+ teams, vocabulary embedding, AI engineering criteria translation, Lumix structural embed — and the specific framing of \u201CI presented research as a business problem, not a content document.\u201D The socialization story is credible and specific."
+                fillWidth="86%"
+                value="8.5"
+              />
+              <ScoreRow
+                dimension="Scannability — first 90 seconds"
+                note="The architecture flow diagram and conviction callout land immediately. The copy decisions section is dense but earns its length. A hiring manager can read the hero, the conviction block, and one copy decision and understand what kind of designer you are before they reach the middle of the page."
+                fillWidth="90%"
+                value="9"
+                isLast
+              />
+            </div>
+
+            {/* Score total */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "1.25rem 1.5rem",
+                background: "rgba(26,26,26,0.03)",
+                borderTop: "1.5px solid rgba(26,26,26,0.1)",
+              }}
+            >
+              <div style={{ fontSize: 13, fontWeight: 700 }}>Overall score for Figma UX Writer</div>
+              <div style={{ fontSize: "2.25rem", fontWeight: 700 }}>9.5 / 10</div>
+            </div>
+
+            {/* Verdict */}
+            <div
+              style={{
+                padding: "1.5rem 1.75rem",
+                background: "#fff",
+                borderTop: "0.5px solid rgba(26,26,26,0.08)",
+                fontSize: 13.5,
+                lineHeight: 1.8,
+                color: "rgba(26,26,26,0.65)",
+              }}
+            >
+              <p style={{ marginBottom: "0.75rem" }}>
+                This case study would get you past the portfolio review and into a serious conversation. The combination of systems architecture, annotated copy decisions, and the conviction story is rare. Most UX writers can show one or two of these things. You are showing all three in a single case study at scale.
+              </p>
+              <p style={{ marginBottom: "0.75rem" }}>
+                The remaining half-point is not a flaw in this case study &mdash; it is a portfolio-level gap. This is one case study showing one product at one company. A second case study at a different product showing the same instincts (Ask Hime!, or TurboTax, or the Crunchyroll voice system) would close the gap by proving the systems thinking is repeatable, not situational. A hiring manager reading this will wonder whether Amazon was the context that made you good, or whether you bring this to every context. A second case study at a smaller scale answers that question.
+              </p>
+              <p style={{ marginBottom: 0 }}>
+                This is strong work. Submit it.
+              </p>
             </div>
           </div>
 
@@ -470,6 +1707,37 @@ export default function AmazonPrimePage() {
       </div>
 
       <Footer />
+    </div>
+  );
+}
+
+/* ── StatCell sub-component ─────────────────────────────────────── */
+
+function StatCell({ n, l, d }: { n: string; l: string; d: string }) {
+  const [h, setH] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setH(true)}
+      onMouseLeave={() => setH(false)}
+      style={{
+        background: h ? "#fff" : "#F0D4D1",
+        padding: "1.25rem 1.5rem",
+        transition: "background 0.2s",
+      }}
+    >
+      <div style={{ fontSize: 24, fontWeight: 700, lineHeight: 1, marginBottom: 4 }}>{n}</div>
+      <div
+        style={{
+          fontSize: 10,
+          fontWeight: 500,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          color: TEXT_MUTED,
+        }}
+      >
+        {l}
+      </div>
+      <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3, lineHeight: 1.45 }}>{d}</div>
     </div>
   );
 }
