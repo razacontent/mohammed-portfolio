@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
     company: "Amazon Prime",
     icon: ICON_AMAZON,
     dotColor: "#378ADD",
-    headline: "Building Prime\u2019s first content strategy \u2014 and making it run without me",
+    headline: "Building Amazon Prime\u2019s content infrastructure to speak to people like they matter",
     subhead:
       "Every benefit was real. Not one of them was felt. I built the content architecture, naming taxonomy, and AI schema that changed how Prime communicates value across its design system, three GenAI programs, and 200M+ members worldwide.",
     tags: [
