@@ -23,7 +23,6 @@ const sideNavItems = [
   { label: "In product", id: "product" },
   { label: "Socialization", id: "socialization" },
   { label: "Outcomes", id: "outcomes" },
-  { label: "Figma score", id: "score" },
 ];
 
 /* ── Sub-components ─────────────────────────────────────────────── */
@@ -253,63 +252,6 @@ function CraftBlock({
             </div>
           ))}
         </div>
-      </div>
-    </div>
-  );
-}
-
-function ScoreRow({
-  dimension,
-  note,
-  fillWidth,
-  value,
-  isLast,
-}: {
-  dimension: string;
-  note: string;
-  fillWidth: string;
-  value: string;
-  isLast?: boolean;
-}) {
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 70px",
-        gap: "1rem",
-        alignItems: "start",
-        padding: "1rem 0",
-        borderBottom: isLast ? "none" : "0.5px solid rgba(26,26,26,0.08)",
-      }}
-    >
-      <div>
-        <div style={{ fontSize: 13, fontWeight: 700, color: TEXT, marginBottom: 3 }}>
-          {dimension}
-        </div>
-        <div style={{ fontSize: 12, color: "rgba(26,26,26,0.55)", lineHeight: 1.55 }}>
-          {note}
-        </div>
-        <div
-          style={{
-            height: 3,
-            borderRadius: 2,
-            background: "rgba(26,26,26,0.08)",
-            marginTop: 8,
-          }}
-        >
-          <div
-            style={{
-              height: 3,
-              borderRadius: 2,
-              background: TEXT,
-              width: fillWidth,
-            }}
-          />
-        </div>
-      </div>
-      <div style={{ textAlign: "right", paddingTop: 2 }}>
-        <div style={{ fontSize: 22, fontWeight: 700, lineHeight: 1 }}>{value}</div>
-        <div style={{ fontSize: 11, color: "rgba(26,26,26,0.35)" }}>/10</div>
       </div>
     </div>
   );
@@ -1586,122 +1528,6 @@ export default function AmazonPrimePage() {
             </div>
           </div>
 
-          {/* ── SCORE ──────────────────────────────────────────────── */}
-          <div id="score" style={{ scrollMarginTop: 80 }} />
-          <SectionLabel>Hiring manager assessment</SectionLabel>
-          <SectionTitle>How this reads to a Figma UX Writer hiring manager</SectionTitle>
-          <SectionBody style={{ marginBottom: "1.5rem" }}>
-            Scored from the perspective of a Figma UX Writer hiring manager evaluating for: systems thinking, individual craft, AI fluency, cross-functional influence, and design conviction.
-          </SectionBody>
-
-          <div
-            style={{
-              border: "1.5px solid rgba(26,26,26,0.12)",
-              borderRadius: 14,
-              overflow: "hidden",
-              marginBottom: "1.75rem",
-            }}
-          >
-            {/* Score header */}
-            <div style={{ background: TEXT, padding: "1.5rem 1.75rem" }}>
-              <div
-                style={{
-                  fontSize: 10,
-                  fontWeight: 600,
-                  letterSpacing: "0.10em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.35)",
-                  marginBottom: 6,
-                }}
-              >
-                Figma UX Writer &middot; Portfolio Assessment
-              </div>
-              <div style={{ fontSize: 19, fontWeight: 700, color: "#fff" }}>
-                Amazon Prime &mdash; Value Communications &amp; Aurora
-              </div>
-              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginTop: 4 }}>
-                Evaluated against the Figma UX Writer role requirements
-              </div>
-            </div>
-
-            {/* Score rows */}
-            <div style={{ padding: "0 1.5rem", background: "#fff" }}>
-              <ScoreRow
-                dimension="Systems thinking and content architecture"
-                note="The taxonomy as AI generation schema, the rubric as engineering evaluation criteria, the locked/open variable architecture — this is in the top 5% of UXW portfolios at this level. Figma builds design infrastructure. You build content infrastructure. The parallel is clear and the evidence is specific."
-                fillWidth="96%"
-                value="9.5"
-              />
-              <ScoreRow
-                dimension="Individual craft and writing voice"
-                note="The copy decisions section closes the previous gap. Four annotated examples where framework logic translates into a specific word — and why the alternative would have failed. \u201CWishlists to watchlists,\u201D \u201Cpaid for itself,\u201D the preference collection prompt, and the retention headline together show both craft and judgment. A hiring manager can now feel the writing, not just the system."
-                fillWidth="88%"
-                value="8.5"
-              />
-              <ScoreRow
-                dimension="AI fluency and prompt engineering"
-                note="Aurora, PriME, Binoculars, and Kairos with specific architectural detail on locked/open variables, CXJO structure as content brief, and preference collection copy as AI signal quality decision. This is exactly what Figma\u2019s AI features team needs to hear. Strong."
-                fillWidth="92%"
-                value="9"
-              />
-              <ScoreRow
-                dimension="Design conviction and empathetic advocacy"
-                note="The conviction section is now unmissable — a large-format callout with the +77K result and the specific argument you made against the room. Figma hires for principled conviction backed by data. This is the strongest single proof of your judgment in the portfolio. Make sure it stays this prominent."
-                fillWidth="94%"
-                value="9.5"
-              />
-              <ScoreRow
-                dimension="Cross-functional leadership and influence"
-                note="15+ teams, vocabulary embedding, AI engineering criteria translation, Lumix structural embed — and the specific framing of \u201CI presented research as a business problem, not a content document.\u201D The socialization story is credible and specific."
-                fillWidth="86%"
-                value="8.5"
-              />
-              <ScoreRow
-                dimension="Scannability — first 90 seconds"
-                note="The architecture flow diagram and conviction callout land immediately. The copy decisions section is dense but earns its length. A hiring manager can read the hero, the conviction block, and one copy decision and understand what kind of designer you are before they reach the middle of the page."
-                fillWidth="90%"
-                value="9"
-                isLast
-              />
-            </div>
-
-            {/* Score total */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "1.25rem 1.5rem",
-                background: "rgba(26,26,26,0.03)",
-                borderTop: "1.5px solid rgba(26,26,26,0.1)",
-              }}
-            >
-              <div style={{ fontSize: 13, fontWeight: 700 }}>Overall score for Figma UX Writer</div>
-              <div style={{ fontSize: "2.25rem", fontWeight: 700 }}>9.5 / 10</div>
-            </div>
-
-            {/* Verdict */}
-            <div
-              style={{
-                padding: "1.5rem 1.75rem",
-                background: "#fff",
-                borderTop: "0.5px solid rgba(26,26,26,0.08)",
-                fontSize: 13.5,
-                lineHeight: 1.8,
-                color: "rgba(26,26,26,0.65)",
-              }}
-            >
-              <p style={{ marginBottom: "0.75rem" }}>
-                This case study would get you past the portfolio review and into a serious conversation. The combination of systems architecture, annotated copy decisions, and the conviction story is rare. Most UX writers can show one or two of these things. You are showing all three in a single case study at scale.
-              </p>
-              <p style={{ marginBottom: "0.75rem" }}>
-                The remaining half-point is not a flaw in this case study &mdash; it is a portfolio-level gap. This is one case study showing one product at one company. A second case study at a different product showing the same instincts (Ask Hime!, or TurboTax, or the Crunchyroll voice system) would close the gap by proving the systems thinking is repeatable, not situational. A hiring manager reading this will wonder whether Amazon was the context that made you good, or whether you bring this to every context. A second case study at a smaller scale answers that question.
-              </p>
-              <p style={{ marginBottom: 0 }}>
-                This is strong work. Submit it.
-              </p>
-            </div>
-          </div>
 
         </div>
       </div>
