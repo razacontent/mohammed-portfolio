@@ -25,7 +25,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         style={{
           position: "fixed",
           inset: 0,
-          backgroundColor: "#F0D4D1",
+          backgroundColor: "#E0A8A7",
         }}
       />
     );

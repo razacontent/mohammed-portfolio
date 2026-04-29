@@ -20,7 +20,7 @@ const crSideNavItems = [
 ];
 
 const WHITE = "#fff";
-const BG = "#F0D4D1";
+const BG = "#E0A8A7";
 const TEXT = "#1a1a1a";
 const TEXT_SEC = "rgba(26,26,26,0.6)";
 const TEXT_MUTED = "rgba(26,26,26,0.4)";

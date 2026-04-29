@@ -292,7 +292,7 @@ export default function AmazonPrimePage() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#F0D4D1",
+        backgroundColor: "#E0A8A7",
         fontFamily: "'Outfit', sans-serif",
         color: TEXT,
       }}
@@ -1546,7 +1546,7 @@ function StatCell({ n, l, d }: { n: string; l: string; d: string }) {
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
       style={{
-        background: h ? "#fff" : "#F0D4D1",
+        background: h ? "#fff" : "#E0A8A7",
         padding: "1.25rem 1.5rem",
         transition: "background 0.2s",
       }}

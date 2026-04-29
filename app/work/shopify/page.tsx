@@ -454,7 +454,7 @@ export default function ShopifyPage() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#F0D4D1",
+        backgroundColor: "#E0A8A7",
         fontFamily: "'Outfit', sans-serif",
         color: TEXT,
       }}
@@ -628,7 +628,7 @@ export default function ShopifyPage() {
                 onMouseEnter={() => setS1H(true)}
                 onMouseLeave={() => setS1H(false)}
                 style={{
-                  background: s1H ? "#fff" : "#F0D4D1",
+                  background: s1H ? "#fff" : "#E0A8A7",
                   padding: "1.25rem 1.5rem",
                   transition: "background 0.2s",
                 }}
@@ -670,7 +670,7 @@ export default function ShopifyPage() {
                 onMouseEnter={() => setS2H(true)}
                 onMouseLeave={() => setS2H(false)}
                 style={{
-                  background: s2H ? "#fff" : "#F0D4D1",
+                  background: s2H ? "#fff" : "#E0A8A7",
                   padding: "1.25rem 1.5rem",
                   transition: "background 0.2s",
                 }}
@@ -712,7 +712,7 @@ export default function ShopifyPage() {
                 onMouseEnter={() => setS3H(true)}
                 onMouseLeave={() => setS3H(false)}
                 style={{
-                  background: s3H ? "#fff" : "#F0D4D1",
+                  background: s3H ? "#fff" : "#E0A8A7",
                   padding: "1.25rem 1.5rem",
                   transition: "background 0.2s",
                 }}

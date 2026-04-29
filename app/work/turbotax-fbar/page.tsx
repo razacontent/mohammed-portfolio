@@ -138,7 +138,7 @@ export default function TurbotaxFbarPage() {
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#F0D4D1", fontFamily: "'Outfit', sans-serif", color: TEXT }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "#E0A8A7", fontFamily: "'Outfit', sans-serif", color: TEXT }}>
       <BackArrow />
       <Navigation />
       <div style={{ width: "100%", height: 0.5, backgroundColor: "rgba(26,26,26,0.15)", marginTop: 12 }} />
@@ -172,17 +172,17 @@ export default function TurbotaxFbarPage() {
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "rgba(26,26,26,0.1)", border: BORDER, borderRadius: 14, overflow: "hidden", marginBottom: "3rem" }}>
-              <div onMouseEnter={() => setS1H(true)} onMouseLeave={() => setS1H(false)} style={{ background: s1H ? "#fff" : "#F0D4D1", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
+              <div onMouseEnter={() => setS1H(true)} onMouseLeave={() => setS1H(false)} style={{ background: s1H ? "#fff" : "#E0A8A7", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
                 <div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1, marginBottom: 4 }}>341%</div>
                 <div style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>FBAR adoption</div>
                 <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3, lineHeight: 1.45 }}>Year-over-year increase driven by plain-language content rewrites</div>
               </div>
-              <div onMouseEnter={() => setS2H(true)} onMouseLeave={() => setS2H(false)} style={{ background: s2H ? "#fff" : "#F0D4D1", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
+              <div onMouseEnter={() => setS2H(true)} onMouseLeave={() => setS2H(false)} style={{ background: s2H ? "#fff" : "#E0A8A7", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
                 <div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1, marginBottom: 4 }}>100%</div>
                 <div style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>Legal approval</div>
                 <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3, lineHeight: 1.45 }}>Every rewrite cleared compliance review without a single failure</div>
               </div>
-              <div onMouseEnter={() => setS3H(true)} onMouseLeave={() => setS3H(false)} style={{ background: s3H ? "#fff" : "#F0D4D1", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
+              <div onMouseEnter={() => setS3H(true)} onMouseLeave={() => setS3H(false)} style={{ background: s3H ? "#fff" : "#E0A8A7", padding: "1.25rem 1.5rem", transition: "background 0.2s" }}>
                 <div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1, marginBottom: 4 }}>8th</div>
                 <div style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: TEXT_MUTED }}>Grade reading level</div>
                 <div style={{ fontSize: 11, color: TEXT_MUTED, marginTop: 3, lineHeight: 1.45 }}>Down from college-graduate, without losing legal accuracy</div>

@@ -9,7 +9,7 @@ export default function HomePage() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#F0D4D1",
+        backgroundColor: "#E0A8A7",
         fontFamily: "'Outfit', sans-serif",
         color: "#1a1a1a",
         position: "relative",

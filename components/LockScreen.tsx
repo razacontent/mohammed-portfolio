@@ -50,7 +50,7 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
         position: "fixed",
         inset: 0,
         zIndex: 100000,
-        backgroundColor: "#F0D4D1",
+        backgroundColor: "#E0A8A7",
         fontFamily: "'Outfit', sans-serif",
         display: "flex",
         flexDirection: "column",
