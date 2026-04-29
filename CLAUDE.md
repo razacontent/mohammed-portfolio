@@ -1,5 +1,5 @@
 # razacontent
 
-This portfolio has a specific design system and writing voice documented in `PORTFOLIO_GUIDE.md`.
+This portfolio's design and writing system is documented in `_design-spec:/PORTFOLIO_GUIDE_v16.md`. The four HTML mockups in the same directory are the visual ground truth.
 
-**Read PORTFOLIO_GUIDE.md before making any changes.** It contains color tokens, motion patterns, the case study writing playbook, and a list of things that must never change (the Content Canary mascot in `lib/assets.ts`, the lock screen passcode flow, the pencil cursor + ink dot ripple in `components/InkDots.tsx`, and the hover-to-white card pattern).
+**Read PORTFOLIO_GUIDE_v16.md before making any changes.** When the guide and the HTML mockups disagree, the HTML wins.
