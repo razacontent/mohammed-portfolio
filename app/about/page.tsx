@@ -10,7 +10,7 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="about-eyebrow">About me</div>
           <h1 className="about-headline">
-            The person behind the <span className="accent">words</span>.
+            The <span className="accent">person</span> behind the words.
           </h1>
           <p className="about-intro">
             An anthropologist at heart, I found my love for content design when
@@ -24,8 +24,8 @@ export default function AboutPage() {
         <div className="wrap-narrow">
           <div className="section-eyebrow">Origins</div>
           <h2 className="section-title">
-            A childhood between Karachi and{" "}
-            <span className="accent">Abu Dhabi</span>.
+            Born in <span className="accent">Karachi</span>, raised in Abu
+            Dhabi.
           </h2>
           <div className="body-prose">
             <p>
@@ -53,8 +53,7 @@ export default function AboutPage() {
         <div className="wrap-narrow">
           <div className="section-eyebrow">Language &amp; anthropology</div>
           <h2 className="section-title">
-            Studying how language gives people{" "}
-            <span className="accent">agency</span>.
+            How <span className="accent">language</span> becomes agency.
           </h2>
           <div className="body-prose">
             <p>
@@ -83,8 +82,8 @@ export default function AboutPage() {
         <div className="wrap-narrow">
           <div className="section-eyebrow">Travel</div>
           <h2 className="section-title">
-            Peru, Cuba, and a Zaha Hadid building in{" "}
-            <span className="accent">Seoul</span>.
+            Peru, Cuba, and a <span className="accent">Zaha Hadid</span>{" "}
+            building in Seoul.
           </h2>
           <div className="body-prose">
             <p>
@@ -127,8 +126,7 @@ export default function AboutPage() {
         <div className="wrap-narrow">
           <div className="section-eyebrow">Family</div>
           <h2 className="section-title">
-            My boss-wife. Her{" "}
-            <span className="accent">apprentice</span>.
+            My <span className="accent">boss-wife</span>. Her apprentice.
           </h2>
           <figure className="story-photo" data-shadow="canary">
             <img
