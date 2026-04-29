@@ -1,362 +1,194 @@
+/* eslint-disable @next/next/no-img-element */
 export const metadata = {
   title: "About · Mohammed Raza · razacontent",
 };
-
-const tracks = [
-  {
-    color: "canary",
-    num: "Track 01",
-    title: "AI",
-    body: (
-      <>
-        Designing the{" "}
-        <strong>content schemas, taxonomies, and voice frameworks</strong>{" "}
-        that AI generation systems write inside. The language layer behind
-        every GenAI surface.
-      </>
-    ),
-  },
-  {
-    color: "coral",
-    num: "Track 02",
-    title: "Content systems",
-    body: (
-      <>
-        Building{" "}
-        <strong>
-          the infrastructure that turns one writer&rsquo;s judgment into an
-          org-wide capability.
-        </strong>{" "}
-        Voice frameworks as design systems. Lifecycle taxonomies. Pattern
-        libraries.
-      </>
-    ),
-  },
-  {
-    color: "matcha",
-    num: "Track 03",
-    title: "Team cohesion",
-    body: (
-      <>
-        Growing the craft, socializing it across the org, enabling partner
-        teams to write with confidence the brand will hold.{" "}
-        <strong>Founding-content-designer work.</strong>
-      </>
-    ),
-  },
-  {
-    color: "blue",
-    num: "Track 04",
-    title: "Brand identity",
-    body: (
-      <>
-        Holding the{" "}
-        <strong>
-          through-line between the brand promise and the product surface
-        </strong>
-        , making the every-day strings sound like the things the brand says
-        it stands for.
-      </>
-    ),
-  },
-] as const;
-
-const timeline = [
-  {
-    date: "2022 — 2025",
-    role: "Senior Content Designer · L5",
-    org: "Amazon Prime · Worldwide Membership",
-    body: (
-      <>
-        Built the <strong>Value Communication Framework</strong> that lifted
-        retention by 77K members annually. Designed the AI content schemas
-        and voice framework adopted by 15 teams and 3 GenAI programs at
-        Prime.
-      </>
-    ),
-  },
-  {
-    date: "2020 — 2022",
-    role: "Founding Content Designer",
-    org: "Crunchyroll · Streaming",
-    body: (
-      <>
-        Joined as the only content designer at a{" "}
-        <strong>13M+ subscriber service.</strong> Grew the craft, socialized
-        it across PMs, brand, and growth, and shipped the strings powering
-        free-to-premium conversion and ad-tier launch.
-      </>
-    ),
-  },
-  {
-    date: "2019 — 2020",
-    role: "Senior UX Writer",
-    org: "Shopify · Merchant Analytics",
-    body: (
-      <>
-        Diagnosed analytics adoption failure as IA, not user sophistication.
-        Restructured the dashboard around real merchant decisions, lifting
-        trust scores +18 points and influencing merchants doing{" "}
-        <strong>$200B+ in GMV.</strong>
-      </>
-    ),
-  },
-  {
-    date: "2018 — 2019",
-    role: "UX Writer",
-    org: "Intuit / TurboTax · Filing Compliance",
-    body: (
-      <>
-        Rewrote a high-stakes tax form line by line with legal. Built the{" "}
-        <strong>four-point clarity standard</strong> that recovered an
-        abandoned filing flow and influenced filing for 50M+ users.
-      </>
-    ),
-  },
-  {
-    date: "2017 — 2018",
-    role: "UX Writer",
-    org: "Alaska Airlines · Booking & Loyalty",
-    body: (
-      <>
-        First content design role. Wrote booking, mobile, and loyalty
-        strings; learned the discipline of writing under regulatory and
-        operational constraints.
-      </>
-    ),
-  },
-];
-
-const beyond = [
-  {
-    label: "Cooking",
-    text: (
-      <>
-        Smoking salmon, wood-fired pizza, fish dishes that take all weekend.{" "}
-        <strong>The content-design analogue of slow craft.</strong>
-      </>
-    ),
-  },
-  {
-    label: "Photography",
-    text: (
-      <>
-        Street and family work, mostly on a Leica D-Lux 7. The discipline of{" "}
-        <strong>noticing what&rsquo;s already there.</strong>
-      </>
-    ),
-  },
-  {
-    label: "Korean cinema",
-    text: (
-      <>
-        Anything Park Chan-wook, Bong Joon-ho, or the Lee Chang-dong school.{" "}
-        <strong>Master classes in narrative restraint.</strong>
-      </>
-    ),
-  },
-  {
-    label: "Languages",
-    text: (
-      <>
-        Fluent in <strong>English, Portuguese, and Spanish.</strong>{" "}
-        Anthropology background — language is the thing I think about most.
-      </>
-    ),
-  },
-  {
-    label: "Heritage menswear",
-    text: (
-      <>
-        Drake&rsquo;s, J.Press, Norse Projects, A.P.C.{" "}
-        <strong>Continental workwear intellectualism,</strong> if you must.
-      </>
-    ),
-  },
-  {
-    label: "Family",
-    text: (
-      <>
-        Two daughters and a partner in Seattle.{" "}
-        <strong>The audience that demands my best writing.</strong>
-      </>
-    ),
-  },
-];
 
 export default function AboutPage() {
   return (
     <>
       <header className="about-hero">
         <div className="wrap">
-          <div className="about-hero-grid">
-            <div>
-              <div className="about-eyebrow">From the publisher&rsquo;s desk</div>
-              <h1 className="about-headline">
-                A content canary in the{" "}
-                <span className="accent">data mine.</span>
-              </h1>
-              <p className="about-intro">
-                I&rsquo;m Mohammed Raza, a{" "}
-                <strong>
-                  content designer, engineer, and strategist
-                </strong>{" "}
-                with eight years across Amazon Prime, Crunchyroll, Shopify,
-                TurboTax, and Alaska Airlines. My work is surfacing what
-                would break trust before it ships, then building the content
-                systems and culture that scale that judgment across every
-                team.
-              </p>
-            </div>
-            <div className="about-photo">
-              {/* TODO: real halftone-treated photo */}
-              <span>
-                [photo of Mohammed
-                <br />
-                halftone-treated B&amp;W portrait
-                <br />
-                indoor light · Seattle 2026]
-              </span>
-            </div>
-          </div>
+          <div className="about-eyebrow">About me</div>
+          <h1 className="about-headline">
+            The person behind the <span className="accent">words</span>.
+          </h1>
+          <p className="about-intro">
+            An anthropologist at heart, I found my love for content design when
+            I realized the power language has to help people gain agency over
+            their lives, feel respected, and find inspiration.
+          </p>
         </div>
       </header>
 
       <section className="about-section">
-        <div className="wrap">
-          <div className="section-eyebrow">How I work</div>
+        <div className="wrap-narrow">
+          <div className="section-eyebrow">Origins</div>
           <h2 className="section-title">
-            Four tracks, run in <span className="accent">parallel</span>.
+            A childhood between Karachi and{" "}
+            <span className="accent">Abu Dhabi</span>.
           </h2>
           <div className="body-prose">
             <p>
-              Every project I take on lives across these four tracks at the
-              same time. The job isn&rsquo;t to pick one. It&rsquo;s to know
-              which is leading at any given moment, and which the others are
-              quietly serving.
+              I spent most of my youth growing up between Pakistan, where I
+              was born, and the United Arab Emirates. Eating shawarmas and
+              fruit cocktails in Abu Dhabi, and playing cricket in the middle
+              of the street in my childhood gully in Karachi.
             </p>
           </div>
-          <div className="tracks-grid">
-            {tracks.map((t) => (
-              <div className="track-card" data-color={t.color} key={t.num}>
-                <div className="track-card-num">{t.num}</div>
-                <div className="track-card-title">{t.title}</div>
-                <div className="track-card-body">{t.body}</div>
-              </div>
-            ))}
-          </div>
+          <figure className="story-photo" data-shadow="canary">
+            <img
+              src="/images/about-karachi.jpg"
+              alt="Sadequain's Earth and Heavens at Frere Hall, Karachi"
+            />
+          </figure>
+          <p className="story-caption">
+            One of my favorite works of art. Sadequain&rsquo;s &ldquo;Earth and
+            Heavens&rdquo; was left unfinished due to his passing. Frere Hall,
+            Karachi, Pakistan.
+          </p>
         </div>
       </section>
 
       <section className="about-section">
-        <div className="wrap">
-          <div className="section-eyebrow">What I&rsquo;ve shipped</div>
+        <div className="wrap-narrow">
+          <div className="section-eyebrow">Language &amp; anthropology</div>
           <h2 className="section-title">
-            Eight years, four orgs,{" "}
-            <span className="accent">a billion-plus</span> users reached.
+            Studying how language gives people{" "}
+            <span className="accent">agency</span>.
           </h2>
           <div className="body-prose">
             <p>
-              The numbers below aren&rsquo;t the work — the case studies are.
-              But they answer the question scanners ask first:{" "}
-              <em>can this person operate at the scale I need?</em>
+              After moving to the United States and developing a love for
+              anthropology during my school years, I decided to study
+              Portuguese, Education, and Anthropology of Globalization. I
+              wanted to understand how people use language to gain agency over
+              their lives, feel respected, and find inspiration through
+              storytelling.
             </p>
           </div>
-          <div className="shipped-grid">
-            <div className="shipped-tile">
-              <div className="shipped-num">
-                <span className="accent">1B+</span>
-              </div>
-              <div className="shipped-label">
-                Users reached across products shipped
-              </div>
-            </div>
-            <div className="shipped-tile">
-              <div className="shipped-num">400M</div>
-              <div className="shipped-label">
-                AI-personalized moments at Prime
-              </div>
-            </div>
-            <div className="shipped-tile">
-              <div className="shipped-num">22</div>
-              <div className="shipped-label">
-                Product surfaces shipped end-to-end
-              </div>
-            </div>
-            <div className="shipped-tile">
-              <div className="shipped-num">15</div>
-              <div className="shipped-label">
-                Teams adopted my frameworks org-wide
-              </div>
-            </div>
-          </div>
+          <figure className="story-photo" data-shadow="coral">
+            <img
+              src="/images/about-lisbon.jpeg"
+              alt="Carmo Archaeological Museum, Lisbon"
+            />
+          </figure>
+          <p className="story-caption">
+            The Carmo Archaeological Museum. Lisbon is a standing memory of
+            the infamous 1755 Lisbon Earthquake.
+          </p>
         </div>
       </section>
 
       <section className="about-section">
-        <div className="wrap">
-          <div className="section-eyebrow">Career arc</div>
+        <div className="wrap-narrow">
+          <div className="section-eyebrow">Travel</div>
           <h2 className="section-title">
-            From founding the craft to scaling the systems.
+            Peru, Cuba, and a Zaha Hadid building in{" "}
+            <span className="accent">Seoul</span>.
           </h2>
-          <div className="timeline">
-            {timeline.map((row) => (
-              <div className="timeline-row" key={row.date}>
-                <div className="timeline-date">{row.date}</div>
-                <div className="timeline-content">
-                  <div className="timeline-role">{row.role}</div>
-                  <div className="timeline-org">{row.org}</div>
-                  <div className="timeline-body">{row.body}</div>
-                </div>
-              </div>
-            ))}
+          <div className="body-prose">
+            <p>
+              When I&rsquo;m not nerding out on design and language, I love to
+              travel. Some favorite spots have been Peru for its incredible
+              cuisine and natural beauty, Cuba for Cold War history, cigars,
+              and perseverance, and South Korea for its beautiful
+              architecture, like Zaha Hadid&rsquo;s Dongdaemun Design Plaza.
+            </p>
           </div>
-        </div>
-      </section>
 
-      <section className="about-section">
-        <div className="wrap">
-          <div className="section-eyebrow">Beyond the page</div>
-          <h2 className="section-title">
-            A few things I&rsquo;m into when I&rsquo;m not{" "}
-            <span className="accent">writing</span>.
-          </h2>
-          <div className="beyond-grid">
-            {beyond.map((b) => (
-              <div className="beyond-card" key={b.label}>
-                <div className="beyond-card-label">{b.label}</div>
-                <div className="beyond-card-text">{b.text}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="wrap">
-        <section className="about-contact">
-          <div className="about-contact-grid">
+          <div className="story-photo-grid">
             <div>
-              <div className="about-contact-title">
-                Looking for a{" "}
-                <span className="accent">senior IC, lead, or staff</span>{" "}
-                content designer?
-              </div>
-              <div className="about-contact-body">
-                AI-native content systems and growth-stage products preferred.
-                Remote, hybrid Seattle, or relocating. Available for
-                full-time roles, commissions, talks, and audits.
-              </div>
+              <figure className="story-photo" data-shadow="matcha">
+                <img src="/images/about-cuba.jpeg" alt="Street art in Havana, Cuba" />
+              </figure>
+              <p className="story-caption">Havana, Cuba</p>
             </div>
-            <div className="about-contact-actions">
-              <a className="btn" href="mailto:hello@razacontent.com">
-                ✉ Email Mohammed
-              </a>
-              <a className="btn outline" href="/resume">
-                ↗ See the resume
-              </a>
+            <div>
+              <figure className="story-photo" data-shadow="blue">
+                <img src="/images/about-peru.jpeg" alt="Machu Picchu, Peru" />
+              </figure>
+              <p className="story-caption">Machu Picchu, Peru</p>
             </div>
           </div>
-        </section>
+
+          <figure className="story-photo" data-shadow="ink">
+            <img
+              src="/images/about-korea.jpeg"
+              alt="Dongdaemun Design Plaza, Seoul"
+            />
+          </figure>
+          <p className="story-caption">
+            Dongdaemun Design Plaza by Zaha Hadid. Seoul, South Korea.
+          </p>
+        </div>
+      </section>
+
+      <section className="about-section">
+        <div className="wrap-narrow">
+          <div className="section-eyebrow">Family</div>
+          <h2 className="section-title">
+            My boss-wife. Her{" "}
+            <span className="accent">apprentice</span>.
+          </h2>
+          <figure className="story-photo" data-shadow="canary">
+            <img
+              src="/images/about-seattle.jpeg"
+              alt="Lissy and Fizza by the water in West Seattle"
+            />
+          </figure>
+          <p className="story-caption">
+            West Seattle, by the water near our home.
+          </p>
+          <div className="body-prose" style={{ marginTop: 24 }}>
+            <p>
+              That&rsquo;s my boss-wife Lissy and her apprentice, I mean our
+              daughter, Fizza. We love taking strolls by the water close to
+              our home in West Seattle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-section">
+        <div className="wrap-narrow">
+          <div className="section-eyebrow">Beyond work</div>
+          <h2 className="section-title">
+            Coffee, cinema, and political{" "}
+            <span className="accent">philosophy</span>.
+          </h2>
+          <div className="beyond-work-grid">
+            <div>
+              <p>
+                Besides travel, I&rsquo;m a huge fan of coffee and cafe
+                culture, a huge cinephile (I imagine being an actor turned
+                director in another life), and political science and
+                philosophy.
+              </p>
+              <p>
+                Feel free to reach out to chat about anything above at{" "}
+                <a href="mailto:mohammed@razacontent.com">
+                  mohammed@razacontent.com
+                </a>
+                .
+              </p>
+            </div>
+            <figure className="story-photo" data-shadow="coral">
+              <img
+                src="/images/about-home.jpeg"
+                alt="Mohammed and daughter napping"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <div className="wrap-narrow">
+        <div className="about-fin">
+          <div className="fin-mark">Fin!</div>
+          <div className="fin-meta">
+            Mohammed Raza · Senior Content Designer · razacontent.com
+          </div>
+        </div>
       </div>
     </>
   );

@@ -2100,3 +2100,82 @@ a, button, .cover, .key, [role="button"] {
   .skills-grid { grid-template-columns: 1fr; gap: 8px 0; }
   .skills-cat { padding-top: 0; }
 }
+
+/* ─── ABOUT: STORY PHOTOS ─── */
+.story-photo {
+  margin: 28px 0;
+  border: 3px solid var(--ink);
+  background: var(--paper);
+  position: relative;
+  box-shadow: 8px 8px 0 var(--canary);
+}
+.story-photo[data-shadow="coral"]  { box-shadow: 8px 8px 0 var(--coral); }
+.story-photo[data-shadow="matcha"] { box-shadow: 8px 8px 0 var(--matcha); }
+.story-photo[data-shadow="blue"]   { box-shadow: 8px 8px 0 var(--blue); }
+.story-photo[data-shadow="ink"]    { box-shadow: 8px 8px 0 var(--ink); }
+.story-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.story-caption {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--canary-deep);
+  font-weight: 700;
+  margin: 14px 0 0;
+  line-height: 1.5;
+}
+.story-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 28px 0;
+}
+.story-photo-grid .story-photo { margin: 0; }
+
+.beyond-work-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 28px;
+}
+.beyond-work-grid p { margin-bottom: 14px; line-height: 1.7; color: var(--ink-soft); }
+.beyond-work-grid p strong { color: var(--ink); font-weight: 700; }
+.beyond-work-grid a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.beyond-work-grid a:hover { color: var(--canary-deep); }
+
+.about-fin {
+  text-align: center;
+  margin: 64px 0 24px;
+}
+.about-fin .fin-mark {
+  font-family: var(--hand);
+  font-size: 56px;
+  color: var(--ink);
+  line-height: 1;
+  display: inline-block;
+  transform: rotate(-3deg);
+}
+.about-fin .fin-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-mid);
+  font-weight: 700;
+  margin-top: 18px;
+}
+
+@media (max-width: 720px) {
+  .story-photo-grid { grid-template-columns: 1fr; }
+  .beyond-work-grid { grid-template-columns: 1fr; }
+}
