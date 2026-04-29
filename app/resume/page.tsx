@@ -241,12 +241,12 @@ export default function ResumePage() {
               <div className="skills-grid" key={cat.cat}>
                 <div className="skills-cat">{cat.cat}</div>
                 <div className="skills-list">
-                  {cat.items.map((s) => (
-                    <span
-                      key={s.label}
-                      className={s.canary ? "skill canary" : "skill"}
-                    >
-                      {s.label}
+                  {cat.items.map((s, i) => (
+                    <span key={s.label}>
+                      <span className={s.canary ? "primary" : undefined}>
+                        {s.label}
+                      </span>
+                      {i < cat.items.length - 1 ? ", " : "."}
                     </span>
                   ))}
                 </div>
