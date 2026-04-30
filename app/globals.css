@@ -85,9 +85,11 @@ body::before {
   opacity: 0.35; mix-blend-mode: multiply;
 }
 
+html { cursor: default; }
 a, button, .cover, .key, [role="button"] {
   cursor: var(--cursor-hand), pointer;
 }
+input, textarea { cursor: text; }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
 
