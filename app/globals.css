@@ -1041,17 +1041,18 @@ input, textarea { cursor: text; }
   position: relative; z-index: 1;
 }
 .contact-image {
-  position: relative; z-index: 1;
-  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  z-index: 1;
   background: var(--paper-warm);
   border-left: 3px solid var(--ink);
   overflow: hidden;
+  aspect-ratio: 1 / 1;
+  min-height: 240px;
 }
 .contact-image img {
   display: block;
   width: 100%;
   height: 100%;
-  max-height: 320px;
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
 }
