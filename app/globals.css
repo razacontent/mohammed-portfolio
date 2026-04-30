@@ -462,16 +462,16 @@ a, button, .cover, .key, [role="button"] {
   top: 50%;
   right: 32px;
   transform: translateY(-50%);
-  width: 76px;
-  height: 76px;
+  width: 104px;
+  height: 104px;
   background: var(--paper);
   border: 3px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--canary);
+  box-shadow: 8px 8px 0 var(--canary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--display);
-  font-size: 50px;
+  font-size: 72px;
   font-weight: 800;
   line-height: 1;
   color: var(--ink);
@@ -482,7 +482,7 @@ a, button, .cover, .key, [role="button"] {
 }
 .rack-arrow:hover {
   background: var(--canary);
-  box-shadow: 8px 8px 0 var(--ink);
+  box-shadow: 10px 10px 0 var(--ink);
   transform: translateY(-50%) translateX(-2px);
   animation: none;
 }
@@ -508,7 +508,7 @@ a, button, .cover, .key, [role="button"] {
 /* ─── MAGAZINE COVER ─── */
 .cover {
   position: relative;
-  flex: 0 0 380px;
+  flex: 0 0 440px;
   scroll-snap-align: start;
   background: var(--paper);
   border: 3px solid var(--ink);
@@ -556,7 +556,7 @@ a, button, .cover, .key, [role="button"] {
 }
 .cover-mast {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-bottom: 2px solid var(--ink);
   background: var(--paper);
   position: relative;
@@ -564,49 +564,49 @@ a, button, .cover, .key, [role="button"] {
 }
 .cover-mast-org {
   font-family: var(--display);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--ink);
-  display: flex; align-items: baseline; gap: 8px;
+  display: flex; align-items: baseline; gap: 10px;
 }
 .cover-mast-org::before {
   content: "";
   display: inline-block;
-  width: 8px; height: 8px;
+  width: 10px; height: 10px;
   background: var(--accent);
   border: 1.5px solid var(--ink);
   flex-shrink: 0;
   transform: translateY(-1px);
 }
 .cover-mast-meta {
-  font-family: var(--mono); font-size: 9px;
+  font-family: var(--mono); font-size: 11px;
   text-transform: uppercase; letter-spacing: 0.16em;
   font-weight: 700;
   color: var(--ink-mid);
 }
 .cover-mast-meta strong { color: var(--ink); font-weight: 700; }
 .cover-head {
-  padding: 22px 24px 22px;
+  padding: 26px 28px 24px;
   background: var(--paper);
   position: relative;
 }
 .cover-theme {
-  font-family: var(--mono); font-size: 10px;
+  font-family: var(--mono); font-size: 11px;
   text-transform: uppercase; letter-spacing: 0.18em;
   font-weight: 700;
   color: var(--accent-deep);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .cover-theme::before { content: "★ "; color: var(--accent); }
 .cover-headline {
   font-family: var(--display);
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .cover-headline .accent {
   background: var(--accent); color: var(--ink);
@@ -619,22 +619,21 @@ a, button, .cover, .key, [role="button"] {
 .cover:nth-child(4) .cover-headline .accent { color: var(--paper); }
 .cover-hook {
   font-family: var(--display);
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--ink-mid);
-  font-style: italic;
-  border-left: 3px solid var(--accent);
-  padding-left: 10px;
-  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin-top: 12px;
 }
 .cover-art {
-  padding: 18px 24px 16px;
+  padding: 22px 28px 20px;
   border-top: 2px solid var(--ink);
   border-bottom: 2px solid var(--ink);
   background: var(--paper);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 14px;
   position: relative;
 }
 .cover-art::before {
@@ -648,26 +647,26 @@ a, button, .cover, .key, [role="button"] {
 }
 .icon-cell {
   display: flex; flex-direction: column;
-  align-items: center; gap: 6px;
+  align-items: center; gap: 8px;
   position: relative; z-index: 1;
 }
 .icon-cell svg {
   color: var(--ink);
   stroke-width: 1.8;
   background: var(--paper);
-  padding: 6px;
+  padding: 7px;
   border: 2px solid var(--ink);
-  width: 48px; height: 48px;
+  width: 58px; height: 58px;
   transition: background 250ms;
 }
 .cover.visible:hover .icon-cell svg { background: var(--accent); }
 .icon-label {
-  font-family: var(--mono); font-size: 9px;
+  font-family: var(--mono); font-size: 10px;
   text-transform: uppercase; letter-spacing: 0.14em;
   font-weight: 700;
   color: var(--ink-soft);
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 .cover-body {
   display: grid;
@@ -676,7 +675,7 @@ a, button, .cover, .key, [role="button"] {
   border-bottom: 2px solid var(--ink);
 }
 .cover-section {
-  padding: 16px 18px;
+  padding: 20px 22px;
   display: flex; flex-direction: column;
 }
 .cover-section + .cover-section {
@@ -687,27 +686,28 @@ a, button, .cover, .key, [role="button"] {
   color: var(--paper);
 }
 .cover-section-label {
-  font-family: var(--mono); font-size: 9px;
+  font-family: var(--mono); font-size: 10px;
   text-transform: uppercase; letter-spacing: 0.18em;
   font-weight: 700;
-  margin-bottom: 10px;
-  padding-bottom: 6px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1.5px solid currentColor;
-  display: flex; gap: 6px; align-items: center;
+  display: flex; gap: 8px; align-items: center;
 }
 .cover-section-label .lbl-num {
   font-family: var(--display);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .cover-section.impact .cover-section-label .lbl-num { color: var(--accent); }
 .cover-section ul { list-style: none; padding: 0; margin: 0; }
 .cover-section li {
-  font-family: var(--display); font-size: 12px;
-  line-height: 1.4;
-  padding: 3px 0;
-  font-weight: 500;
-  display: flex; gap: 6px; align-items: flex-start;
+  font-family: var(--display); font-size: 14px;
+  line-height: 1.5;
+  padding: 4px 0;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex; gap: 8px; align-items: flex-start;
 }
 .cover-section li::before {
   content: "•";
@@ -1047,7 +1047,9 @@ a, button, .cover, .key, [role="button"] {
 
 /* ─── HOMEPAGE RESPONSIVE ─── */
 @media (max-width: 920px) {
-  .cover { flex: 0 0 320px; }
+  .cover { flex: 0 0 380px; }
+  .cover-headline { font-size: 28px; }
+  .rack-arrow { width: 80px; height: 80px; font-size: 56px; }
   .publisher-grid { grid-template-columns: 1fr; }
   .pub-photo { border-left: none; border-top: 3px solid var(--ink); aspect-ratio: 16/9; }
   .contact-grid { grid-template-columns: 1fr; }
