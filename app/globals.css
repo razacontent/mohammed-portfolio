@@ -462,16 +462,16 @@ a, button, .cover, .key, [role="button"] {
   top: 50%;
   right: 32px;
   transform: translateY(-50%);
-  width: 56px;
-  height: 56px;
+  width: 76px;
+  height: 76px;
   background: var(--paper);
   border: 3px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--canary);
+  box-shadow: 6px 6px 0 var(--canary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--display);
-  font-size: 36px;
+  font-size: 50px;
   font-weight: 800;
   line-height: 1;
   color: var(--ink);
@@ -482,7 +482,7 @@ a, button, .cover, .key, [role="button"] {
 }
 .rack-arrow:hover {
   background: var(--canary);
-  box-shadow: 7px 7px 0 var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
   transform: translateY(-50%) translateX(-2px);
   animation: none;
 }
