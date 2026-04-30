@@ -36,26 +36,28 @@ export default function BookRack() {
 
   return (
     <div className="rack-outer">
-      <div className="rack-shelf" ref={shelfRef}>
-        {caseStudies.map((study) => (
-          <Cover key={study.slug} study={study} />
-        ))}
-      </div>
-      <button
-        type="button"
-        className="rack-arrow"
-        aria-label="Scroll the rack"
-        onClick={scrollRight}
-      >
-        <svg
-          viewBox="0 0 100 50"
-          fill="currentColor"
-          aria-hidden="true"
-          focusable="false"
+      <div className="rack-row">
+        <div className="rack-shelf" ref={shelfRef}>
+          {caseStudies.map((study) => (
+            <Cover key={study.slug} study={study} />
+          ))}
+        </div>
+        <button
+          type="button"
+          className="rack-arrow"
+          aria-label="Scroll the rack"
+          onClick={scrollRight}
         >
-          <path d="M2 18 L60 18 L60 4 L98 25 L60 46 L60 32 L2 32 Z" />
-        </svg>
-      </button>
+          <svg
+            viewBox="0 0 100 50"
+            fill="currentColor"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M2 18 L60 18 L60 4 L98 25 L60 46 L60 32 L2 32 Z" />
+          </svg>
+        </button>
+      </div>
       <div className="rack-shelf-line" />
     </div>
   );
