@@ -2581,3 +2581,15 @@ a, button, .cover, .key, [role="button"] {
 .prime-v2 .milestones-hero-text h3 { font-size: 22px !important; margin: 0 0 0.25rem !important; }
 .prime-v2 .milestones-hero-text p { font-size: 14px; }
 .prime-v2 .surface-gallery { margin: 1.75rem 0; }
+
+/* ─── PRIME v2 — stat tile hover (apply featured look on hover) ─── */
+.prime-v2 .stat-tile {
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
+  cursor: var(--cursor-hand), pointer;
+}
+.prime-v2 .stat-tile:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.prime-v2 .stat-tile:hover .stat-num { color: var(--canary); }
+.prime-v2 .stat-tile:hover .stat-label { color: rgba(245, 241, 232, 0.75); }
