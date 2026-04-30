@@ -7,16 +7,19 @@ export const metadata = {
     "Issue №01 · Amazon Prime · Rewriting how Prime earns loyalty · razacontent",
 };
 
-const html = fs.readFileSync(
-  path.join(process.cwd(), "app/work/amazon-prime/case-study.html"),
-  "utf8",
-);
-
 export default function AmazonPrimePage() {
+  const html = fs.readFileSync(
+    path.join(process.cwd(), "app/work/amazon-prime/case-study.html"),
+    "utf8",
+  );
   return (
     <>
       <PrimeTabsObserver />
-      <div className="prime-v2" dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        className="zine"
+        data-issue="prime"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </>
   );
 }

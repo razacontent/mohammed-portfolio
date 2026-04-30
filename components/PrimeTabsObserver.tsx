@@ -4,9 +4,9 @@ import { useEffect } from "react";
 
 export default function PrimeTabsObserver() {
   useEffect(() => {
-    const tabs = document.querySelectorAll<HTMLElement>(".prime-v2 .tab");
+    const tabs = document.querySelectorAll<HTMLElement>(".zine .tab");
     const sections = document.querySelectorAll<HTMLElement>(
-      '.prime-v2 section[id^="part-"]',
+      '.zine section[id^="part-"]',
     );
     if (!("IntersectionObserver" in window) || !sections.length) return;
     const observer = new IntersectionObserver(
