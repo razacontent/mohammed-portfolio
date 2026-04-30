@@ -1,7 +1,6 @@
 import LockScreen from "@/components/LockScreen";
 import Hero from "@/components/Hero";
 import BookRack from "@/components/BookRack";
-import PublishersDesk from "@/components/PublishersDesk";
 import ContactBlock from "@/components/ContactBlock";
 import Reveal from "@/components/Reveal";
 
@@ -22,7 +21,6 @@ export default function HomePage() {
         <BookRack />
       </div>
       <div className="wrap">
-        <PublishersDesk />
         <ContactBlock />
       </div>
     </>
