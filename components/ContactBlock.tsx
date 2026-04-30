@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Reveal from "./Reveal";
 
 export default function ContactBlock() {
@@ -8,28 +7,25 @@ export default function ContactBlock() {
         <div className="contact-grid">
           <div className="contact-text">
             <h2>Reach out.</h2>
-            <div className="contact-actions">
-              <a className="btn" href="mailto:mohammed@razacontent.com">
-                ✉ Email Mohammed
-              </a>
-              <a
-                className="btn outline"
-                href="https://linkedin.com/in/razamohammed"
-              >
-                → LinkedIn
-              </a>
-              <a className="btn outline" href="/resume">
-                ↗ Resume
-              </a>
-            </div>
+            <p>
+              Open to <strong>senior IC, content design lead, or staff IC</strong>{" "}
+              roles. AI-native content systems and growth-stage products
+              preferred. Remote, hybrid Seattle, or relocating.
+            </p>
           </div>
-          <div className="contact-image">
-            <img
-              src="/images/canary-portrait.png"
-              alt="The razacontent canary mascot"
-              width={1024}
-              height={1024}
-            />
+          <div className="contact-actions">
+            <a className="btn" href="mailto:mohammed@razacontent.com">
+              ✉ Email Mohammed
+            </a>
+            <a
+              className="btn outline"
+              href="https://linkedin.com/in/razamohammed"
+            >
+              → LinkedIn
+            </a>
+            <a className="btn outline" href="/resume">
+              ↗ Resume
+            </a>
           </div>
         </div>
       </div>

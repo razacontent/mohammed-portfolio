@@ -1,6 +1,13 @@
 export default function Hero() {
   return (
     <section className="hero">
+      <img
+        className="hero-canary"
+        src="/images/canary-portrait.png"
+        alt="The razacontent canary mascot"
+        width={1024}
+        height={1024}
+      />
       <div className="hero-inner">
         <div className="hero-eyebrow">Editor &amp; Author · est. 2017</div>
 
