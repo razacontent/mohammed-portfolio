@@ -2235,7 +2235,8 @@ input, textarea { cursor: text; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AMAZON PRIME v2 CASE STUDY (scoped under .zine)
+   ZINE — case study layout (Amazon Prime · Shopify · TurboTax · Crunchyroll)
+   Scope: .zine. Per-case accent set via [data-issue="..."]
    ═══════════════════════════════════════════════════════════════ */
 .zine { background: var(--paper); color: var(--ink-soft); }
 
