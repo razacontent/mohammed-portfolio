@@ -457,6 +457,40 @@ a, button, .cover, .key, [role="button"] {
 .rack-shelf::-webkit-scrollbar { height: 8px; }
 .rack-shelf::-webkit-scrollbar-track { background: var(--ink-15); }
 .rack-shelf::-webkit-scrollbar-thumb { background: var(--ink); }
+.rack-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--canary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+  z-index: 5;
+  cursor: var(--cursor-hand), pointer;
+  transition: transform 200ms var(--ease-bounce), box-shadow 200ms var(--ease-out);
+  animation: rackNudge 1.8s ease-in-out infinite;
+}
+.rack-arrow:hover {
+  background: var(--canary);
+  box-shadow: 7px 7px 0 var(--ink);
+  transform: translateY(-50%) translateX(-2px);
+  animation: none;
+}
+@keyframes rackNudge {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50%      { transform: translateY(-50%) translateX(6px); }
+}
+
 .rack-shelf-line {
   height: 8px;
   background: var(--ink);

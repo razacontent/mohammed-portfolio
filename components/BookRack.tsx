@@ -28,6 +28,12 @@ export default function BookRack() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollRight = () => {
+    const shelf = shelfRef.current;
+    if (!shelf) return;
+    shelf.scrollBy({ left: 408, behavior: "smooth" });
+  };
+
   return (
     <div className="rack-outer">
       <div className="rack-shelf" ref={shelfRef}>
@@ -35,6 +41,14 @@ export default function BookRack() {
           <Cover key={study.slug} study={study} />
         ))}
       </div>
+      <button
+        type="button"
+        className="rack-arrow"
+        aria-label="Scroll the rack"
+        onClick={scrollRight}
+      >
+        ›
+      </button>
       <div className="rack-shelf-line" />
     </div>
   );
