@@ -2593,3 +2593,4 @@ a, button, .cover, .key, [role="button"] {
 }
 .prime-v2 .stat-tile:hover .stat-num { color: var(--canary); }
 .prime-v2 .stat-tile:hover .stat-label { color: rgba(245, 241, 232, 0.75); }
+/* trigger HMR */
