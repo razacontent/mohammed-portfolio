@@ -24,7 +24,12 @@ export default function ContactBlock() {
             </div>
           </div>
           <div className="contact-image">
-            <img src="/images/canary-portrait.png" alt="The razacontent canary mascot" />
+            <img
+              src="/images/canary-portrait.png"
+              alt="The razacontent canary mascot"
+              width={1024}
+              height={1024}
+            />
           </div>
         </div>
       </div>
