@@ -448,7 +448,7 @@ a, button, .cover, .key, [role="button"] {
   gap: 28px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 40px 32px 48px 8px;
+  padding: 40px 40px 48px 40px;
   scrollbar-width: thin;
   scrollbar-color: var(--ink) var(--ink-15);
 }
