@@ -10,24 +10,10 @@ const experience = [
     date: "2022 — 2025",
     org: "Amazon Prime · Worldwide Membership & Personalization",
     bullets: [
-      <>
-        Built the <strong>Value Communication Framework</strong> end-to-end
-        (research, writing, experiments, regional rollout); attributed to{" "}
-        <strong>+77K members retained annually.</strong>
-      </>,
-      <>
-        Designed AI content schemas, voice framework, and content data model
-        adopted by <strong>15 teams and 3 GenAI programs</strong> at Prime.
-      </>,
-      <>
-        Shipped{" "}
-        <strong>400M+ AI-personalized lifecycle moments</strong> across 22
-        product surfaces and 9 regions.
-      </>,
-      <>
-        Partnered with retention, growth, AI, and personalization orgs to
-        embed the framework as strategic infrastructure for Prime growth.
-      </>,
+      "Built the Value Communication Framework end-to-end (research, writing, experiments, regional rollout); attributed to +77K members retained annually.",
+      "Designed AI content schemas, voice framework, and content data model adopted by 15 teams and 3 GenAI programs at Prime.",
+      "Shipped 400M+ AI-personalized lifecycle moments across 22 product surfaces and 9 regions.",
+      "Partnered with retention, growth, AI, and personalization orgs to embed the framework as strategic infrastructure for Prime growth.",
     ],
   },
   {
@@ -35,26 +21,10 @@ const experience = [
     date: "2020 — 2022",
     org: "Crunchyroll · Anime Streaming",
     bullets: [
-      <>
-        Joined as the only content designer at a{" "}
-        <strong>13M+ subscriber service.</strong> Established the craft,
-        socialized it across the org, enabled PMs, brand, and growth as
-        writing partners.
-      </>,
-      <>
-        Wrote brand voice, product writing principles, and the strings
-        powering <strong>free-to-premium upgrade flow</strong> and{" "}
-        <strong>ad-tier launch conversion funnel.</strong>
-      </>,
-      <>
-        Embedded content design into membership growth, monetization, and
-        the everyday product experience: in-app messaging, queue/watchlist,
-        recommendations.
-      </>,
-      <>
-        Codified writing review systems that let partner teams ship
-        voice-aligned copy without bottlenecking on me.
-      </>,
+      "Joined as the only content designer at a 13M+ subscriber service. Established the craft, socialized it across the org, enabled PMs, brand, and growth as writing partners.",
+      "Wrote brand voice, product writing principles, and the strings powering free-to-premium upgrade flow and ad-tier launch conversion funnel.",
+      "Embedded content design into membership growth, monetization, and the everyday product experience: in-app messaging, queue/watchlist, recommendations.",
+      "Codified writing review systems that let partner teams ship voice-aligned copy without bottlenecking on me.",
     ],
   },
   {
@@ -62,18 +32,9 @@ const experience = [
     date: "2019 — 2020",
     org: "Shopify · Merchant Analytics",
     bullets: [
-      <>
-        Diagnosed analytics adoption failure as IA, not user sophistication.
-        Restructured the dashboard around real merchant decisions.
-      </>,
-      <>
-        Lifted trust scores <strong>+18 points</strong> and rebuilt adoption
-        from a 12% baseline. Pattern adopted as the merchant analytics
-        template across Shopify.
-      </>,
-      <>
-        Influenced merchants doing <strong>$200B+ in GMV</strong> annually.
-      </>,
+      "Diagnosed analytics adoption failure as IA, not user sophistication. Restructured the dashboard around real merchant decisions.",
+      "Lifted trust scores +18 points and rebuilt adoption from a 12% baseline. Pattern adopted as the merchant analytics template across Shopify.",
+      "Influenced merchants doing $200B+ in GMV annually.",
     ],
   },
   {
@@ -81,19 +42,9 @@ const experience = [
     date: "2018 — 2019",
     org: "Intuit / TurboTax · Filing Compliance",
     bullets: [
-      <>
-        Rewrote a high-stakes tax compliance form line by line with legal.
-        Translated regulatory language into plain-English strings users
-        could finish.
-      </>,
-      <>
-        Built the <strong>four-point clarity standard</strong> adopted
-        across compliance flows. Recovered an abandoned filing flow with
-        zero legal rejections.
-      </>,
-      <>
-        Influenced filing for <strong>50M+ TurboTax users.</strong>
-      </>,
+      "Rewrote a high-stakes tax compliance form line by line with legal. Translated regulatory language into plain-English strings users could finish.",
+      "Built the four-point clarity standard adopted across compliance flows. Recovered an abandoned filing flow with zero legal rejections.",
+      "Influenced filing for 50M+ TurboTax users.",
     ],
   },
   {
@@ -101,14 +52,8 @@ const experience = [
     date: "2017 — 2018",
     org: "Alaska Airlines · Booking & Loyalty",
     bullets: [
-      <>
-        First content design role. Wrote booking, mobile app, and Mileage
-        Plan loyalty strings.
-      </>,
-      <>
-        Learned the discipline of writing under regulatory, operational, and
-        brand constraints.
-      </>,
+      "First content design role. Wrote booking, mobile app, and Mileage Plan loyalty strings.",
+      "Learned the discipline of writing under regulatory, operational, and brand constraints.",
     ],
   },
 ];
@@ -117,45 +62,45 @@ const skills = [
   {
     cat: "AI · Systems",
     items: [
-      { label: "Content schemas", canary: true },
-      { label: "Voice frameworks", canary: true },
-      { label: "AI taxonomies", canary: true },
-      { label: "GenAI prompt design" },
-      { label: "Content data models" },
-      { label: "Lifecycle taxonomies" },
+      "Content schemas",
+      "Voice frameworks",
+      "AI taxonomies",
+      "GenAI prompt design",
+      "Content data models",
+      "Lifecycle taxonomies",
     ],
   },
   {
     cat: "Writing · Craft",
     items: [
-      { label: "UX writing", canary: true },
-      { label: "Content design", canary: true },
-      { label: "Plain-language frameworks" },
-      { label: "Localization-ready copy" },
-      { label: "A/B copy testing" },
-      { label: "Brand voice" },
-      { label: "Naming & IA" },
+      "UX writing",
+      "Content design",
+      "Plain-language frameworks",
+      "Localization-ready copy",
+      "A/B copy testing",
+      "Brand voice",
+      "Naming & IA",
     ],
   },
   {
     cat: "Strategy · Org",
     items: [
-      { label: "Founding content design", canary: true },
-      { label: "Partner enablement" },
-      { label: "Cross-functional leadership" },
-      { label: "Practitioner-led research" },
-      { label: "Legal & compliance partnership" },
+      "Founding content design",
+      "Partner enablement",
+      "Cross-functional leadership",
+      "Practitioner-led research",
+      "Legal & compliance partnership",
     ],
   },
   {
     cat: "Tools",
     items: [
-      { label: "Figma" },
-      { label: "Notion" },
-      { label: "Lokalise" },
-      { label: "Mixpanel · Amplitude" },
-      { label: "Claude · GPT-4" },
-      { label: "React (read-level)" },
+      "Figma",
+      "Notion",
+      "Lokalise",
+      "Mixpanel · Amplitude",
+      "Claude · GPT-4",
+      "React (read-level)",
     ],
   },
 ];
@@ -180,8 +125,8 @@ export default function ResumePage() {
               Senior Content Designer · Engineer · Strategist
             </div>
             <div className="resume-contacts">
-              <a href="mailto:hello@razacontent.com">
-                hello@razacontent.com
+              <a href="mailto:mohammed@razacontent.com">
+                mohammed@razacontent.com
               </a>
               <span className="sep">·</span>
               <a href="https://razacontent.com">razacontent.com</a>
@@ -240,16 +185,7 @@ export default function ResumePage() {
             {skills.map((cat) => (
               <div className="skills-grid" key={cat.cat}>
                 <div className="skills-cat">{cat.cat}</div>
-                <div className="skills-list">
-                  {cat.items.map((s, i) => (
-                    <span key={s.label}>
-                      <span className={s.canary ? "primary" : undefined}>
-                        {s.label}
-                      </span>
-                      {i < cat.items.length - 1 ? ", " : "."}
-                    </span>
-                  ))}
-                </div>
+                <div className="skills-list">{cat.items.join(", ")}.</div>
               </div>
             ))}
           </section>

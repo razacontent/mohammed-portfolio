@@ -2047,10 +2047,6 @@ a, button, .cover, .key, [role="button"] {
   line-height: 1.6;
   color: var(--ink-soft);
 }
-.skills-list .primary {
-  color: var(--ink);
-  font-weight: 700;
-}
 
 .edu-row {
   display: flex; justify-content: space-between; align-items: baseline;

@@ -38,7 +38,7 @@ export default function TopBar() {
           <Link className={resumeActive ? "active" : ""} href="/resume">
             Resume
           </Link>
-          <a href="mailto:hello@razacontent.com">Contact</a>
+          <a href="mailto:mohammed@razacontent.com">Contact</a>
         </nav>
       </div>
     </div>

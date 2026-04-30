@@ -24,7 +24,7 @@ export default function ContactBlock() {
             </ul>
           </div>
           <div className="contact-actions">
-            <a className="btn" href="mailto:hello@razacontent.com">
+            <a className="btn" href="mailto:mohammed@razacontent.com">
               ✉ Email Mohammed
             </a>
             <a
