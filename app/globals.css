@@ -2603,4 +2603,9 @@ input, textarea { cursor: text; }
 }
 .zine .stat-tile:hover .stat-num { color: var(--accent); }
 .zine .stat-tile:hover .stat-label { color: rgba(245, 241, 232, 0.75); }
-/* trigger HMR */
+/* Shopify screenshots: render smaller so text inside the image stays
+   close to its native pixel resolution and downscaling stays sharp. */
+.zine[data-issue="shopify"] .figs-4up { max-width: 580px; gap: 0.75rem; }
+.zine[data-issue="shopify"] .figs-4up .figure-frame { box-shadow: 3px 3px 0 var(--ink); }
+.zine[data-issue="shopify"] .figure { max-width: 600px; }
+.zine .figure-img-wrap img { image-rendering: -webkit-optimize-contrast; }
