@@ -445,10 +445,12 @@ a, button, .cover, .key, [role="button"] {
 }
 .rack-shelf {
   display: flex;
-  gap: 28px;
+  gap: 36px;
   overflow-x: auto;
+  overflow-y: visible;
   scroll-snap-type: x mandatory;
-  padding: 40px 40px 48px 40px;
+  scroll-padding-left: 56px;
+  padding: 56px 56px 64px;
   scrollbar-width: thin;
   scrollbar-color: var(--ink) var(--ink-15);
 }
