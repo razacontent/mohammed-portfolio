@@ -2500,3 +2500,78 @@ a, button, .cover, .key, [role="button"] {
 @media print {
 
 }
+
+/* ─── PRIME v2 — compact type scale (overrides) ─── */
+.prime-v2 { --max-w: 920px; --content-w: 680px; font-size: 15px; }
+.prime-v2 .page { padding: 0 1.5rem 4rem; }
+.prime-v2 .masthead { margin-bottom: 2rem; padding-top: 0.5rem; }
+.prime-v2 .masthead-headline { font-size: clamp(30px, 4.6vw, 50px); margin-bottom: 1.25rem; max-width: 760px; }
+.prime-v2 .hook { font-size: 17px; margin-bottom: 1.75rem; }
+.prime-v2 .stat-tile { padding: 1.1rem 1rem; }
+.prime-v2 .stat-num { font-size: 26px; }
+.prime-v2 .role-strip { margin: 2.25rem 0; padding-bottom: 1.25rem; }
+.prime-v2 .role-cell .value { font-size: 14.5px; }
+.prime-v2 .brief { padding: 1.5rem 1.5rem 1.75rem; margin: 0 0 2.5rem; box-shadow: 6px 6px 0 var(--canary); }
+.prime-v2 .brief-title { font-size: 20px; margin-bottom: 1rem; }
+.prime-v2 .brief-beat { margin-bottom: 0.9rem; }
+.prime-v2 .brief-beat p { font-size: 14.5px; line-height: 1.55; }
+.prime-v2 .brief-beat ul li { font-size: 14px; line-height: 1.5; }
+.prime-v2 .partners { margin: 0 0 2.5rem; }
+.prime-v2 .partners-header { padding: 10px 16px; }
+.prime-v2 .partners-eyebrow { font-size: 11px; }
+.prime-v2 .partners-note { font-size: 16px; }
+.prime-v2 .partner-cell { padding: 0.9rem 1rem; }
+.prime-v2 .partner-detail { font-size: 13px; line-height: 1.45; }
+.prime-v2 .tabs-wrap { margin: 2rem -1.5rem 2.5rem; }
+.prime-v2 .tab { padding: 0.85rem 0.85rem 0.75rem; }
+.prime-v2 .tab .tab-title { font-size: 14px; }
+.prime-v2 .part-divider { margin: 2.5rem 0 2rem; }
+.prime-v2 .part-divider h2 { font-size: clamp(24px, 3.5vw, 34px); margin-bottom: 0.75rem; }
+.prime-v2 .part-divider .lede { font-size: 15.5px; line-height: 1.55; }
+.prime-v2 .chapter { margin: 3rem 0 0; padding-top: 2rem; }
+.prime-v2 .chapter-title { font-size: clamp(22px, 3.4vw, 30px); margin-bottom: 1.25rem; }
+.prime-v2 .chapter h3 { font-size: 18px !important; margin: 1.75rem 0 0.5rem !important; font-weight: 700; }
+.prime-v2 .prose { font-size: 15.5px; line-height: 1.6; margin-bottom: 1.1rem; max-width: var(--content-w); }
+.prime-v2 .pullquote { padding: 1.5rem 1.5rem 1.75rem 3.5rem; margin: 2rem 0; box-shadow: 6px 6px 0 var(--canary); }
+.prime-v2 .pullquote::before { font-size: 42px; top: -8px; left: 14px; }
+.prime-v2 .pullquote-text { font-size: 18px; line-height: 1.4; }
+.prime-v2 .figure { margin: 1.75rem 0; }
+.prime-v2 .figure-caption { padding: 10px 14px 12px; }
+.prime-v2 .figure-caption .text { font-size: 13px; }
+.prime-v2 .principles { margin: 1.75rem 0; }
+.prime-v2 .principle { padding: 1.1rem 1rem; }
+.prime-v2 .principle .name { font-size: 18px; }
+.prime-v2 .principle .desc { font-size: 13px; line-height: 1.5; }
+.prime-v2 .string-block { margin: 1.5rem 0; }
+.prime-v2 .string-block .header { padding: 8px 14px; font-size: 10px; }
+.prime-v2 .string-row { padding: 11px 14px; grid-template-columns: 60px 1fr; gap: 12px; }
+.prime-v2 .string-row .text { font-size: 14.5px; }
+.prime-v2 .string-row .note { font-size: 10.5px; }
+.prime-v2 .decision-log { margin: 2rem 0; }
+.prime-v2 .decision-log .dl-header { padding: 10px 16px; }
+.prime-v2 .decision-log .dl-header .title { font-size: 16px; }
+.prime-v2 .decision-log .dl-row { padding: 12px 16px; grid-template-columns: 100px 1fr; gap: 12px; }
+.prime-v2 .decision-log .dl-row .body { font-size: 13.5px; line-height: 1.5; }
+.prime-v2 .scored-example { margin: 1.75rem 0; }
+.prime-v2 .scored-draft { padding: 1rem; }
+.prime-v2 .scored-copy { font-size: 13px; min-height: 4em; margin-bottom: 10px; }
+.prime-v2 .total-num { font-size: 18px; }
+.prime-v2 .scored-arrow { font-size: 26px; }
+.prime-v2 .results-hero { padding: 2.25rem 1.5rem 2.5rem; margin: 2rem -1.5rem 2rem; }
+.prime-v2 .results-eyebrow { font-size: 10.5px; }
+.prime-v2 .results-title { font-size: clamp(22px, 3.2vw, 32px); margin-bottom: 1.5rem; }
+.prime-v2 .results-tile { padding: 1.1rem 1rem; }
+.prime-v2 .results-tile .num { font-size: 30px; }
+.prime-v2 .results-tile .label { font-size: 9.5px; line-height: 1.35; }
+.prime-v2 .reflection { padding: 1.5rem 1.5rem; margin: 2rem 0; box-shadow: 6px 6px 0 var(--canary); }
+.prime-v2 .reflection-title { font-size: 18px; margin-bottom: 0.75rem; }
+.prime-v2 .reflection p { font-size: 14.5px; line-height: 1.55; margin-bottom: 0.75rem; }
+.prime-v2 .reflection .signature { font-size: 18px; margin-top: 0.9rem; }
+.prime-v2 .next-strip { margin: 3rem 0 0; padding: 1.25rem; }
+.prime-v2 .next-strip .info .title { font-size: 17px; }
+.prime-v2 .next-strip .arrow { font-size: 26px; }
+.prime-v2 .margin-note { font-size: 17px; margin: 1rem 0; }
+.prime-v2 .milestones-hero { margin: 1.75rem 0 2rem; gap: 1.75rem; }
+.prime-v2 .milestones-hero-text h3 { font-size: 22px !important; margin: 0 0 0.25rem !important; }
+.prime-v2 .milestones-hero-text p { font-size: 14px; }
+.prime-v2 .surface-gallery { margin: 1.75rem 0; }
