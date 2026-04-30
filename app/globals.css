@@ -460,13 +460,15 @@ a, button, .cover, .key, [role="button"] {
 .rack-row {
   display: flex;
   align-items: center;
-  gap: 32px;
-  padding-left: max(32px, calc(50vw - 558px));
+  gap: 24px;
+  padding-left: 32px;
   padding-right: 32px;
 }
 .rack-row .rack-shelf {
   flex: 1 1 0;
   min-width: 0;
+  border-left: 3px solid var(--ink);
+  border-right: 3px solid var(--ink);
 }
 .rack-arrow {
   flex: 0 0 160px;
@@ -493,9 +495,19 @@ a, button, .cover, .key, [role="button"] {
   transform: translateX(-3px);
   animation: none;
 }
+.rack-arrow-left {
+  animation: rackNudgeLeft 1.8s ease-in-out infinite;
+}
+.rack-arrow-left:hover {
+  transform: translateX(3px);
+}
 @keyframes rackNudge {
   0%, 100% { transform: translateX(0); }
   50%      { transform: translateX(6px); }
+}
+@keyframes rackNudgeLeft {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-6px); }
 }
 
 .rack-shelf-line {

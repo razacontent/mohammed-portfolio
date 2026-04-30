@@ -28,15 +28,30 @@ export default function BookRack() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollRight = () => {
+  const scrollByCovers = (direction: 1 | -1) => {
     const shelf = shelfRef.current;
     if (!shelf) return;
-    shelf.scrollBy({ left: 408, behavior: "smooth" });
+    shelf.scrollBy({ left: 472 * direction, behavior: "smooth" });
   };
 
   return (
     <div className="rack-outer">
       <div className="rack-row">
+        <button
+          type="button"
+          className="rack-arrow rack-arrow-left"
+          aria-label="Scroll the rack left"
+          onClick={() => scrollByCovers(-1)}
+        >
+          <svg
+            viewBox="0 0 100 50"
+            fill="currentColor"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M98 18 L40 18 L40 4 L2 25 L40 46 L40 32 L98 32 Z" />
+          </svg>
+        </button>
         <div className="rack-shelf" ref={shelfRef}>
           {caseStudies.map((study) => (
             <Cover key={study.slug} study={study} />
@@ -45,8 +60,8 @@ export default function BookRack() {
         <button
           type="button"
           className="rack-arrow"
-          aria-label="Scroll the rack"
-          onClick={scrollRight}
+          aria-label="Scroll the rack right"
+          onClick={() => scrollByCovers(1)}
         >
           <svg
             viewBox="0 0 100 50"
