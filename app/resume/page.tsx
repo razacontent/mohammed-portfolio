@@ -149,10 +149,7 @@ export default function ResumePage() {
               end-to-end experiences for membership growth, ad-tier
               conversion, and AI personalization at 400M+ scale. In parallel,
               I engineer the voice frameworks, content schemas, and AI
-              taxonomies they ship on.{" "}
-              <strong>A content canary in the data mine</strong> — surfacing
-              what would break trust before it ships, then building the
-              systems that scale that judgment org-wide.
+              taxonomies they ship on.
             </p>
           </section>
 
