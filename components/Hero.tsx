@@ -62,8 +62,6 @@ export default function Hero() {
           <span className="chip">Founded · Crunchyroll</span>
           <span className="chip outline">1B+ users reached</span>
           <span className="chip outline">AI taxonomy · voice systems</span>
-          <span className="chip outline">22 product surfaces</span>
-          <span className="chip outline">EN · PT · ES</span>
         </div>
 
         <div className="hero-status">
