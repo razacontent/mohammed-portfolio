@@ -1,0 +1,524 @@
+<div class="page">
+
+  <header class="masthead">
+    <div class="masthead-stamp" aria-hidden="true">
+      <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="55" cy="55" r="50" fill="none" stroke="#0F0F0F" stroke-width="2.5" stroke-dasharray="4 3"/>
+        <circle cx="55" cy="55" r="40" fill="none" stroke="#0F0F0F" stroke-width="1.5"/>
+        <text x="55" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#0F0F0F" letter-spacing="1.5">ISSUE</text>
+        <text x="55" y="62" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="14" font-weight="800" fill="#0F0F0F">№04</text>
+        <text x="55" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="#2D5A8F" letter-spacing="1">SINGLE READ</text>
+      </svg>
+    </div>
+    <div class="issue-marker">
+      <span class="num">№04</span>
+      <span class="label">Intuit · TurboTax</span>
+    </div>
+
+    <div class="theme-strip">
+      <span class="pill">FinTech</span>
+      <span class="sep">·</span>
+      <span>Compliance Content</span>
+      <span class="sep">·</span>
+      <span>Content Engineering</span>
+      <span class="sep">·</span>
+      <span>10 min read</span>
+    </div>
+
+    <h1 class="masthead-headline">
+      Making tax law feel <span class="accent">human</span>.
+    </h1>
+
+    <p class="hook">
+      The FBAR filing experience inside TurboTax was written for compliance lawyers, not for the people who actually had to file it. Dense legal language, passive voice, and jargon-heavy copy were causing confusion, drop-off, and eroded trust at the moment users most needed to feel confident. I rebuilt the content system with prompt engineering, GenAI tooling, and a compliance-safe rewriting workflow that legal could trust.
+    </p>
+
+    <div class="byline">
+      <span class="by">By</span>
+      <span class="name">Mohammed Raza</span>
+      <span class="role-pill">Sr. Content Designer</span>
+    </div>
+
+    <div class="stat-tiles">
+      <div class="stat-tile">
+        <div class="stat-num">341%</div>
+        <div class="stat-label">FBAR adoption, year-over-year</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Legal approval rate across rewrites</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">8th</div>
+        <div class="stat-label">Grade reading level, down from college-graduate</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Workflow phases, documented for team transfer</div>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="role-strip">
+    <div class="role-cell">
+      <div class="label">Discipline</div>
+      <div class="value">Content design,<br>content engineering, prompt design</div>
+    </div>
+    <div class="role-cell">
+      <div class="label">Initiative I led</div>
+      <div class="value">FBAR content rebuild and<br>the workflow that scaled it</div>
+    </div>
+    <div class="role-cell">
+      <div class="label">Partners</div>
+      <div class="value">PM, PD, Tax Content Analyst,<br>Corporate Counsel, Eng, Marketing, CX</div>
+    </div>
+    <div class="role-cell">
+      <div class="label">Surfaces shipped to</div>
+      <div class="value">FBAR flow, landing page,<br>error states, success state</div>
+    </div>
+  </div>
+
+
+  <section class="brief">
+    <div class="brief-eyebrow">The brief</div>
+    <h2 class="brief-title">FBAR compliance is genuinely complex, the consequences of mistakes are severe, and the existing copy read like it was written by lawyers for lawyers. The work was to make the flow legible to the people who actually had to file it, while keeping every <span class="accent">legally immovable term</span> intact.</h2>
+
+    <div class="brief-beat">
+      <span class="beat-label">The diagnosis</span>
+      <p>The existing FBAR content lifted regulatory language almost verbatim from FinCEN documentation. Reading level was college-graduate or higher. Terms like "financial interest," "signature authority," and "owner of record" appeared without plain-language definitions, and passive constructions hid who needed to do what. Users with legitimate foreign accounts were abandoning the flow because they couldn't tell whether they were even required to file.</p>
+    </div>
+
+    <div class="brief-beat">
+      <span class="beat-label">Why it mattered</span>
+      <p>FBAR is a high-stakes compliance flow. Filing wrong has real consequences. The audience is unusually wide, ranging from experienced investors to first-time filers who didn't know they were required to file at all. Copy that confused either group sent them somewhere that wasn't TurboTax, which left filers exposed and the product carrying the gap.</p>
+    </div>
+
+    <div class="brief-beat">
+      <span class="beat-label">What I did</span>
+      <p>I built a five-phase content engineering workflow on top of Writer.ai that combined prompt engineering with structured legal review. I documented three content principles, a four-point quality checklist, a prompt library, and a decision log so other writers could repeat the process. The workflow let me rewrite the FBAR flow line by line at college-grade level down to eighth-grade level, with every legally immovable term preserved.</p>
+    </div>
+  </section>
+
+
+  <section class="part-divider" style="margin-top: 3rem;">
+    <span class="marker">The work</span>
+    <h2>Five phases. Three principles. Every rewrite cleared legal.</h2>
+    <p class="lede">
+      Five chapters: how the existing copy was failing, the operating model that made the rewrite possible, the discovery that anchored it, the workflow itself, and the screens and rewrites it produced.
+    </p>
+  </section>
+
+
+  <article class="chapter">
+    <div class="chapter-num">Chapter 01</div>
+    <h2 class="chapter-title">The law was written for regulators. The product was written for no one.</h2>
+
+    <p class="prose">
+      FBAR exists because US persons with foreign financial accounts over $10,000 must report them annually to FinCEN. The legal definitions are precise, the consequences of mistakes are severe, and the audience ranges from experienced investors to first-time filers who had no idea they were even required to file. The existing TurboTax FBAR content read the way it was written, by lawyers and for lawyers, which left a gap between accuracy and usability that the product had no way to close.
+    </p>
+
+    <div class="figs-4up" style="grid-template-columns: 1fr 1fr;">
+      <div class="figure">
+        <div class="figure-frame" style="padding: 1.25rem 1.4rem; background: var(--paper);">
+          <div style="font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 0.5rem;">Problem 01</div>
+          <div style="font-family: var(--display); font-size: 17px; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.25;">Regulatory language, unedited</div>
+          <div style="font-size: 13.5px; line-height: 1.55; color: var(--ink-soft);">Entire paragraphs lifted from FinCEN documentation. Reading level was college-graduate or higher. Users with legitimate foreign accounts were abandoning the flow before completing it.</div>
+        </div>
+      </div>
+      <div class="figure">
+        <div class="figure-frame" style="padding: 1.25rem 1.4rem; background: var(--paper);">
+          <div style="font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 0.5rem;">Problem 02</div>
+          <div style="font-family: var(--display); font-size: 17px; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.25;">No plain-language definitions</div>
+          <div style="font-size: 13.5px; line-height: 1.55; color: var(--ink-soft);">Terms like "financial interest," "signature authority," and "owner of record" appeared without explanation, so users couldn't parse whether they were even required to file because the terms were never connected to their real situation.</div>
+        </div>
+      </div>
+      <div class="figure">
+        <div class="figure-frame" style="padding: 1.25rem 1.4rem; background: var(--paper);">
+          <div style="font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 0.5rem;">Problem 03</div>
+          <div style="font-family: var(--display); font-size: 17px; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.25;">Passive voice everywhere</div>
+          <div style="font-size: 13.5px; line-height: 1.55; color: var(--ink-soft);">Passive constructions obscured who needed to do what. "A financial interest is determined by..." told users nothing about action. The copy described the law without ever speaking to the person reading it.</div>
+        </div>
+      </div>
+      <div class="figure">
+        <div class="figure-frame" style="padding: 1.25rem 1.4rem; background: var(--paper);">
+          <div style="font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 0.5rem;">Problem 04</div>
+          <div style="font-family: var(--display); font-size: 17px; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.25;">No shared standard for "better"</div>
+          <div style="font-size: 13.5px; line-height: 1.55; color: var(--ink-soft);">Legal and compliance teams had no framework for evaluating plain-language rewrites. Every edit required a justification from scratch, and there was no shared vocabulary that both content and legal could trust.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p class="pullquote-text">
+        The content was accurate, compliant, and unusable. For users trying to file correctly, only <strong>clarity</strong> resolved the choice between filing right and giving up.
+      </p>
+    </div>
+  </article>
+
+
+  <article class="chapter">
+    <div class="chapter-num">Chapter 02</div>
+    <h2 class="chapter-title">Logistics, planning, and cross-functional cadence.</h2>
+
+    <p class="prose">
+      Before writing a single word, I built the operating infrastructure. The FBAR project required unusually close collaboration across product design, legal, tax content analysts, and engineering. I established a structured cadence with the product design team that created fast feedback loops and dedicated time for open discussion. I set content principles early so every stakeholder shared a direction before any copy existed. And I built a decision log that proactively documented every content call and its rationale, which reduced back-and-forth and gave legal a record they could reference instead of relitigating decisions.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/01.png" alt="Logistics and planning slide showing cadence, content principles, and decision log"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 01</span>
+          <span class="text">Cadence, content principles, decision log. The infrastructure shipped before any copy did.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="prose">
+      The content principles I established for FBAR were grounded in three ideas. <strong>Transparent</strong> meant being clear and direct about what TurboTax could do and where it stopped, building trust through honesty. <strong>Confident</strong> meant guiding users toward the right direction while showing tax expertise and customer awareness. <strong>Resourceful</strong> meant providing the right information without being overbearing. Every piece of copy passed through that filter before it went to legal.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/02.jpg" alt="Decision log and content annotation system with approved copy changes"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 02</span>
+          <span class="text">The decision log: each content change annotated, with rationale and legal approval tracked alongside.</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="chapter">
+    <div class="chapter-num">Chapter 03</div>
+    <h2 class="chapter-title">Discovery and research.</h2>
+
+    <p class="prose">
+      I studied FBAR regulations through primary documentation and SME interviews, dissected existing solutions including the FinCEN BSA e-filing system and external FBAR services, and conducted user interviews and prototype testing. The research uncovered three consistent pain points: confusion about FBAR eligibility, difficulty with data entry especially around currency conversion, and anxiety about whether they had filed correctly. FBAR caused anxiety, frustration, and confusion at proportions that went well beyond a typical tax flow.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/03.jpg" alt="Discovery research showing knowledge base documents, current solutions audit, and prototype testing"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 03</span>
+          <span class="text">Discovery: regulatory documentation, competitive audit, prototype research. The brief for the prompt engineering work that followed.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="prose">
+      User research surfaced what people actually needed at each moment in the flow: reminders and clear tracking, confidence that they had filed correctly, saved bank account information for returning users, and specific currency conversion guidance. None of those needs were being met by the existing content, which is what made the rewrite scope addressable through copy rather than only through new features.
+    </p>
+  </article>
+
+
+  <article class="chapter">
+    <div class="chapter-num">Chapter 04</div>
+    <h2 class="chapter-title">The content engineering workflow.</h2>
+
+    <p class="prose">
+      The core challenge was scale. Dozens of screens, each with legally specific language that couldn't be rewritten casually. Manual rewrites one by one would take months and introduce inconsistency. I built a five-phase workflow on top of Writer.ai with prompt engineering as the engine and human judgment at every decision point that mattered.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/04.png" alt="Content engineering workflow: analysis and discovery, prompt development, implementation and team impact"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 04</span>
+          <span class="text">Content engineering: analysis, prompt development, implementation. The five phases below describe what each one produced.</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 720px; margin: 1.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div style="display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--ink-faint);">
+        <div style="font-family: var(--display); font-size: 22px; font-weight: 800; color: var(--accent-deep); line-height: 1;">01</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 16px; font-weight: 700; margin-bottom: 0.4rem;">Analysis and discovery: map every pain point before touching copy.</div>
+          <div style="font-size: 14px; line-height: 1.55; color: var(--ink-soft);">I reviewed the existing FBAR experience and documented every term that confused users in research, every complex explanation around filing requirements, and every recurring pattern from CX call logs. This audit became the brief for the prompt engineering phase that followed.</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--ink-faint);">
+        <div style="font-family: var(--display); font-size: 22px; font-weight: 800; color: var(--accent-deep); line-height: 1;">02</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 16px; font-weight: 700; margin-bottom: 0.4rem;">Prompt construction: encode the constraints before touching the copy.</div>
+          <div style="font-size: 14px; line-height: 1.55; color: var(--ink-soft);">Each prompt included the original text, the legally immovable terms, the target reading level (eighth grade), the voice directive (active, direct address), and the specific question a user is trying to answer at this moment in the flow. The prompt was a specification for a particular content decision rather than a generic "simplify this" instruction.</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--ink-faint);">
+        <div style="font-family: var(--display); font-size: 22px; font-weight: 800; color: var(--accent-deep); line-height: 1;">03</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 16px; font-weight: 700; margin-bottom: 0.4rem;">Output evaluation: a four-point quality check before anything left my desk.</div>
+          <div style="font-size: 14px; line-height: 1.55; color: var(--ink-soft);">Every AI-generated rewrite passed four checks: accuracy (no meaning change), compliance (required terms preserved), readability (measurably lower reading level), and voice (active, direct, second person). Anything that failed any check was revised manually or reprompted.</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--ink-faint);">
+        <div style="font-family: var(--display); font-size: 22px; font-weight: 800; color: var(--accent-deep); line-height: 1;">04</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 16px; font-weight: 700; margin-bottom: 0.4rem;">Legal review: structured evidence, not just rewrites.</div>
+          <div style="font-size: 14px; line-height: 1.55; color: var(--ink-soft);">Each submission to legal included the original, the rewrite, a side-by-side term comparison showing every immovable term was preserved, and a readability score delta. Legal could review for compliance without having to also evaluate clarity, because the two concerns were separated by design.</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--ink-faint); border-bottom: 1px solid var(--ink-faint);">
+        <div style="font-family: var(--display); font-size: 22px; font-weight: 800; color: var(--accent-deep); line-height: 1;">05</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 16px; font-weight: 700; margin-bottom: 0.4rem;">Documentation: prompt library and decision log for team transfer.</div>
+          <div style="font-size: 14px; line-height: 1.55; color: var(--ink-soft);">Every approved rewrite and its prompt went into a shared library, and every legal decision went into the decision log. I led workshops to teach the prompt engineering approach to the broader content team, and I built a decision framework for when to use GenAI versus traditional development. The second round of FBAR updates took a fraction of the time the first round had.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 2.5rem 0 0.75rem;">What the prompts actually looked like.</h3>
+
+    <div style="background: rgba(15,15,15,0.04); border: 2px solid var(--ink); padding: 1.5rem 1.75rem; max-width: 720px; margin: 1rem auto; font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--ink-soft);">
+      <div style="font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 0.75rem;">Prompt example · financial interest definition</div>
+      <p style="margin-bottom: 0.5rem;">Simplify the following FBAR content while maintaining technical accuracy.</p>
+      <p style="margin-bottom: 0.5rem;"><strong style="color: var(--ink); font-weight: 700;">Constraints:</strong></p>
+      <p style="margin-bottom: 0.25rem; padding-left: 1rem;">Preserve exactly: "financial interest," "owner of record," "legal title"</p>
+      <p style="margin-bottom: 0.25rem; padding-left: 1rem;">Target: eighth-grade reading level</p>
+      <p style="margin-bottom: 0.25rem; padding-left: 1rem;">Voice: active voice, direct address ("You have a financial interest when...")</p>
+      <p style="margin-bottom: 0.75rem; padding-left: 1rem;">Max sentence length: 20 words</p>
+      <p style="margin-bottom: 0.5rem;"><strong style="color: var(--ink); font-weight: 700;">User context:</strong> This person is trying to figure out whether they need to report a foreign account. They are not a tax professional. They may be anxious about whether they have done something wrong.</p>
+      <p style="margin-bottom: 0.5rem;"><strong style="color: var(--ink); font-weight: 700;">Original:</strong></p>
+      <p style="font-style: italic;">"Financial interest is determined by the owner of record or legal title. The FBAR regulations provide that a United States person has a financial interest in a foreign financial account for which the United States person is the owner of record or has legal title, whether the account is maintained for his own benefit or for the benefit of others."</p>
+    </div>
+  </article>
+
+
+  <article class="chapter">
+    <div class="chapter-num">Chapter 05</div>
+    <h2 class="chapter-title">The redesigned experience.</h2>
+
+    <p class="prose">
+      The work shows up in the screens. Every content decision was annotated with its purpose, hierarchy, and tone so the design team and engineering shared the same context. The content notes were a structured part of the design artifact rather than informal Figma comments, which is what kept the intent intact through to engineering.
+    </p>
+
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 2.5rem 0 0.75rem;">Before and after: the flow entry.</h3>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/05.jpg" alt="Before and after: retirement plan screen to foreign bank account question"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 05</span>
+          <span class="text">Entry flow: from a generic income question to a direct FBAR identification.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/06.jpg" alt="Before and after: account disclosure screens"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 06</span>
+          <span class="text">Account disclosure screens: restructured copy with clearer value framing.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 3rem 0 0.75rem;">The landing page: before and after.</h3>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/07.png" alt="Landing page before and after"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 07</span>
+          <span class="text">Landing page to in-product: copy focused on user benefit, with feature description in support of it.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 3rem 0 0.75rem;">Content notes in context.</h3>
+
+    <p class="prose">
+      Every key screen shipped with annotated content notes that documented the purpose hierarchy and the tone. These were a structured part of the handoff artifact and ensured engineering understood the intent behind every word.
+    </p>
+
+    <div class="figs-4up">
+      <div class="figure">
+        <div class="figure-frame">
+          <div class="figure-img-wrap"><img src="/images/turbotax/08.png" alt="FBAR welcome screen with content notes annotations"></div>
+          <div class="figure-caption">
+            <span class="fig">08a</span>
+            <span class="text">FBAR welcome screen with annotations.</span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <div class="figure-frame">
+          <div class="figure-img-wrap"><img src="/images/turbotax/09.jpg" alt="Error state with content notes annotations"></div>
+          <div class="figure-caption">
+            <span class="fig">08b</span>
+            <span class="text">Error state with content notes.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="prose">
+      The "You Need to File a Report" screen required particular care. TurboTax couldn't file the FBAR directly at the time, and that constraint had to be communicated honestly without causing panic or breaking trust. Empathetic honesty at a high-stakes moment is one of the hardest content problems in compliance work, and the screen had to lead with what was true and actionable instead of with an apology.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/10.png" alt="You Need to File a Report screen"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 09</span>
+          <span class="text">"You Need to File a Report." Purpose hierarchy: inform, be sympathetic, be optimistic about the future. Content notes documented tone, voice, and the PON ID and accessibility strings alongside, so the support team had aligned content at every channel.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 3rem 0 0.75rem;">The success state.</h3>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/11.jpg" alt="That's a wrap! We've submitted your FBAR success screen"></div>
+        <div class="figure-caption">
+          <span class="fig">Fig. 10</span>
+          <span class="text">"That's a wrap!" The completion screen reinforces value and sets up next year's filing.</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="chapter">
+    <div class="chapter-num">Chapter 06</div>
+    <h2 class="chapter-title">Three rewrites that show the workflow at the line level.</h2>
+
+    <p class="prose">
+      Each rewrite preserved every required legal term while cutting reading level, eliminating passive voice, and reorienting the copy around the question a user was actually trying to answer. The output was copy that helped someone make a correct decision rather than copy that demonstrated regulatory expertise.
+    </p>
+
+    <div class="string-block">
+      <div class="header">
+        <span>Financial interest definition</span>
+        <span class="accent-text">Constraint: preserve "financial interest," "owner of record," "legal title"</span>
+      </div>
+      <div class="string-row before">
+        <span class="tag">Before</span>
+        <span class="text">"Financial interest is determined by the owner of record or legal title. The FBAR regulations provide that a United States person has a financial interest in a foreign financial account for which the United States person is the owner of record or has legal title, whether the account is maintained for his own benefit or for the benefit of others."</span>
+        <span class="note">Reading level: college graduate. Passive voice. No direct address. User cannot determine if this applies to them.</span>
+      </div>
+      <div class="string-row after">
+        <span class="tag">After</span>
+        <span class="text">"You have a financial interest in a foreign account when you're the owner of record or hold legal title to it, even if you hold it for someone else's benefit."</span>
+        <span class="note">Reading level: eighth grade. Active voice. Direct address. User knows immediately whether this applies to their situation.</span>
+      </div>
+    </div>
+
+    <div class="string-block">
+      <div class="header">
+        <span>Signature authority explanation</span>
+        <span class="accent-text">Constraint: include the most common confusion case (employer accounts)</span>
+      </div>
+      <div class="string-row before">
+        <span class="tag">Before</span>
+        <span class="text">"A United States person has signature authority over a foreign financial account if the United States person can control the disposition of money, funds or other assets held in a financial account by direct communication (whether in writing or otherwise) to the bank or other financial institution where the financial account is maintained."</span>
+        <span class="note">84 words. Two-clause sentence. No example. User must decode what "direct communication" means for their employer's account.</span>
+      </div>
+      <div class="string-row after">
+        <span class="tag">After</span>
+        <span class="text">"Signature authority means that you have some level of control over the disposition of assets through direct communication with the institution. For example, if you're a signatory on an employer's foreign bank account, you have signature authority and should report the account on your FBAR."</span>
+        <span class="note">Concrete example included. The employer scenario, the most common confusion point, is addressed directly.</span>
+      </div>
+    </div>
+
+    <div class="string-block">
+      <div class="header">
+        <span>Filing threshold screen</span>
+        <span class="accent-text">Constraint: lead with the user's question, not the statute</span>
+      </div>
+      <div class="string-row before">
+        <span class="tag">Before</span>
+        <span class="text">"Did your foreign accounts total more than $10,000 at any time in 2022? If you do, you'll need to file an FBAR (FinCEN Form 114)."</span>
+        <span class="note">Threshold buried after the condition. "You'll need to" uses future tense and creates uncertainty. No context for what "at any time" means in practice.</span>
+      </div>
+      <div class="string-row after">
+        <span class="tag">After</span>
+        <span class="text">"Did you own or control a foreign bank account, trust, or financial asset in 2022? This is one of those things the IRS requires us to ask."</span>
+        <span class="note">Reframed as a straightforward question. The IRS framing removes anxiety by normalizing the question and clarifying TurboTax is asking on behalf of the requirement.</span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+
+<section class="results-hero">
+  <div class="results-hero-inner">
+    <div class="results-eyebrow">What landed</div>
+    <h2 class="results-title">A flow people quit on became one they finished.</h2>
+
+    <div class="results-tiles">
+      <div class="results-tile">
+        <div class="num">341%</div>
+        <div class="label">FBAR adoption, year-over-year</div>
+      </div>
+      <div class="results-tile">
+        <div class="num">100%</div>
+        <div class="label">Legal approval rate across rewrites</div>
+      </div>
+      <div class="results-tile">
+        <div class="num">8th</div>
+        <div class="label">Grade reading level, down from college-graduate</div>
+      </div>
+      <div class="results-tile">
+        <div class="num">5</div>
+        <div class="label">Workflow phases documented for team transfer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page" style="padding-top: 0;">
+
+  <p class="prose" style="margin-top: 3rem;">
+    Two signals confirmed the system had taken hold:
+  </p>
+
+  <ul style="max-width: 720px; margin: 1.5rem 0 2rem; padding-left: 1.5rem; font-size: 16px; line-height: 1.65; color: var(--ink-soft);">
+    <li style="margin-bottom: 0.75rem;"><strong>Year-over-year adoption increased 341%.</strong> The flow structure was the same. The only thing that changed was the content. Users who had previously abandoned because they couldn't determine whether they qualified now completed the flow.</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Every rewrite cleared legal review.</strong> The four-point quality checklist and structured legal submission format meant no rewrite was flagged for compliance failure after submission. The workflow made legal's job easier rather than harder, and that trust opened the door to using the same approach on other regulated flows across TurboTax products.</li>
+  </ul>
+
+  <div class="figure">
+    <div class="figure-frame">
+      <div class="figure-img-wrap"><img src="/images/turbotax/12.jpg" alt="341% adoption chart showing week-over-week growth"></div>
+      <div class="figure-caption">
+        <span class="fig">Fig. 11</span>
+        <span class="text">Adoption growth, week over week. The same flow, different content.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <article class="chapter" style="border-top: none; padding-top: 0; margin-top: 4rem;">
+    <div class="chapter-num">Reflection</div>
+    <h2 class="chapter-title">Why this matters now.</h2>
+
+    <div class="reflection">
+      <div class="reflection-eyebrow">The transferable problem</div>
+      <div class="reflection-text">
+        <p>Every product that operates under legal or regulatory constraints faces a version of this problem. The language that satisfies compliance teams is rarely the language that helps users, and most teams resolve that tension by defaulting to compliance, leaving accuracy intact and clarity to whoever can figure it out.</p>
+        <p>What the FBAR work produced was a way to resolve that tension systematically. A workflow that gave legal teams the evidence they needed to approve plain-language rewrites, a repeatable process for producing them, and a content standard that could survive team turnover. The 341% adoption lift is the headline. The workflow is the part that ports to the next regulated flow.</p>
+      </div>
+    </div>
+  </article>
+
+
+  <a href="/work/crunchyroll" style="text-decoration: none; color: inherit; display: block;">
+    <div class="next-strip">
+      <div class="badge">Up next</div>
+      <div class="info">
+        <div class="label">Issue №02</div>
+        <div class="title">Founding the content design craft from one.</div>
+      </div>
+      <div class="arrow">→</div>
+    </div>
+  </a>
+
+</div>
