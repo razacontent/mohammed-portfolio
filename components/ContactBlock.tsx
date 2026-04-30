@@ -29,7 +29,7 @@ export default function ContactBlock() {
             </a>
             <a
               className="btn outline"
-              href="https://linkedin.com/in/mohammedraza"
+              href="https://linkedin.com/in/razamohammed"
             >
               → LinkedIn
             </a>

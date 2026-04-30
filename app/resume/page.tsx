@@ -131,7 +131,7 @@ export default function ResumePage() {
               <span className="sep">·</span>
               <a href="https://razacontent.com">razacontent.com</a>
               <span className="sep">·</span>
-              <a href="https://linkedin.com/in/mohammedraza">LinkedIn</a>
+              <a href="https://linkedin.com/in/razamohammed">LinkedIn</a>
               <span className="sep">·</span>
               <span>Seattle, WA</span>
               <span className="sep">·</span>
