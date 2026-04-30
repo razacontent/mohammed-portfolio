@@ -16,7 +16,6 @@ export default function HomePage() {
             <h2>Today&rsquo;s rack · selected work</h2>
             <div className="meta">
               <span>Four issues · 2018—2025</span>
-              <span className="scroll-hint">Browse the rack</span>
             </div>
           </div>
         </Reveal>
