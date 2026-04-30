@@ -462,28 +462,29 @@ a, button, .cover, .key, [role="button"] {
   top: 50%;
   right: 32px;
   transform: translateY(-50%);
-  width: 104px;
-  height: 104px;
+  width: 160px;
+  height: 96px;
+  padding: 18px 22px;
   background: var(--paper);
-  border: 3px solid var(--ink);
-  box-shadow: 8px 8px 0 var(--canary);
+  border: 4px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--canary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--display);
-  font-size: 72px;
-  font-weight: 800;
-  line-height: 1;
   color: var(--ink);
   z-index: 5;
   cursor: var(--cursor-hand), pointer;
-  transition: transform 200ms var(--ease-bounce), box-shadow 200ms var(--ease-out);
+  transition: transform 200ms var(--ease-bounce), box-shadow 200ms var(--ease-out), background 150ms;
   animation: rackNudge 1.8s ease-in-out infinite;
+}
+.rack-arrow svg {
+  width: 100%; height: 100%;
+  display: block;
 }
 .rack-arrow:hover {
   background: var(--canary);
-  box-shadow: 10px 10px 0 var(--ink);
-  transform: translateY(-50%) translateX(-2px);
+  box-shadow: 14px 14px 0 var(--ink);
+  transform: translateY(-50%) translateX(-3px);
   animation: none;
 }
 @keyframes rackNudge {
@@ -1049,7 +1050,7 @@ a, button, .cover, .key, [role="button"] {
 @media (max-width: 920px) {
   .cover { flex: 0 0 380px; }
   .cover-headline { font-size: 28px; }
-  .rack-arrow { width: 80px; height: 80px; font-size: 56px; }
+  .rack-arrow { width: 120px; height: 76px; padding: 14px 18px; }
   .publisher-grid { grid-template-columns: 1fr; }
   .pub-photo { border-left: none; border-top: 3px solid var(--ink); aspect-ratio: 16/9; }
   .contact-grid { grid-template-columns: 1fr; }
