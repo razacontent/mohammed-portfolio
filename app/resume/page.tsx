@@ -6,7 +6,7 @@ export const metadata = {
 
 const experience = [
   {
-    role: "Senior Content Designer · L5",
+    role: "Senior Content Designer",
     date: "2022 — 2025",
     org: "Amazon Prime · Worldwide Membership & Personalization",
     bullets: [

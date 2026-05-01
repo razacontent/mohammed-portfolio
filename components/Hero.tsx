@@ -51,7 +51,7 @@ export default function Hero() {
 
         <div className="hero-meta">
           <span className="row">
-            <strong>Most recent</strong> · Amazon Prime · L5 · Senior content
+            <strong>Most recent</strong> · Amazon Prime · Senior content
             designer · 2022—2025
           </span>
           <span className="row">
@@ -65,7 +65,7 @@ export default function Hero() {
         </div>
 
         <div className="hero-chips">
-          <span className="chip canary">L5 · Amazon</span>
+          <span className="chip canary">Senior · Amazon</span>
           <span className="chip">Founded · Crunchyroll</span>
           <span className="chip outline">1B+ users reached</span>
           <span className="chip outline">AI taxonomy · voice systems</span>
