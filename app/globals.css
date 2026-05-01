@@ -1068,13 +1068,13 @@ input, textarea { cursor: text; }
 /* Homepage contact block — buttons on paper bg, flip color treatment */
 .contact-actions .btn {
   border: 2px solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--canary);
+  color: var(--ink);
 }
 .contact-actions .btn:hover {
-  background: var(--canary);
-  border-color: var(--canary);
-  color: var(--ink);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
   transform: translate(-2px, -2px);
   box-shadow: 4px 4px 0 var(--ink);
 }
@@ -1099,6 +1099,51 @@ input, textarea { cursor: text; }
   .publisher-grid { grid-template-columns: 1fr; }
   .pub-photo { border-left: none; border-top: 3px solid var(--ink); aspect-ratio: 16/9; }
   .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 700px) {
+  .wrap { padding: 0 20px; }
+
+  /* Top bar — save horizontal room: hide the "Open" chip, tighten nav, allow wrap */
+  .topbar-inner { padding: 0 20px; gap: 12px; flex-wrap: wrap; }
+  .open-chip { display: none; }
+  .nav { gap: 0; }
+  .nav a { padding: 6px 10px; font-size: 13px; }
+
+  /* Hero — shrink canary + halftone so they tuck into the corner instead of overlapping the headline */
+  .hero { padding: 48px 0 32px; }
+  .hero::before {
+    top: 0; right: 0;
+    width: 112px; height: 112px;
+    background-size: 5px 5px;
+  }
+  .hero-canary {
+    top: 8px; right: 0;
+    width: 112px; height: 112px;
+  }
+  .hero-headline { font-size: clamp(40px, 11vw, 72px); }
+  .hero-sub { font-size: 16px; }
+  .hero-sub-canary { font-size: 16px; padding: 8px 0 8px 14px; }
+  .hero-status { font-size: 13px; }
+
+  /* Contact block — tighten padding and shadow */
+  .contact-block { margin: 48px 0 24px; box-shadow: 6px 6px 0 var(--ink); }
+  .contact-grid { padding: 24px 22px; gap: 20px; }
+  .contact-text h2 { font-size: clamp(24px, 7vw, 30px); }
+
+  /* Section heads (e.g. "Today's rack · selected work") */
+  .section-head { padding: 0; }
+  .cover { flex: 0 0 320px; }
+  .cover-headline { font-size: 24px; }
+  .rack-row { gap: 12px; }
+  .rack-arrow { flex: 0 0 88px; height: 64px; padding: 12px 14px; }
+}
+
+@media (max-width: 420px) {
+  .wrap { padding: 0 16px; }
+  .hero-canary { width: 96px; height: 96px; }
+  .hero::before { width: 96px; height: 96px; }
+  .cover { flex: 0 0 280px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1945,6 +1990,18 @@ input, textarea { cursor: text; }
   .timeline-row { grid-template-columns: 1fr; gap: 8px; }
   .beyond-grid { grid-template-columns: 1fr; }
   .about-contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .about-hero { padding: 40px 0 48px; }
+  .about-hero::before { width: 180px; height: 180px; background-size: 5px 5px; }
+  .about-headline { font-size: clamp(34px, 9vw, 56px); }
+  .about-intro { font-size: 17px; }
+  .section-title { font-size: clamp(26px, 7vw, 40px); }
+  .about-section { padding: 48px 0; }
+  .story-photo-grid { grid-template-columns: 1fr; gap: 16px; }
+  .beyond-work-grid { grid-template-columns: 1fr; }
+  .wrap-narrow { padding: 0 20px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
