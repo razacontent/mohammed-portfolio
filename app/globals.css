@@ -1133,17 +1133,36 @@ input, textarea { cursor: text; }
 
   /* Section heads (e.g. "Today's rack · selected work") */
   .section-head { padding: 0; }
-  .cover { flex: 0 0 320px; }
-  .cover-headline { font-size: 24px; }
-  .rack-row { gap: 12px; }
-  .rack-arrow { flex: 0 0 88px; height: 64px; padding: 12px 14px; }
+
+  /* Book rack — drop the desktop arrows + rails. Touch users swipe; the arrows + bordered rack chrome were eating the visible width on phones. */
+  .rack-outer { margin: 0 0 56px; }
+  .rack-row { padding: 0; gap: 0; }
+  .rack-row .rack-shelf { border-left: none; border-right: none; }
+  .rack-arrow { display: none; }
+  .rack-shelf {
+    gap: 18px;
+    padding: 32px 20px 40px;
+    scroll-padding-left: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rack-shelf-line { display: none; }
+  .cover {
+    flex: 0 0 86%;
+    --rotation: 0deg;
+    box-shadow: 6px 6px 0 var(--ink);
+    transform: translateY(30px);
+  }
+  .cover.visible { transform: translateY(0); }
+  .cover-headline { font-size: 26px; }
 }
 
 @media (max-width: 420px) {
   .wrap { padding: 0 16px; }
   .hero-canary { width: 96px; height: 96px; }
   .hero::before { width: 96px; height: 96px; }
-  .cover { flex: 0 0 280px; }
+  .rack-shelf { gap: 14px; padding: 28px 16px 36px; scroll-padding-left: 16px; }
+  .cover { flex: 0 0 90%; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
