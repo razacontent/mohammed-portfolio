@@ -863,25 +863,26 @@ input, textarea { cursor: text; }
 }
 .tag-pts {
   right: 20px;
-  background: var(--ink); color: var(--matcha);
-  padding: 6px 12px;
-  font-family: var(--display); font-size: 13px;
+  background: var(--matcha);
+  color: var(--ink);
+  padding: 5px 12px;
+  font-family: var(--mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.18em;
   font-weight: 800;
   transform: rotate(4deg);
-  box-shadow: 2px 2px 0 var(--matcha);
-  letter-spacing: -0.02em;
-  border: 2px solid var(--matcha);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
 }
 .stamp-shipped {
   right: 20px;
-  background: var(--paper);
-  border: 2.5px solid var(--blue);
-  color: var(--blue-deep);
-  padding: 4px 12px;
+  background: var(--blue);
+  color: var(--paper);
+  padding: 5px 12px;
   font-family: var(--mono); font-size: 10px;
   text-transform: uppercase; letter-spacing: 0.18em;
   font-weight: 800;
   transform: rotate(-4deg);
+  border: 2px solid var(--ink);
   box-shadow: 2px 2px 0 var(--ink);
 }
 
