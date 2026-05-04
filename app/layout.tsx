@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "razacontent · Mohammed Raza",
     description:
-      "A content canary in the data mine. Senior content designer & strategist.",
+      "A content canary in the design systems mine. Senior content designer & strategist.",
   },
   twitter: {
     card: "summary_large_image",

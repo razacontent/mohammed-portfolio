@@ -42,7 +42,7 @@ export default function Hero() {
 
         <p className="hero-sub hero-sub-canary">
           I think of myself as a{" "}
-          <strong>content canary in the data mine.</strong> My work is surfacing
+          <strong>content canary in the design systems mine.</strong> My work is surfacing
           what would break trust before it ships, building the content systems
           and culture that scale that judgment, and giving every team the tools
           and confidence to make those calls themselves.
