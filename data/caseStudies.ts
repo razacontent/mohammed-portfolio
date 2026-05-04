@@ -1,6 +1,6 @@
 import type { IconName } from "@/lib/icons";
 
-export type Accent = "canary" | "coral" | "matcha" | "blue";
+export type Accent = "canary" | "coral" | "matcha" | "blue" | "plum";
 export type StampVariant = "featured" | "founded" | "pts" | "shipped";
 
 export interface CaseStudy {
@@ -59,9 +59,38 @@ export const caseStudies: CaseStudy[] = [
     },
   },
   {
-    slug: "crunchyroll",
+    slug: "crunchyroll-living-room",
     org: "Crunchyroll",
     issue: 2,
+    readMin: 13,
+    dateRange: "2022—2024",
+    accent: "plum",
+    stamp: { variant: "featured", label: "5 TEAMS" },
+    theme: "Living Room Rebrand · Content Systems · Localization",
+    headline: { before: "I co-shaped Crunchyroll's ", accent: "rebrand", after: " from the earliest concepts." },
+    hook:
+      "A ground-up TV rebrand for 25+ markets. Influenced the manga-illustrated visual direction from concept reviews onward and built the content systems beneath it: taxonomy, metadata hierarchy, localization framework, measurement rubric.",
+    icons: ["tenFootUI", "localization", "systems"],
+    iconLabels: ["10-foot UI", "Localization", "Systems"],
+    trackALabel: "Writing & craft",
+    trackAItems: [
+      "Bilingual welcome strings + truncation rules",
+      "Editorial vs dynamic rule set",
+      "Four-bucket module taxonomy",
+      "Cross-team copy workshop methodology",
+    ],
+    trackBLabel: "Strategic impact",
+    trackBItems: [
+      "5 internal teams adopted artifacts",
+      "25+ markets on one welcome system",
+      "Founding vision greenlit by CEO",
+      "Measurement rubric established with data",
+    ],
+  },
+  {
+    slug: "crunchyroll",
+    org: "Crunchyroll",
+    issue: 3,
     readMin: 14,
     dateRange: "2022—2024",
     accent: "coral",
@@ -90,7 +119,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "turbotax",
     org: "Intuit · TurboTax",
-    issue: 3,
+    issue: 4,
     readMin: 10,
     dateRange: "2018—2019",
     accent: "blue",
@@ -119,7 +148,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "shopify",
     org: "Shopify",
-    issue: 4,
+    issue: 5,
     readMin: 9,
     dateRange: "2019—2020",
     accent: "matcha",

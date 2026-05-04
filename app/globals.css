@@ -23,9 +23,14 @@
   --matcha-deep: #4A7C4D;
   --blue: #4A7BB7;
   --blue-deep: #2D5A8F;
+  --plum: #6B4F7C;
+  --plum-deep: #4A3658;
 
   /* Semantic */
   --red: #C8392F;
+  --canary-pale: rgba(229, 177, 28, 0.18);
+  --ink-30: rgba(15, 15, 15, 0.30);
+  --ink-60: rgba(15, 15, 15, 0.60);
 
   /* Type — bound to next/font CSS variables in layout.tsx */
   --display: var(--font-display), 'Bricolage Grotesque', sans-serif;
@@ -561,9 +566,10 @@ input, textarea { cursor: text; }
   transform: rotate(var(--rotation)) translateY(0);
 }
 .cover:nth-child(1) { --rotation: -1.5deg; --accent: var(--canary); --accent-deep: var(--canary-deep); }
-.cover:nth-child(2) { --rotation: 1deg; --accent: var(--coral); --accent-deep: var(--coral-deep); }
-.cover:nth-child(3) { --rotation: -0.8deg; --accent: var(--matcha); --accent-deep: var(--matcha-deep); }
+.cover:nth-child(2) { --rotation: -1.2deg; --accent: var(--plum); --accent-deep: var(--plum-deep); }
+.cover:nth-child(3) { --rotation: 1deg; --accent: var(--coral); --accent-deep: var(--coral-deep); }
 .cover:nth-child(4) { --rotation: 1.4deg; --accent: var(--blue); --accent-deep: var(--blue-deep); }
+.cover:nth-child(5) { --rotation: -0.8deg; --accent: var(--matcha); --accent-deep: var(--matcha-deep); }
 .cover.visible:hover {
   transform: rotate(0deg) translateY(-12px);
   box-shadow: 14px 14px 0 var(--ink);
@@ -647,6 +653,7 @@ input, textarea { cursor: text; }
 .cover:nth-child(2) .cover-headline .accent { color: var(--paper); }
 .cover:nth-child(3) .cover-headline .accent { color: var(--paper); }
 .cover:nth-child(4) .cover-headline .accent { color: var(--paper); }
+.cover:nth-child(5) .cover-headline .accent { color: var(--paper); }
 .cover-hook {
   font-family: var(--display);
   font-size: 15px;
@@ -835,6 +842,13 @@ input, textarea { cursor: text; }
   box-shadow: 2px 2px 0 var(--ink);
 }
 .stamp-featured::before { content: "★ "; }
+/* Per-issue stamp recolor for the 2nd cover so two FEATURED stamps don't clash */
+.cover:nth-child(2) .stamp-featured {
+  background: var(--ink);
+  color: var(--plum);
+  border-color: var(--plum);
+  box-shadow: 2px 2px 0 var(--plum);
+}
 .stamp-founded {
   right: 20px;
   background: var(--canary);
@@ -1176,6 +1190,7 @@ input, textarea { cursor: text; }
 [data-accent="coral"]  { --accent: var(--coral);  --accent-deep: var(--coral-deep); }
 [data-accent="matcha"] { --accent: var(--matcha); --accent-deep: var(--matcha-deep); }
 [data-accent="blue"]   { --accent: var(--blue);   --accent-deep: var(--blue-deep); }
+[data-accent="plum"]   { --accent: var(--plum);   --accent-deep: var(--plum-deep); }
 
 /* ─── BREADCRUMB STRIP ─── */
 .crumb {
@@ -2344,6 +2359,7 @@ input, textarea { cursor: text; }
 .zine[data-issue="shopify"]  { --accent: var(--matcha);  --accent-deep: var(--matcha-deep); }
 .zine[data-issue="turbotax"] { --accent: var(--blue);    --accent-deep: var(--blue-deep); }
 .zine[data-issue="crunchyroll"] { --accent: var(--coral); --accent-deep: var(--coral-deep); }
+.zine[data-issue="crunchyroll-living-room"] { --accent: var(--plum); --accent-deep: var(--plum-deep); }
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2708,6 +2724,117 @@ input, textarea { cursor: text; }
 .zine[data-issue="shopify"] .figs-4up .figure-frame { box-shadow: 3px 3px 0 var(--ink); }
 .zine[data-issue="shopify"] .figure { max-width: 600px; }
 .zine .figure-img-wrap img { image-rendering: -webkit-optimize-contrast; }
+
+/* ═══════════════════════════════════════════════════════════════
+   ZINE — Crunchyroll Living Room components (reusable across case studies)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Role-strip — three-row variant (eyebrow + title + desc) */
+.zine .role-cell .role-eyebrow { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 8px; }
+.zine .role-cell .role-title { font-family: var(--display); font-size: 17px; font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: 6px; }
+.zine .role-cell .role-desc { font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); }
+.zine .role-strip > .role-cell { padding: 0.25rem 1rem 0.25rem 0; border-right: 1px dashed var(--ink-faint); }
+.zine .role-strip > .role-cell:last-child { border-right: none; }
+@media (max-width: 800px) {
+  .zine .role-strip { grid-template-columns: repeat(2, 1fr); gap: 1.25rem 0; }
+  .zine .role-strip > .role-cell { padding-bottom: 1rem; border-bottom: 1px dashed var(--ink-faint); }
+  .zine .role-strip > .role-cell:nth-child(2n) { border-right: none; }
+  .zine .role-strip > .role-cell:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+}
+@media (max-width: 500px) {
+  .zine .role-strip { grid-template-columns: 1fr; }
+  .zine .role-strip > .role-cell { border-right: none !important; }
+}
+
+/* Partners-strip — six-cell partner credit grid */
+.zine .partners-strip { margin: 0 0 4rem; border: 2px solid var(--ink); background: var(--paper-warm); box-shadow: 6px 6px 0 var(--ink); display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+@media (max-width: 800px) {
+  .zine .partners-strip { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .zine .partners-strip { grid-template-columns: 1fr; }
+}
+.zine .partners-strip .partner-cell { padding: 1.1rem 1.15rem; }
+.zine .partners-strip .partner-quote { font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+.zine .partners-strip .partner-quote strong { color: var(--ink); font-weight: 600; }
+
+/* Chapter divider — section header band with rule line */
+.zine .chapter-divider { display: flex; align-items: center; gap: 1rem; margin: 4rem 0 1.5rem; }
+.zine .chapter-divider .chapter-num { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); flex-shrink: 0; }
+.zine .chapter-divider .chapter-rule { flex: 1; height: 2px; background: var(--ink); }
+.zine .chapter-lede { font-family: var(--display); font-size: 19px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 2rem; max-width: 720px; }
+.zine .chapter-lede strong { color: var(--ink); font-weight: 600; }
+
+/* Aside — boxed scope/note callout */
+.zine .aside { background: var(--paper); border: 2px solid var(--ink); border-left: 6px solid var(--accent); padding: 1.25rem 1.5rem; margin: 2rem 0; max-width: 720px; }
+.zine .aside-eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; }
+.zine .aside-eyebrow .diamond { color: var(--accent); font-size: 14px; }
+.zine .aside p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+.zine .aside p strong { color: var(--ink); font-weight: 600; }
+
+/* Decision log — labeled rows table */
+.zine .dlog { background: var(--paper); border: 2px solid var(--ink); margin: 2.5rem 0; box-shadow: 6px 6px 0 var(--ink); max-width: 880px; }
+.zine .dlog-head { background: var(--ink); color: var(--paper); padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; flex-wrap: wrap; gap: 8px; }
+.zine .dlog-head .dot { color: var(--accent); margin-right: 6px; }
+.zine .dlog-body { display: flex; flex-direction: column; }
+.zine .dlog-row { display: grid; grid-template-columns: 160px 1fr; gap: 18px; padding: 14px 18px; border-bottom: 1px dashed var(--ink-faint); }
+.zine .dlog-row:last-child { border-bottom: none; }
+.zine .dlog-label { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); align-self: start; padding-top: 2px; }
+.zine .dlog-text { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
+.zine .dlog-text strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 700px) {
+  .zine .dlog-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* Taxonomy diagram — four-column module family grid */
+.zine .tax { background: var(--paper); border: 2px solid var(--ink); margin: 2.5rem 0; box-shadow: 6px 6px 0 var(--ink); }
+.zine .tax-head { background: var(--ink); color: var(--paper); padding: 12px 18px; font-family: var(--mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.zine .tax-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+@media (max-width: 800px) {
+  .zine .tax-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 500px) {
+  .zine .tax-grid { grid-template-columns: 1fr !important; }
+}
+.zine .tax-col { padding: 1.25rem 1rem; border-right: 1px dashed var(--ink-faint); }
+.zine .tax-col:last-child { border-right: none; }
+.zine .tax-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 18px; font-weight: 800; color: var(--paper); margin-bottom: 12px; border: 2px solid var(--ink); }
+.zine .tax-type { font-family: var(--display); font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.zine .tax-rule { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 0.65rem; }
+.zine .tax-examples { list-style: none; padding: 0; margin: 0; }
+.zine .tax-examples li { font-size: 13px; line-height: 1.65; color: var(--ink-soft); padding-left: 12px; position: relative; }
+.zine .tax-examples li::before { content: "·"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+/* Spec — formatted code-style data block */
+.zine pre.spec { font-family: var(--mono); font-size: 12.5px; line-height: 1.65; color: var(--ink-soft); background: var(--paper-warm); border: 2px solid var(--ink); border-left: 6px solid var(--accent); padding: 1.25rem 1.5rem; margin: 2rem 0; max-width: 720px; overflow-x: auto; white-space: pre; }
+.zine pre.spec .canary { color: var(--accent-deep); font-weight: 700; }
+
+/* Before/after comparison — two-cell horizontal strip */
+.zine .ba-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 2px solid var(--ink); margin: 2rem 0; box-shadow: 6px 6px 0 var(--ink); max-width: 720px; }
+@media (max-width: 600px) {
+  .zine .ba-strip { grid-template-columns: 1fr; }
+}
+.zine .ba-cell { padding: 1.1rem 1.25rem; background: var(--paper); }
+.zine .ba-cell.before { border-right: 2px dashed var(--ink-faint); }
+.zine .ba-cell.after { background: var(--canary-pale); }
+.zine .ba-eyebrow { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 8px; }
+.zine .ba-line { font-family: var(--display); font-size: 16px; font-weight: 600; color: var(--ink); }
+.zine .ba-line.strike { text-decoration: line-through; color: var(--ink-mid); }
+.zine .ba-line.add { color: var(--ink); }
+
+/* Results-prose — narrative under the result tiles */
+.zine .results-prose { max-width: 720px; margin: 2rem auto 0; padding: 0 1rem; }
+.zine .results-prose p { font-size: 16px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 1rem; }
+.zine .results-prose p strong { color: var(--ink); font-weight: 600; }
+.zine .results-prose p:last-child { margin-bottom: 0; }
+
+/* Reflection signature — handwritten close */
+.zine .reflection .signature { font-family: var(--hand); font-size: 22px; line-height: 1.3; color: var(--accent-deep); margin-top: 1.5rem; }
+.zine .reflection .signature-meta { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); margin-top: 0.4rem; }
+
+/* Crunchyroll Living Room — figure tweak so screenshots stay sharp at small sizes */
+.zine[data-issue="crunchyroll-living-room"] .figs-4up { max-width: 720px; gap: 1rem; }
+.zine[data-issue="crunchyroll-living-room"] .figure { max-width: 720px; margin: 2rem auto; }
 
 /* ═══════════════════════════════════════════════════════════════
    ZINE — Crunchyroll components (also reusable in other case studies)

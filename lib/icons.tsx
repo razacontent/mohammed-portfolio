@@ -12,7 +12,10 @@ export type IconName =
   | "decisions"
   | "taxForm"
   | "plainWords"
-  | "legalSeal";
+  | "legalSeal"
+  | "tenFootUI"
+  | "localization"
+  | "systems";
 
 export const icons: Record<IconName, ReactNode> = {
   personalization: (
@@ -112,6 +115,28 @@ export const icons: Record<IconName, ReactNode> = {
       <circle cx="12" cy="10" r="6" />
       <path d="M12 6l1.5 3 3 .5-2 2 .5 3-3-1.5-3 1.5.5-3-2-2 3-.5z" />
       <path d="M7 18h10v3H7z" />
+    </svg>
+  ),
+  tenFootUI: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="5" width="18" height="12" rx="1" />
+      <path d="M8 19h8M10 17v2M14 17v2" />
+      <path d="M7 9h6M7 12h10M7 14h8" />
+    </svg>
+  ),
+  localization: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="7" />
+      <path d="M5 12h14M12 5c2 2 3 4.5 3 7s-1 5-3 7M12 5c-2 2-3 4.5-3 7s1 5 3 7" />
+      <circle cx="17" cy="17" r="3.5" fill="var(--paper)" />
+      <path d="M17 14.7v2.3l1.7 1.1" strokeWidth="1.6" />
+    </svg>
+  ),
+  systems: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="4" width="16" height="16" />
+      <rect x="7" y="7" width="10" height="10" />
+      <rect x="10" y="10" width="4" height="4" />
     </svg>
   ),
 };
