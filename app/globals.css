@@ -2383,7 +2383,12 @@ input, textarea { cursor: text; }
 .zine .theme-strip .pill { background: var(--ink); color: var(--paper); padding: 4px 10px; }
 .zine .theme-strip .sep { color: var(--ink-light); }
 .zine .masthead-headline { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 7vw, 78px); line-height: 0.98; letter-spacing: -0.025em; color: var(--ink); margin: 0 auto 1.75rem; max-width: 920px; }
-.zine .masthead-headline .accent { background: var(--accent); padding: 0 0.12em; box-decoration-break: clone; }
+.zine .masthead-headline .accent { background: var(--accent); padding: 0 0.12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+/* Dark accents need paper text so the highlight is legible */
+.zine[data-issue="crunchyroll"] .masthead-headline .accent,
+.zine[data-issue="turbotax"] .masthead-headline .accent,
+.zine[data-issue="shopify"] .masthead-headline .accent,
+.zine[data-issue="crunchyroll-living-room"] .masthead-headline .accent { color: var(--paper); }
 .zine .hook { font-size: 22px; line-height: 1.45; color: var(--ink-soft); margin: 0 auto 2.5rem; max-width: 720px; font-weight: 400; }
 .zine .byline { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 2.5rem; }
 .zine .byline .by { color: var(--ink-light); }
