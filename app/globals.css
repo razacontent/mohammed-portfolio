@@ -839,10 +839,10 @@ input, textarea { cursor: text; }
   box-shadow: 2px 2px 0 var(--ink);
 }
 .cover-sticker::before { content: "★ "; }
-.stamp-featured { background: var(--red);    color: var(--paper); }
-.stamp-founded  { background: var(--canary); color: var(--ink); }
-.tag-pts        { background: var(--matcha); color: var(--ink); }
-.stamp-shipped  { background: var(--blue);   color: var(--paper); }
+.stamp-featured { background: var(--red);          color: var(--paper); }
+.stamp-founded  { background: var(--canary-deep); color: var(--paper); }
+.tag-pts        { background: var(--matcha-deep); color: var(--paper); }
+.stamp-shipped  { background: var(--blue);         color: var(--paper); }
 /* Per-issue recolor for the 2nd cover so two FEATURED stamps don't clash */
 .cover:nth-child(2) .stamp-featured { background: var(--plum); color: var(--paper); }
 /* Alternate rotation by cover position so the rack reads with visual rhythm */
