@@ -844,10 +844,10 @@ input, textarea { cursor: text; }
 .stamp-featured::before { content: "★ "; }
 /* Per-issue stamp recolor for the 2nd cover so two FEATURED stamps don't clash */
 .cover:nth-child(2) .stamp-featured {
-  background: var(--ink);
-  color: var(--plum);
-  border-color: var(--plum);
-  box-shadow: 2px 2px 0 var(--plum);
+  background: var(--plum);
+  color: var(--paper);
+  border-color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
 }
 .stamp-founded {
   right: 20px;

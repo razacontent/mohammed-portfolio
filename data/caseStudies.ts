@@ -65,9 +65,9 @@ export const caseStudies: CaseStudy[] = [
     readMin: 13,
     dateRange: "2022—2024",
     accent: "plum",
-    stamp: { variant: "featured", label: "5 TEAMS" },
+    stamp: { variant: "featured", label: "REDESIGN" },
     theme: "Living Room Rebrand · Content Systems · Localization",
-    headline: { before: "I co-shaped Crunchyroll's ", accent: "rebrand", after: " from the earliest concepts." },
+    headline: { before: "A rebrand built on ", accent: "systems", after: "." },
     hook:
       "A ground-up TV rebrand for 25+ markets. Influenced the manga-illustrated visual direction from concept reviews onward and built the content systems beneath it: taxonomy, metadata hierarchy, localization framework, measurement rubric.",
     icons: ["tenFootUI", "localization", "systems"],
