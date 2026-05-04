@@ -152,7 +152,7 @@ export const caseStudies: CaseStudy[] = [
     readMin: 9,
     dateRange: "2019—2020",
     accent: "matcha",
-    stamp: { variant: "pts", label: "ADOPTED" },
+    stamp: { variant: "pts", label: "REBUILT" },
     theme: "Marketing Analytics · Information Architecture",
     headline: { before: "Abandonment to ", accent: "adoption", after: "." },
     hook:
