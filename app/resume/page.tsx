@@ -122,7 +122,7 @@ export default function ResumePage() {
           <header className="resume-header">
             <h1 className="resume-name">Mohammed Raza</h1>
             <div className="resume-role">
-              Senior Content Designer · Engineer · Strategist
+              Senior Content Designer
             </div>
             <div className="resume-contacts">
               <a href="mailto:mohammed@razacontent.com">
@@ -148,7 +148,7 @@ export default function ResumePage() {
               — on products that have reached over a billion users. I write
               end-to-end experiences for membership growth, ad-tier
               conversion, and AI personalization at 400M+ scale. In parallel,
-              I engineer the voice frameworks, content schemas, and AI
+              I build the voice frameworks, content schemas, and AI
               taxonomies they ship on.
             </p>
           </section>

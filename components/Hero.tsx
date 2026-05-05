@@ -20,8 +20,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-sub">
-          I&rsquo;m Mohammed Raza, a content designer, engineer, and strategist
-          with eight years across{" "}
+          I&rsquo;m Mohammed Raza, a content designer with eight years across{" "}
           <strong>
             Amazon Prime, Crunchyroll, Shopify, TurboTax, and Alaska Airlines
           </strong>
@@ -29,7 +28,7 @@ export default function Hero() {
           <span className="scale">over a billion users.</span> I write{" "}
           <strong>end-to-end experiences</strong> for membership growth, ad-tier
           conversion, and AI personalization at{" "}
-          <span className="scale">400M+ scale.</span> In parallel, I engineer
+          <span className="scale">400M+ scale.</span> In parallel, I build
           the{" "}
           <strong>
             voice frameworks, content schemas, and AI taxonomies

@@ -58,7 +58,7 @@ export default function LockScreen() {
           Welcome to the <span className="canary-mark">newsstand.</span>
         </h1>
         <div className="lock-tagline">
-          Content designer · Engineer · Strategist
+          Content designer
         </div>
         <p className="lock-prompt">
           Some cool content thinking lives behind this code.

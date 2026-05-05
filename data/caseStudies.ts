@@ -38,14 +38,14 @@ export const caseStudies: CaseStudy[] = [
       "I led Prime's value communication framework: the research synthesis, the system architecture, and the rubric ten Membership Growth teams now ship from. Three parts: the framework, the work applied to membership growth, and the LLM-led celebration system the rubric scaled into.",
     icons: ["personalization", "aiSystems", "lifecycle"],
     iconLabels: ["Personalization", "AI systems", "Lifecycle"],
-    trackALabel: "Track A · Writing",
+    trackALabel: "Writing & craft",
     trackAItems: [
       "Value Communication Framework",
       "Pillars × principles × tones architecture",
       "Per-segment messaging matrix",
       "Surface-by-surface lifecycle copy",
     ],
-    trackBLabel: "Track B · Systems",
+    trackBLabel: "Strategic impact",
     trackBItems: [
       "Rubric scorable from day one",
       "Rolled out to ten growth teams",
