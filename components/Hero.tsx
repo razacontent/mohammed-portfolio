@@ -46,37 +46,6 @@ export default function Hero() {
           and culture that scale that judgment, and giving every team the tools
           and confidence to make those calls themselves.
         </p>
-
-        <hr className="hero-rule" />
-
-        <div className="hero-meta">
-          <span className="row">
-            <strong>Most recent</strong> · Amazon Prime · Senior content
-            designer · 2022—2025
-          </span>
-          <span className="row">
-            <strong>Founded</strong> · Crunchyroll content design practice ·
-            2020—2022
-          </span>
-          <span className="row">
-            <strong>Earlier</strong> · Shopify · Intuit/TurboTax · Alaska
-            Airlines
-          </span>
-        </div>
-
-        <div className="hero-chips">
-          <span className="chip canary">Senior · Amazon</span>
-          <span className="chip">Founded · Crunchyroll</span>
-          <span className="chip outline">1B+ users reached</span>
-          <span className="chip outline">AI taxonomy · voice systems</span>
-        </div>
-
-        <div className="hero-status">
-          Open to{" "}
-          <strong>senior IC, content design lead, or staff IC</strong> roles.
-          AI-native content systems and growth-stage products preferred.
-          Remote, hybrid Seattle, or relocating.
-        </div>
       </div>
     </section>
   );
