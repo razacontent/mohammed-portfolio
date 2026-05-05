@@ -85,11 +85,11 @@
 
 <section class="brief">
   <div class="brief-eyebrow">The brief</div>
-  <h2 class="brief-title">Crunchyroll's TV experience worked, but it didn't know what it was. I co-shaped the rebrand from the earliest concepts and built the <span class="accent">content systems</span> beneath it.</h2>
+  <h2 class="brief-title">Anime was going mainstream and Crunchyroll's home was a soulless play button for one show. I co-shaped the rebrand from the earliest concepts and built the <span class="accent">content systems</span> beneath it.</h2>
 
   <div class="brief-beat">
     <span class="beat-label">The diagnosis</span>
-    <p>The surface had no Japanese cultural threading and no vocabulary that signaled the team had ever met an anime fan. Editorial picks, algorithmic recommendations, and live events all shipped as the same horizontal rail. The content function had no shared artifacts, which meant whatever shipped on TV would be a one-off.</p>
+    <p>Members watched their anchor show and canceled at the finale. The home gave them no second show. Editorial picks, algorithmic recommendations, and live events shipped as the same horizontal rail. The surface read as soulless catalog inventory at the exact moment Netflix, Hulu, and Amazon were licensing anime, and the content function had no shared artifacts that could travel to a second surface anyway.</p>
   </div>
   <div class="brief-beat">
     <span class="beat-label">What I built</span>
@@ -134,8 +134,28 @@
 <article class="chapter">
   <div class="chapter-num">The diagnosis</div>
 
-  <h2 class="chapter-title">A surface that could have been anything. A practice that could not travel.</h2>
-  <p class="chapter-lede">Crunchyroll's TV experience worked. People watched anime on it. By every measure that mattered to fans, it didn't know what it was. By every measure that mattered to the content team, the practice underneath had nothing shared to ship from.</p>
+  <h2 class="chapter-title">Crunchyroll's TV experience was a soulless play button while anime was going mainstream.</h2>
+  <p class="chapter-lede">Members searched their anchor title, watched it episode-by-episode, and canceled when the finale dropped. The home gave them no second show. Netflix, Hulu, and Amazon were licensing anime catalogs that would catch the same audience inside two product cycles. Three problems were the cause.</p>
+
+  <div class="prose">
+    <ul>
+      <li><strong>The design was outdated.</strong> Placeholder strings ("Carousel Title") shipped to production. The six-item nav mixed account management with discovery. Tile sizes and rail rhythm were not designed for 10-foot scan distance, and the visual language predated every other surface in the company's roadmap.</li>
+      <li><strong>The content was soulless.</strong> Module names read like inventory categories. No editorial voice. No fan grammar. No celebration of the fandom that paid for the catalog. The surface read as a generic streaming app that happened to host anime. That is exactly what Netflix and Hulu were positioning to become.</li>
+      <li><strong>The product did not drive multi-show adoption.</strong> Members opened the app for one title, watched it episode-by-episode, and left when the finale dropped. The home did not earn a second show, which is the only thing that holds an anime fan past a season.</li>
+    </ul>
+  </div>
+
+  <pre class="spec">RESEARCH SIGNAL · UXR diary studies + product analytics · 2022 — 2023
+─────────────────────────────────────────────────────
+DOMINANT MODE      open app  /  search anchor show  /  play  /  exit
+CROSS-RAIL NAV     small share of session traffic; rails were scrolled past, not into
+TITLE SHARE        majority of session time concentrated on one title per member
+POST-FINALE        elevated cancellation pressure inside the season-finale window
+COMP LANDSCAPE     Netflix, Hulu, Amazon licensing anime through 2022 — 2024;
+                   catalog access alone would not hold the audience much longer
+
+IMPLICATION        the work was turning a <span class="canary">soulless play button for one show</span>
+                   into a discovery surface a fandom would defend</pre>
 
   <div class="figs-4up">
     <div class="figure">
@@ -154,7 +174,7 @@
   </div>
 
   <div class="prose">
-    <h3>Four gaps the existing surface and the practice could not close</h3>
+    <h3>Four gaps stood between what was shipping and what the audience needed.</h3>
     <ul>
       <li><strong>Speak fluent fandom.</strong> No Japanese cultural threading, no simulcast acknowledgment, no vocabulary signaling the team had ever met an anime fan. UXR diary studies showed members translating to Japan Standard Time when discussing release schedules and using sub-versus-dub as a primary identity marker. The product surfaced none of that vocabulary.</li>
       <li><strong>Distinguish content types.</strong> Editorial picks, algorithmic recommendations, behavioral state, and live events all shipped as the same horizontal rail. Information architecture principle was being violated at the rail level: four content types with four different obligations to the user, treated as one.</li>
@@ -175,13 +195,17 @@
 <article class="chapter">
   <div class="chapter-num">The approach</div>
 
-  <h2 class="chapter-title">Three moves. Surface fluent. Practice durable.</h2>
+  <h2 class="chapter-title">Three moves would make the surface fluent and the practice durable enough to outlast the rebrand.</h2>
   <p class="chapter-lede">The vision had to clear the executive room, hand engineering a system to populate, and leave the content practice with shared artifacts that did not depend on the rebrand to keep working. Three moves, each accountable to all three audiences.</p>
 
   <div class="prose">
-    <h3>Move 01 / Cultural fluency, structural not decorative</h3>
-    <p>Embed Japanese cultural moments at the system level, not as decoration. UXR had documented two specific behaviors: members translated release times to Japan Standard Time when discussing simulcasts in forums and Discord, and members used sub-versus-dub as a primary identity declaration before any other preference. Both signals pointed at the same conclusion. The surface needed a Japanese cultural anchor that was load-bearing rather than ornamental.</p>
-    <p>The welcome screen became the proof point: a contextual Japanese salutation tied to Tokyo time, a dual-clock that paired user-local with Tokyo, a locale-translated secondary greeting. The dual-clock stops feeling decorative the moment a fan checks before bed to see if their show has aired in Japan yet.</p>
+    <h3>Move 01 / The cultural fluency had to be structural, not decorative.</h3>
+    <p><strong>Embed Japanese cultural moments at the system level, not as decoration.</strong> UXR had documented two behaviors that pointed at the same conclusion:</p>
+    <ul>
+      <li><strong>JST mental model.</strong> Members translated release times to Japan Standard Time when discussing simulcasts in forums and Discord.</li>
+      <li><strong>Sub-versus-dub identity.</strong> Members used it as a primary identity declaration before any other preference.</li>
+    </ul>
+    <p>The surface needed a Japanese cultural anchor that was <strong>load-bearing, not ornamental</strong>. The welcome screen became the proof point.</p>
   </div>
 
   <div class="figure">
@@ -190,12 +214,20 @@
   </div>
 
   <div class="prose">
-    <h3>Move 02 / A four-bucket module taxonomy</h3>
-    <p>The previous surface treated every rail identically because there was no shared vocabulary for what a rail was. Library science calls this a flat hierarchy: every item at the same level, no relationships expressed. Editorial picks, algorithmic recommendations, behavioral state, and live events each carry a different contract with the user, and a flat hierarchy hides the contract.</p>
-    <p>Four buckets, derived from the actual obligations each rail owed: editorial (a human curated this), behavioral (you did something, the system is reflecting it), algorithmic (the recommender chose this), time-bounded (this is happening on a schedule). Each carries its own iconography, copy patterns, and rules for when a content engineer swaps copy dynamically versus when an editor writes it. The taxonomy gave editorial, engineering, and localization a shared vocabulary, and the shared vocabulary is what unlocks operational velocity at scale.</p>
+    <h3>Move 02 / I built a four-bucket module taxonomy.</h3>
+    <p><strong>Every rail looked identical because there was no shared vocabulary for what a rail was.</strong> Library science calls this a flat hierarchy: every item at the same level, no relationships expressed. Editorial picks, algorithmic recommendations, behavioral state, and live events each carry a different contract with the user, and a flat hierarchy hides the contract.</p>
+    <p>Four buckets, derived from the actual obligations each rail owed:</p>
+    <ul>
+      <li><strong>Editorial.</strong> A human curated this.</li>
+      <li><strong>Behavioral.</strong> You did something; the system is reflecting it.</li>
+      <li><strong>Algorithmic.</strong> The recommender chose this.</li>
+      <li><strong>Time-bounded.</strong> This is happening on a schedule.</li>
+    </ul>
+    <p>Each carries its own iconography, copy patterns, and rules for when a content engineer swaps copy dynamically versus when an editor writes it. <strong>Shared vocabulary is what unlocks operational velocity at scale.</strong></p>
 
-    <h3>Move 03 / Hime as a search character with personality</h3>
-    <p>UXR's parasocial-relationship study showed members spoke to and about Hime in ways no member spoke about Netflix or Hulu mascots. The signal was strongest when fans recommended shows to each other and weakest when fans were searching for something specific. AI search was about to be released as a generic voice interface. The research and the timing argued for the same conclusion: search needed a familiar voice the audience already trusted, and the manga-illustrated direction gave Hime a coherent place to live so the character was not an afterthought tile in a ribbon.</p>
+    <h3>Move 03 / Hime became a search character with personality.</h3>
+    <p><strong>UXR's parasocial-relationship study showed members spoke to and about Hime in ways no member spoke about Netflix or Hulu mascots.</strong> The signal was strongest when fans recommended shows to each other, weakest when fans searched for something specific. AI search was about to ship as a generic voice interface.</p>
+    <p>The research and the timing argued for the same conclusion: <strong>search needed a familiar voice the audience already trusted.</strong> The manga-illustrated direction gave Hime a coherent place to live, so the character was not an afterthought tile in a ribbon.</p>
   </div>
 
   <aside class="aside">
@@ -237,11 +269,11 @@
 <article class="chapter">
   <div class="chapter-num">The system</div>
 
-  <h2 class="chapter-title">A taxonomy. Four module families. The rules that held them together.</h2>
+  <h2 class="chapter-title">The system was a four-bucket taxonomy and the rules that held it together.</h2>
   <p class="chapter-lede">Vision pitches buy permission. Systems are what ship. The bulk of the work was authoring the content layer that let the new aesthetic do real operational work across 25+ markets, and codifying it as artifacts other teams could pick up and run with.</p>
 
   <div class="prose">
-    <h3>Five content principles the system rests on</h3>
+    <h3>The system rests on five content principles.</h3>
     <p>Before the modules, the metadata, or the strings, the system needed a shared set of decisions about what good content looked like in this product. Five principles, each derived from a specific research signal or operational constraint:</p>
     <ol>
       <li><strong>Cultural specificity over neutrality.</strong> The audience already self-identifies with Japanese conventions (sub vs dub, JST time, romaji terminology). Specificity is the moat. Neutrality concedes it to streaming competitors who treat anime as catalog rather than culture.</li>
@@ -254,8 +286,14 @@
   </div>
 
   <div class="prose">
-    <h3>Entry flow: cultural identity before the home loads.</h3>
-    <p>Login, profile picker, and welcome run before any content surface appears, which makes them the most expensive content design real estate in the experience: every member crosses them, every session, before reaching anything else. They are also what gets cut first under deadline pressure. The argument for shipping them in lockstep with the home was load-bearing, not nice-to-have. The home explains <em>what</em> Crunchyroll is now. The entry flow explains <em>who Crunchyroll thinks the user is</em>, which is the prerequisite trust signal for everything downstream.</p>
+    <h3>The entry flow had to set cultural identity before the home loaded.</h3>
+    <p>Login, profile picker, and welcome run before any content surface appears, which makes them <strong>the most expensive content design real estate in the experience</strong>: every member crosses them, every session, before reaching anything else. They are also what gets cut first under deadline pressure.</p>
+    <p>The argument for shipping them in lockstep with the home was load-bearing, not nice-to-have:</p>
+    <ul>
+      <li>The home explains <strong>what</strong> Crunchyroll is now.</li>
+      <li>The entry flow explains <strong>who Crunchyroll thinks the user is</strong>.</li>
+    </ul>
+    <p>The second is the prerequisite trust signal for everything downstream.</p>
   </div>
 
   <div class="figure">
@@ -286,9 +324,26 @@
   </div>
 
   <div class="prose">
+    <h4>What shipped on the welcome screen</h4>
+    <p>Three decisions, each with research underneath:</p>
+    <ul>
+      <li>A contextual <strong>Japanese salutation</strong> tied to Tokyo time.</li>
+      <li>A <strong>dual-clock</strong> pairing user-local with Tokyo.</li>
+      <li>A <strong>locale-translated secondary greeting</strong>.</li>
+    </ul>
+    <p>The dual-clock stops feeling decorative the moment a fan checks before bed to see if their show has aired in Japan yet.</p>
+
     <h4>The contested rule: Tokyo time anchors the greeting</h4>
-    <p>Engineering wanted the device's local clock because the implementation was straightforward. UXR had documented something the product team had not noticed: members already translated to JST when discussing simulcasts in forums, Discord, and r/anime. The mental model existed in the audience; the surface had simply never reflected it. Shipped behavior anchors the salutation to Tokyo time, with the device's local clock still appearing in the corner so the surface respects both frames at once. The salutation belongs to Japan because that is where the schedule lives. The timekeeping belongs to the fan because that is where the body lives.</p>
-    <p>The four chosen forms (<em>ohayou</em>, <em>konnichiwa</em>, <em>konbanwa</em>, <em>yaa</em>) are casual register, not formal. UXR's diary studies showed members used casual romaji freely in fan contexts and read formal Japanese as marketing distance. Casual register reads as a member-to-member greeting; formal would have read as a brand-to-customer one. The "yaa" late-night band exists because anime watching peaks between midnight and 5am JST in fan communities, and the absence of a greeting in that band would have read as the surface being asleep when the audience was most awake.</p>
+    <p><strong>Engineering wanted the device's local clock</strong> because the implementation was straightforward. UXR had documented something the product team had not noticed: <strong>members already translated to JST</strong> when discussing simulcasts in forums, Discord, and r/anime. The mental model existed in the audience; the surface had simply never reflected it.</p>
+    <p>Shipped behavior anchors the salutation to Tokyo time, with the device's local clock still in the corner. <strong>The salutation belongs to Japan because that is where the schedule lives. The timekeeping belongs to the fan because that is where the body lives.</strong></p>
+
+    <h4>Why casual register, not formal</h4>
+    <p>The four chosen forms (<em>ohayou</em>, <em>konnichiwa</em>, <em>konbanwa</em>, <em>yaa</em>) are casual, not formal. UXR's diary studies showed members used casual romaji freely in fan contexts and read formal Japanese as marketing distance.</p>
+    <ul>
+      <li><strong>Casual</strong> reads as a member-to-member greeting.</li>
+      <li><strong>Formal</strong> would have read as a brand-to-customer one.</li>
+    </ul>
+    <p>The <strong>"yaa" late-night band</strong> exists because anime watching peaks between midnight and 5am JST in fan communities. The absence of a greeting in that band would have read as the surface being asleep when the audience was most awake.</p>
   </div>
 
   <pre class="spec">WELCOME STRING SPEC · v1.2 · shipped Q1 2024
@@ -312,11 +367,13 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
 
   <div class="prose">
     <h4>Why the truncation budgets are what they are</h4>
-    <p>Twenty-two characters on the primary line came out of a 10-foot UI legibility test at the smallest target TV size (40-inch 720p). At that distance, a primary-line glyph needs roughly 1.6% of horizontal pixels to read. Twenty-two characters of mixed Japanese and Latin script fill the legibility budget without crowding the next line. Fourteen characters on the secondary line is the half-weight read: present, scannable, never the thing the eye lands on first. The Japanese salutation is exempt from truncation because a half-truncated romaji greeting reads as a typo, not a localization decision. If the layout cannot fit the whole salutation, the system falls back to the secondary greeting alone.</p>
+    <p><strong>Twenty-two characters on the primary line</strong> came from a 10-foot UI legibility test at the smallest target TV size (40-inch 720p). At that distance, a primary-line glyph needs roughly 1.6% of horizontal pixels to read. Twenty-two characters of mixed Japanese and Latin script fill the legibility budget without crowding the next line.</p>
+    <p><strong>Fourteen characters on the secondary line</strong> is the half-weight read: present, scannable, never the thing the eye lands on first.</p>
+    <p><strong>The Japanese salutation is exempt from truncation.</strong> A half-truncated romaji greeting reads as a typo, not a localization decision. If the layout cannot fit the whole salutation, the system falls back to the secondary greeting alone.</p>
   </div>
 
   <div class="prose">
-    <h3>Navigation: cleared before designing the home.</h3>
+    <h3>I cleared the navigation before designing the home.</h3>
     <p>Six items mixing account management with discovery taxed cognitive load on a TV remote. I worked peer-to-peer with the Senior Principal Designer to pull History out of the global nav (a debugging affordance for finding shows fans remember watching) and shrink to five items.</p>
   </div>
 
@@ -326,8 +383,9 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
   </div>
 
   <div class="prose">
-    <h3>The taxonomy that made specificity scalable.</h3>
-    <p>Every rail on the previous surface shipped with the same visual treatment, the same copy pattern, and no shared rules for when humans wrote the copy versus when the system filled it. The result was the flat-hierarchy problem the IA principle warned against: four contracts hidden inside one container. The four-bucket taxonomy made the contract legible at the rail level, gave every module its own iconography and copy pattern, and answered a question the org had been arguing over for two quarters: when can the system swap copy automatically, and when does an editor have to write it?</p>
+    <h3>The taxonomy is what made specificity scalable.</h3>
+    <p>Every rail on the previous surface shipped with the same visual treatment, the same copy pattern, and no shared rules for when humans wrote the copy versus when the system filled it. The result was <strong>the flat-hierarchy problem</strong>: four contracts hidden inside one container.</p>
+    <p>The four-bucket taxonomy made the contract legible at the rail level, gave every module its own iconography and copy pattern, and answered a question the org had been arguing over for two quarters: <strong>when can the system swap copy automatically, and when does an editor have to write it?</strong></p>
   </div>
 
   <div class="tax">
@@ -386,7 +444,8 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
 
   <div class="prose">
     <h3>Editorial in practice: Featured 10 earns its number.</h3>
-    <p>Vertical poster art. Hand-drawn 1, 2, 3 numbered ranking. The contract: when an editor cannot fill the rail, the rail does not render. Algorithmic fill was the proposed fallback because it kept the surface from looking incomplete; the rule against it kept the surface honest. A rail labeled "Featured 10" backed by a recommender is not a Featured 10, it is a Top Picks pretending. The cost of the missing rail (a small visual gap) is lower than the cost of the broken promise (a member who learns Featured isn't actually featured).</p>
+    <p>Vertical poster art. Hand-drawn 1, 2, 3 numbered ranking. <strong>The contract: when an editor cannot fill the rail, the rail does not render.</strong></p>
+    <p>Algorithmic fill was the proposed fallback because it kept the surface from looking incomplete. The rule against it kept the surface honest. <strong>A rail labeled "Featured 10" backed by a recommender is just a Top Picks pretending.</strong> The cost of the missing rail (a small visual gap) is lower than the cost of the broken promise (a member who learns Featured isn't actually featured).</p>
   </div>
 
   <div class="figs-4up">
@@ -449,7 +508,8 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
   </div>
 
   <div class="prose">
-    <p>Live and Livestream get a distinct CTA color register: cyan for pre-event, with a red-dot indicator when broadcasting. The color carries the time-state signal so the user does not have to read the CTA copy to know whether the event has started. The choice tracks UXR's finding that members on TV scan for color and motion before they read text on a 10-foot surface.</p>
+    <p><strong>Live and Livestream get a distinct CTA color register:</strong> cyan for pre-event, red-dot indicator when broadcasting. The color carries the time-state signal so the user does not have to read the CTA copy to know whether the event has started.</p>
+    <p>The choice tracks UXR's finding that <strong>members on TV scan for color and motion before they read text</strong> on a 10-foot surface.</p>
   </div>
 
   <div class="figs-4up">
@@ -464,9 +524,30 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
   </div>
 
   <div class="prose">
-    <h3>The metadata hierarchy and the rule that took three review cycles.</h3>
-    <p>The metadata schema landed as a strict hierarchy: identity fields at the top (Tag, Title), evaluative fields in the middle (Rating, Fan Score, Genre tags), narrative fields at the bottom (Description, Synopsis), with explicit rules for which fields are required, which are optional, and how fields fall back when data is missing. Every field has a documented source (system, editor, recommender, third-party catalog) so localization, engineering, and editorial all know who owns what.</p>
-    <p>The rule that took three review cycles to land was about temporal hierarchy rather than spatial: while the video preview is playing, description copy does not render. Eye-tracking work the design team had run on the previous surface showed members sampling the moving image first and ignoring static copy underneath; the description was load on the page that nobody was reading. Cutting it during playback recovers attention for the thing the description was meant to support, and the description returns the moment the preview pauses or loses focus.</p>
+    <h3>Here's how the system earns the second show.</h3>
+    <p>The single-show pattern was the diagnosis. The four-bucket taxonomy is what the home uses to earn the next click. Each rail family does a different cross-discovery job:</p>
+    <ul>
+      <li><strong>Editorial</strong> answers <em>what's worth my attention this week?</em> Featured 10 and Editor's Pick are the breadth signal. A human said this is the next show.</li>
+      <li><strong>Algorithmic</strong> answers <em>what would I like that I haven't found?</em> Top Picks hands recommender output to editorial language so the reco reads as a recommendation, not a guess.</li>
+      <li><strong>Behavioral</strong> answers <em>where was I?</em> Continue Watching uses fan grammar so the surface respects the user's place in their anchor show without trapping them in it.</li>
+      <li><strong>Time-bounded</strong> answers <em>what's happening right now?</em> Season Premiere, Live, Livestream, and New on Crunchyroll turn the schedule into a reason to return inside the simulcast week.</li>
+    </ul>
+    <p>A member who came for Jujutsu Kaisen now lands on a home where Editorial is recommending Frieren, Algorithmic is positioning Spy x Family near their preference cluster, Behavioral is saving their place in JJK, and Time-bounded is showing what airs from Japan tonight. <strong>The single-show pattern stops being the only path through the surface.</strong></p>
+  </div>
+
+  <div class="prose">
+    <h3>The metadata hierarchy was strict, and one rule inside it took three review cycles to land.</h3>
+    <p>The metadata schema landed as a strict hierarchy:</p>
+    <ul>
+      <li><strong>Identity</strong> at the top (Tag, Title).</li>
+      <li><strong>Evaluative</strong> in the middle (Rating, Fan Score, Genre tags).</li>
+      <li><strong>Narrative</strong> at the bottom (Description, Synopsis).</li>
+    </ul>
+    <p>Every field has a documented source (system, editor, recommender, third-party catalog) so localization, engineering, and editorial all know who owns what.</p>
+
+    <h4>The contested rule: no description while video plays</h4>
+    <p>The rule that took three review cycles to land was about temporal hierarchy, not spatial: <strong>while the video preview is playing, description copy does not render.</strong></p>
+    <p>Eye-tracking work the design team had run on the previous surface showed members sampling the moving image first and ignoring static copy underneath. The description was load on the page that nobody was reading. Cutting it during playback recovers attention for the thing the description was meant to support, and the description returns the moment the preview pauses or loses focus.</p>
   </div>
 
   <div class="figure">
@@ -475,9 +556,24 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
   </div>
 
   <div class="prose">
-    <h3>The conversion screen, four lines deep.</h3>
-    <p>Premium Only is the most visual frame on the surface and the highest-stakes copy decision in the flow. Four lines, in priority order: <strong>Unlock the whole library</strong> (scope: what you get). <strong>No ads</strong> (quality: what stops). <strong>New episodes shortly after Japan</strong> (timing: what the audience is actually buying). <strong>Cancel anytime</strong> (permission: what reduces the commitment cost). Each line answers a different objection, and the order matches the order objections surface in conversion research: scope first, friction second, timing third, escape hatch fourth.</p>
-    <p>The third line was the contested one. Marketing wanted "Same-day simulcast." Legal wanted "Episodes available within hours of Japanese broadcast." Both were accurate. Both translated badly to the audience the line was actually for: a member following the manga, refreshing forums, trying to stay ahead of spoilers. "Shortly after Japan" matches the mental model the audience already uses ("did Japan air it yet?") and lets the fan complete the sentence in their head ("...so I can watch before I get spoiled"). Marketing approved it after the workshop. Legal approved it because the temporal claim was looser than what they had drafted, not tighter.</p>
+    <h3>The conversion screen earned its sale in four lines.</h3>
+    <p>Premium Only is the most visual frame on the surface and the highest-stakes copy decision in the flow. <strong>Four lines, in priority order, each answering a different objection:</strong></p>
+    <ol>
+      <li><strong>Unlock the whole library.</strong> Scope: what you get.</li>
+      <li><strong>No ads.</strong> Quality: what stops.</li>
+      <li><strong>New episodes shortly after Japan.</strong> Timing: what the audience is actually buying.</li>
+      <li><strong>Cancel anytime.</strong> Permission: what reduces commitment cost.</li>
+    </ol>
+    <p>The order matches the order objections surface in conversion research: <strong>scope first, friction second, timing third, escape hatch fourth.</strong></p>
+
+    <h4>The third line was contested</h4>
+    <ul>
+      <li><strong>Marketing wanted:</strong> "Same-day simulcast."</li>
+      <li><strong>Legal wanted:</strong> "Episodes available within hours of Japanese broadcast."</li>
+      <li><strong>What shipped:</strong> "New episodes shortly after Japan."</li>
+    </ul>
+    <p>Both alternates were accurate. Both translated badly to the audience the line was actually for: a member following the manga, refreshing forums, trying to stay ahead of spoilers. <strong>"Shortly after Japan" matches the mental model the audience already uses</strong> ("did Japan air it yet?") and lets the fan complete the sentence in their head ("…so I can watch before I get spoiled").</p>
+    <p>Marketing approved it after the workshop. Legal approved it because the temporal claim was looser than what they had drafted, not tighter.</p>
   </div>
 
   <div class="figure">
@@ -486,8 +582,9 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
   </div>
 
   <div class="prose">
-    <h3>Profile as fandom identity.</h3>
-    <p>Avatar is an illustrated anime character (Megumi from Jujutsu Kaisen). Subtitle/CC Language and Audio Language are promoted to top-level profile preferences. Previous architecture buried both three taps deep in playback settings, which UXR had flagged as the single most-changed default in the player on first session. The signal was that members were treating sub-versus-dub as an identity declaration rather than a per-show playback choice; the IA was treating it as the latter. Promoting both to profile-level matched the mental model and removed the most repeated micro-task from the playback flow.</p>
+    <h3>The profile became a fandom identity, not a settings page.</h3>
+    <p>Avatar is an illustrated anime character (Megumi from Jujutsu Kaisen). <strong>Subtitle/CC Language and Audio Language are promoted to top-level profile preferences.</strong> Previous architecture buried both three taps deep in playback settings.</p>
+    <p>UXR had flagged sub/dub as the <strong>single most-changed default in the player on first session</strong>. The signal: members were treating sub-versus-dub as an identity declaration; the IA was treating it as a per-show playback choice. Promoting both to profile-level matched the mental model and removed the most repeated micro-task from the playback flow.</p>
   </div>
 
   <div class="figure">
@@ -496,8 +593,17 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
   </div>
 
   <div class="prose">
-    <h3>The practice that grew up alongside the surface.</h3>
-    <p>Six artifacts left the content design seat and showed up in other teams' workflows: a taxonomy that became a spec, a metadata hierarchy that became a contract, a rule set that became a decision tree, a localization framework that became a market spec, a workshop methodology that became a brand-voice template, and a measurement rubric that became the data team's per-module performance model. The shape of the work shifted from one writer authoring strings to one practice handing other teams the artifacts they needed to ship aligned.</p>
+    <h3>The practice grew up alongside the surface.</h3>
+    <p><strong>Six artifacts left the content design seat and showed up in other teams' workflows:</strong></p>
+    <ul>
+      <li>A <strong>taxonomy</strong> that became a spec.</li>
+      <li>A <strong>metadata hierarchy</strong> that became a contract.</li>
+      <li>A <strong>rule set</strong> that became a decision tree.</li>
+      <li>A <strong>localization framework</strong> that became a market spec.</li>
+      <li>A <strong>workshop methodology</strong> that became a brand-voice template.</li>
+      <li>A <strong>measurement rubric</strong> that became the data team's per-module performance model.</li>
+    </ul>
+    <p>The shape of the work shifted from <strong>one writer authoring strings</strong> to <strong>one practice handing other teams the artifacts they needed to ship aligned.</strong></p>
   </div>
 
   <div class="tax">
@@ -586,7 +692,7 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
 <section class="results-hero">
   <div class="results-hero-inner">
     <div class="results-eyebrow">Chapter 04 · What landed</div>
-    <h2 class="results-title">Direction approved. Practice matured. System that scales.</h2>
+    <h2 class="results-title">The direction got approved, the practice matured, and the system shipped at scale.</h2>
 
     <div class="results-tiles">
       <div class="results-tile">
@@ -643,9 +749,8 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
 
   <div class="reflection">
     <div class="reflection-eyebrow">◈ Reflection / 03 The measurement that earned the business case</div>
-    <p>Every rail had been rolling up to one engagement metric, which let the org argue but not decide. The taxonomy unblocked a more honest model, built in partnership with the data team: editorial measures on lift, behavioral on re-engagement, algorithmic on banded CTR, time-bounded on attendance. Leadership could finally answer whether editorial was outperforming the recommender, and where to invest next. The rebrand turned content design from a surface decoration into a defensible business surface, with research and measurement underneath every choice that shipped.</p>
+    <p>Every rail had been rolling up to one engagement metric, which let the org argue but not decide. The taxonomy unblocked a more honest model, built in partnership with the data team: editorial measures on lift, behavioral on re-engagement, algorithmic on banded CTR, time-bounded on attendance. Leadership could finally answer whether editorial was outperforming the recommender, and where to invest next. The rebrand turned content design from a surface decoration into a defensible business surface, in a market where the catalog moat was disappearing and the audience needed a reason to stay that competitors couldn't replicate by buying licenses.</p>
 
-    <div class="signature">Research shaped the strategy. The system carried the work.</div>
     <div class="signature-meta">Mohammed Raza / Senior Content Designer (Practice Lead) / Crunchyroll 2022 / 2024</div>
   </div>
 </article>
