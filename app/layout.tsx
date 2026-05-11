@@ -25,13 +25,13 @@ const hand = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "razacontent · Mohammed Raza · Content designer, engineer, strategist",
+  title: "razacontent · Mohammed Raza · Senior content designer",
   description:
-    "Mohammed Raza — senior content designer, engineer, and strategist. Eight years across Amazon Prime, Crunchyroll, Shopify, TurboTax, and Alaska Airlines. AI-native content systems for products at billion-user scale.",
+    "Mohammed Raza, senior content designer with eight years across Amazon Prime, Crunchyroll, Shopify, TurboTax, and Alaska Airlines. AI-native content systems for products at billion-user scale.",
   openGraph: {
     title: "razacontent · Mohammed Raza",
     description:
-      "A content canary in the design systems mine. Senior content designer & strategist.",
+      "A content canary in the design systems mine. Senior content designer.",
   },
   twitter: {
     card: "summary_large_image",

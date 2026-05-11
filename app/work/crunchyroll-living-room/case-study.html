@@ -139,9 +139,9 @@
 
   <div class="prose">
     <ul>
-      <li><strong>The design was outdated.</strong> Placeholder strings ("Carousel Title") shipped to production. The six-item nav mixed account management with discovery. Tile sizes and rail rhythm were not designed for 10-foot scan distance, and the visual language predated every other surface in the company's roadmap.</li>
-      <li><strong>The content was soulless.</strong> Module names read like inventory categories. No editorial voice. No fan grammar. No celebration of the fandom that paid for the catalog. The surface read as a generic streaming app that happened to host anime. That is exactly what Netflix and Hulu were positioning to become.</li>
-      <li><strong>The product did not drive multi-show adoption.</strong> Members opened the app for one title, watched it episode-by-episode, and left when the finale dropped. The home did not earn a second show, which is the only thing that holds an anime fan past a season.</li>
+      <li><strong>The design was outdated.</strong> Placeholder strings like "Carousel Title" were shipping to production, the six-item nav mixed account management with discovery, and the tile sizes and rail rhythm had never been rethought for 10-foot scan distance. The visual language predated every other surface in the company's roadmap.</li>
+      <li><strong>The content was soulless.</strong> Module names read like inventory categories, with no editorial voice, no fan grammar, and no celebration of the fandom that paid for the catalog. The surface read as a generic streaming app that happened to host anime, which is exactly what Netflix and Hulu were positioning to become.</li>
+      <li><strong>The product did not drive multi-show adoption.</strong> Members opened the app for one title, watched it episode-by-episode, and left when the finale dropped. The home never earned a second show, which is the only thing that holds an anime fan past a season.</li>
     </ul>
   </div>
 
@@ -325,25 +325,14 @@ IMPLICATION        the work was turning a <span class="canary">soulless play but
 
   <div class="prose">
     <h4>What shipped on the welcome screen</h4>
-    <p>Three decisions, each with research underneath:</p>
-    <ul>
-      <li>A contextual <strong>Japanese salutation</strong> tied to Tokyo time.</li>
-      <li>A <strong>dual-clock</strong> pairing user-local with Tokyo.</li>
-      <li>A <strong>locale-translated secondary greeting</strong>.</li>
-    </ul>
-    <p>The dual-clock stops feeling decorative the moment a fan checks before bed to see if their show has aired in Japan yet.</p>
+    <p>Three decisions shipped together, each with research underneath: a contextual Japanese salutation tied to Tokyo time, a dual-clock that pairs user-local time with Tokyo, and a locale-translated secondary greeting. The dual-clock stops feeling decorative the moment a fan checks before bed to see if their show has aired in Japan yet.</p>
 
     <h4>The contested rule: Tokyo time anchors the greeting</h4>
-    <p><strong>Engineering wanted the device's local clock</strong> because the implementation was straightforward. UXR had documented something the product team had not noticed: <strong>members already translated to JST</strong> when discussing simulcasts in forums, Discord, and r/anime. The mental model existed in the audience; the surface had simply never reflected it.</p>
-    <p>Shipped behavior anchors the salutation to Tokyo time, with the device's local clock still in the corner. <strong>The salutation belongs to Japan because that is where the schedule lives. The timekeeping belongs to the fan because that is where the body lives.</strong></p>
+    <p>Engineering wanted the device's local clock because the implementation was straightforward, but UXR had documented something the product team had not noticed: members were already translating to JST when discussing simulcasts in forums, Discord, and r/anime. The mental model existed in the audience and the surface had simply never reflected it.</p>
+    <p>Shipped behavior anchors the salutation to Tokyo time, with the device's local clock still in the corner. <strong>The salutation belongs to Japan because that is where the schedule lives, and the timekeeping belongs to the fan because that is where the body lives.</strong></p>
 
-    <h4>Why casual register, not formal</h4>
-    <p>The four chosen forms (<em>ohayou</em>, <em>konnichiwa</em>, <em>konbanwa</em>, <em>yaa</em>) are casual, not formal. UXR's diary studies showed members used casual romaji freely in fan contexts and read formal Japanese as marketing distance.</p>
-    <ul>
-      <li><strong>Casual</strong> reads as a member-to-member greeting.</li>
-      <li><strong>Formal</strong> would have read as a brand-to-customer one.</li>
-    </ul>
-    <p>The <strong>"yaa" late-night band</strong> exists because anime watching peaks between midnight and 5am JST in fan communities. The absence of a greeting in that band would have read as the surface being asleep when the audience was most awake.</p>
+    <h4>Why the register is casual</h4>
+    <p>The four chosen forms (<em>ohayou</em>, <em>konnichiwa</em>, <em>konbanwa</em>, <em>yaa</em>) are casual rather than formal because UXR's diary studies showed members used casual romaji freely in fan contexts and read formal Japanese as marketing distance. Casual register reads as a member-to-member greeting; formal would have read as a brand-to-customer one. The <strong>"yaa" late-night band</strong> exists because anime watching peaks between midnight and 5am JST in fan communities, and the absence of a greeting in that band would have read as the surface being asleep when the audience was most awake.</p>
   </div>
 
   <pre class="spec">WELCOME STRING SPEC · v1.2 · shipped Q1 2024
@@ -561,7 +550,7 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
     <ol>
       <li><strong>Unlock the whole library.</strong> Scope: what you get.</li>
       <li><strong>No ads.</strong> Quality: what stops.</li>
-      <li><strong>New episodes shortly after Japan.</strong> Timing: what the audience is actually buying.</li>
+      <li><strong>New episodes shortly after Japan.</strong> Timing: what the audience is buying.</li>
       <li><strong>Cancel anytime.</strong> Permission: what reduces commitment cost.</li>
     </ol>
     <p>The order matches the order objections surface in conversion research: <strong>scope first, friction second, timing third, escape hatch fourth.</strong></p>
@@ -572,7 +561,7 @@ TYPOGRAPHY  display weight on japanese salutation (visible as character)
       <li><strong>Legal wanted:</strong> "Episodes available within hours of Japanese broadcast."</li>
       <li><strong>What shipped:</strong> "New episodes shortly after Japan."</li>
     </ul>
-    <p>Both alternates were accurate. Both translated badly to the audience the line was actually for: a member following the manga, refreshing forums, trying to stay ahead of spoilers. <strong>"Shortly after Japan" matches the mental model the audience already uses</strong> ("did Japan air it yet?") and lets the fan complete the sentence in their head ("…so I can watch before I get spoiled").</p>
+    <p>Both alternates were accurate. Both translated badly to the audience the line was written for: a member following the manga, refreshing forums, trying to stay ahead of spoilers. <strong>"Shortly after Japan" matches the mental model the audience already uses</strong> ("did Japan air it yet?") and lets the fan complete the sentence in their head ("…so I can watch before I get spoiled").</p>
     <p>Marketing approved it after the workshop. Legal approved it because the temporal claim was looser than what they had drafted, not tighter.</p>
   </div>
 

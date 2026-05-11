@@ -8,9 +8,7 @@ export default function ContactBlock() {
           <div className="contact-text">
             <h2>Reach out.</h2>
             <p>
-              Open to <strong>senior IC, content design lead, or staff IC</strong>{" "}
-              roles. AI-native content systems and growth-stage products
-              preferred. Remote, hybrid Seattle, or relocating.
+              Open to senior content design roles. Remote or Seattle-based.
             </p>
           </div>
           <div className="contact-actions">

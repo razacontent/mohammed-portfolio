@@ -30,7 +30,7 @@
     </h1>
 
     <p class="hook">
-      The FBAR filing experience inside TurboTax was written for compliance lawyers, not for the people who actually had to file it. Dense legal language, passive voice, and jargon-heavy copy were causing confusion, drop-off, and eroded trust at the moment users most needed to feel confident. I rebuilt the content system with prompt engineering, GenAI tooling, and a compliance-safe rewriting workflow that legal could trust.
+      Users with legitimate foreign accounts were abandoning the FBAR filing flow because the copy read like federal regulation. Dense legal language, passive voice, and jargon-heavy copy eroded trust at the moment users most needed to feel confident. I rebuilt the content system with prompt engineering, GenAI tooling, and a compliance-safe rewriting workflow that legal could trust.
     </p>
 
     <div class="byline">
@@ -82,7 +82,7 @@
 
   <section class="brief">
     <div class="brief-eyebrow">The brief</div>
-    <h2 class="brief-title">FBAR compliance is genuinely complex, the consequences of mistakes are severe, and the existing copy read like it was written by lawyers for lawyers. The work was to make the flow legible to the people who actually had to file it, while keeping every <span class="accent">legally immovable term</span> intact.</h2>
+    <h2 class="brief-title">FBAR compliance is genuinely complex, the consequences of mistakes are severe, and the existing copy read like it was written by lawyers for lawyers. The work was to make the flow legible to the people who had to file it, while keeping every <span class="accent">legally immovable term</span> intact.</h2>
 
     <div class="brief-beat">
       <span class="beat-label">The diagnosis</span>
@@ -159,7 +159,7 @@
 
   <article class="chapter">
     <div class="chapter-num">Chapter 02</div>
-    <h2 class="chapter-title">Logistics, planning, and cross-functional cadence.</h2>
+    <h2 class="chapter-title">Here's how I planned the work, the timeline, and the cross-functional cadence.</h2>
 
     <p class="prose">
       Before writing a single word, I built the operating infrastructure. The FBAR project required unusually close collaboration across product design, legal, tax content analysts, and engineering. I established a structured cadence with the product design team that created fast feedback loops and dedicated time for open discussion. I set content principles early so every stakeholder shared a direction before any copy existed. And I built a decision log that proactively documented every content call and its rationale, which reduced back-and-forth and gave legal a record they could reference instead of relitigating decisions.
@@ -193,10 +193,10 @@
 
   <article class="chapter">
     <div class="chapter-num">Chapter 03</div>
-    <h2 class="chapter-title">Discovery and research.</h2>
+    <h2 class="chapter-title">I started with discovery and research.</h2>
 
     <p class="prose">
-      I studied FBAR regulations through primary documentation and SME interviews, dissected existing solutions including the FinCEN BSA e-filing system and external FBAR services, and conducted user interviews and prototype testing. The research uncovered three consistent pain points: confusion about FBAR eligibility, difficulty with data entry especially around currency conversion, and anxiety about whether they had filed correctly. FBAR caused anxiety, frustration, and confusion at proportions that went well beyond a typical tax flow.
+      I studied FBAR regulations through primary documentation and SME interviews, dissected existing solutions including the FinCEN BSA e-filing system and external FBAR services, and conducted user interviews and prototype testing. One filer in the interviews paused on the qualification screen, read it three times, and said "I don't know if this is asking me a question or telling me a rule." That was the pattern. The research uncovered three consistent pain points: confusion about FBAR eligibility, difficulty with data entry especially around currency conversion, and anxiety about whether they had filed correctly. FBAR caused anxiety, frustration, and confusion at proportions that went well beyond a typical tax flow.
     </p>
 
     <div class="figure">
@@ -210,14 +210,14 @@
     </div>
 
     <p class="prose">
-      User research surfaced what people actually needed at each moment in the flow: reminders and clear tracking, confidence that they had filed correctly, saved bank account information for returning users, and specific currency conversion guidance. None of those needs were being met by the existing content, which is what made the rewrite scope addressable through copy rather than only through new features.
+      User research surfaced what people needed at each moment in the flow: reminders and clear tracking, confidence that they had filed correctly, saved bank account information for returning users, and specific currency conversion guidance. None of those needs were being met by the existing content, which is what made the rewrite scope addressable through copy rather than only through new features.
     </p>
   </article>
 
 
   <article class="chapter">
     <div class="chapter-num">Chapter 04</div>
-    <h2 class="chapter-title">The content engineering workflow.</h2>
+    <h2 class="chapter-title">I built a content engineering workflow on Writer.ai.</h2>
 
     <p class="prose">
       The core challenge was scale. Dozens of screens, each with legally specific language that couldn't be rewritten casually. Manual rewrites one by one would take months and introduce inconsistency. I built a five-phase workflow on top of Writer.ai with prompt engineering as the engine and human judgment at every decision point that mattered.
@@ -271,7 +271,7 @@
       </div>
     </div>
 
-    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 2.5rem 0 0.75rem;">What the prompts actually looked like.</h3>
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 2.5rem 0 0.75rem;">What the prompts looked like.</h3>
 
     <div style="background: rgba(15,15,15,0.04); border: 2px solid var(--ink); padding: 1.5rem 1.75rem; max-width: 720px; margin: 1rem auto; font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--ink-soft);">
       <div style="font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 0.75rem;">Prompt example · financial interest definition</div>
@@ -290,7 +290,7 @@
 
   <article class="chapter">
     <div class="chapter-num">Chapter 05</div>
-    <h2 class="chapter-title">The redesigned experience.</h2>
+    <h2 class="chapter-title">Here's the redesigned experience, screen by screen.</h2>
 
     <p class="prose">
       The work shows up in the screens. Every content decision was annotated with its purpose, hierarchy, and tone so the design team and engineering shared the same context. The content notes were a structured part of the design artifact rather than informal Figma comments, which is what kept the intent intact through to engineering.
@@ -387,10 +387,10 @@
 
   <article class="chapter">
     <div class="chapter-num">Chapter 06</div>
-    <h2 class="chapter-title">Three rewrites that show the workflow at the line level.</h2>
+    <h2 class="chapter-title">Three rewrites show the workflow at the line level.</h2>
 
     <p class="prose">
-      Each rewrite preserved every required legal term while cutting reading level, eliminating passive voice, and reorienting the copy around the question a user was actually trying to answer. The output was copy that helped someone make a correct decision rather than copy that demonstrated regulatory expertise.
+      Each rewrite preserved every required legal term while cutting reading level, eliminating passive voice, and reorienting the copy around the question a user was trying to answer. The output was copy that helped someone make a correct decision instead of copy that demonstrated regulatory expertise.
     </p>
 
     <div class="string-block">
@@ -481,9 +481,9 @@
   </p>
 
   <ul style="max-width: 720px; margin: 1.5rem 0 2rem; padding-left: 1.5rem; font-size: 16px; line-height: 1.65; color: var(--ink-soft);">
-    <li style="margin-bottom: 0.75rem;"><strong>Year-over-year adoption increased 341%.</strong> The flow structure was the same. The only thing that changed was the content. Users who had previously abandoned because they couldn't determine whether they qualified now completed the flow.</li>
-    <li style="margin-bottom: 0.75rem;"><strong>Time-to-complete dropped 24%.</strong> Users who had been re-reading paragraphs to extract a yes-or-no qualification answer were finishing the flow on a single pass. The friction the experience had inherited from FinCEN documentation was borrowed friction. Once the language stopped fighting the user, the flow ran in close to the time it should have taken from the start.</li>
-    <li style="margin-bottom: 0.75rem;"><strong>Premier-tier filer retention rose 19% year-over-year.</strong> FBAR is a Premier-SKU feature, and the flow had been the leakiest entry point in the segment. Filers who finished the rewritten flow were measurably more likely to return the following year, turning a compliance liability into a retention surface for one of TurboTax's higher-margin tiers.</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Year-over-year adoption increased 341%.</strong> The flow structure was unchanged, and the only thing that changed was the content, which means users who had previously abandoned because they couldn't determine whether they qualified now completed the flow.</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Time-to-complete dropped 24%.</strong> Users who had been re-reading paragraphs to extract a yes-or-no qualification answer started finishing the flow on a single pass, because once the language stopped fighting them, the friction the experience had inherited from FinCEN documentation went with it.</li>
+    <li style="margin-bottom: 0.75rem;"><strong>Premier-tier filer retention rose 19% year-over-year.</strong> FBAR is a Premier-SKU feature and the flow had been the leakiest entry point in the segment, so filers who finished the rewritten flow were measurably more likely to return the following year, turning a compliance liability into a retention surface for one of TurboTax's higher-margin tiers.</li>
   </ul>
 
   <p class="prose" style="margin: 2rem 0 0;">
@@ -500,10 +500,11 @@
     </div>
   </div>
 
+  <p style="font-family:var(--mono);font-size:12px;line-height:1.65;color:var(--ink-mid);text-transform:uppercase;letter-spacing:0.08em;border-top:1px solid var(--ink-faint);padding-top:1rem;margin-top:1.5rem;max-width:720px"><strong style="color:var(--ink)">Note on metrics.</strong> FBAR adoption, time-to-complete, and Premier-tier retention are Intuit-internal year-over-year reads on the FBAR-flow cohort. The flow structure was unchanged in the release; the rewrite was the only major copy intervention, which is the cleanest content-attribution claim available. Specific cohort sizing and confidence intervals are subject to NDA.</p>
 
   <article class="chapter" style="border-top: none; padding-top: 0; margin-top: 4rem;">
     <div class="chapter-num">Reflection</div>
-    <h2 class="chapter-title">Why this matters now.</h2>
+    <h2 class="chapter-title">Here's why this matters now.</h2>
 
     <div class="reflection">
       <div class="reflection-eyebrow">The transferable problem</div>

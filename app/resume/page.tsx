@@ -99,7 +99,7 @@ const skills = [
       "Notion",
       "Lokalise",
       "Mixpanel · Amplitude",
-      "Claude · GPT-4",
+      "Claude · ChatGPT",
       "React (read-level)",
     ],
   },
@@ -143,10 +143,10 @@ export default function ResumePage() {
             <p>
               <strong>
                 Senior content designer with eight years across Amazon Prime,
-                Crunchyroll, Shopify, TurboTax, and Alaska Airlines
+                Crunchyroll, Shopify, TurboTax, and Alaska Airlines.
               </strong>{" "}
-              — on products that have reached over a billion users. I write
-              end-to-end experiences for membership growth, ad-tier
+              I&rsquo;ve worked on products that reached over a billion users,
+              writing end-to-end experiences for membership growth, ad-tier
               conversion, and AI personalization at 400M+ scale. In parallel,
               I build the voice frameworks, content schemas, and AI
               taxonomies they ship on.
@@ -196,7 +196,6 @@ export default function ResumePage() {
                 <div className="edu-degree">
                   M.A. Education, Language &amp; Anthropology
                 </div>
-                <div className="edu-school">University · Field of study</div>
               </div>
               <div className="edu-date">2015 — 2017</div>
             </div>

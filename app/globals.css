@@ -2403,7 +2403,7 @@ input, textarea { cursor: text; }
     pointer-events: none;
   }
 .zine .tabs { position: relative; max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-.zine .tab { position: relative; padding: 1.1rem 1rem 1rem; text-align: left; background: transparent; border: none; border-right: 1px dashed var(--ink-faint); cursor: pointer; font-family: var(--display); color: var(--ink-mid); transition: all 0.15s; text-decoration: none; display: block; }
+.zine .tab { position: relative; padding: 1.1rem 1rem 1rem; text-align: left; background: transparent; border: none; border-right: 1px dashed var(--ink-faint); cursor: var(--cursor-hand), pointer; font-family: var(--display); color: var(--ink-mid); transition: all 0.15s; text-decoration: none; display: block; }
 .zine .tab:last-child { border-right: none; }
 .zine .tab:hover { background: rgba(229, 177, 28, 0.08); color: var(--ink); }
 .zine .tab.active { background: var(--accent); color: var(--ink); }
@@ -2427,7 +2427,7 @@ input, textarea { cursor: text; }
 .zine .prose strong { color: var(--ink); font-weight: 600; }
 .zine .prose em { color: var(--ink); font-style: normal; background: var(--canary-pale); padding: 0 0.12em; font-weight: 500; }
 .zine .pullquote { background: var(--ink); color: var(--paper); padding: 2.25rem 2rem 2.5rem 4.75rem; margin: 3rem 0; box-shadow: 8px 8px 0 var(--accent); position: relative; max-width: 840px; }
-.zine .pullquote::before { content: "\201C"; position: absolute; top: -10px; left: 16px; font-family: var(--display); font-size: 56px; font-weight: 800; line-height: 1; color: var(--accent); background: var(--ink); padding: 0 6px; }
+.zine .pullquote::before { content: "\201C"; position: absolute; top: 10px; left: 18px; font-family: var(--display); font-size: 56px; font-weight: 800; line-height: 1; color: var(--accent); padding: 0; }
 .zine .pullquote-text { font-family: var(--display); font-size: 24px; font-weight: 500; line-height: 1.4; color: var(--paper); }
 .zine .pullquote-text strong { color: var(--accent); font-weight: 600; }
 .zine .figure { margin: 2.5rem 0; }
