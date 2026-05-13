@@ -2657,15 +2657,35 @@ input, textarea { cursor: text; }
 .zine .pullquote { padding: 1.5rem 1.5rem 1.75rem 3.5rem; margin: 2rem 0; box-shadow: 6px 6px 0 var(--accent); }
 .zine .pullquote::before { font-size: 42px; top: -8px; left: 14px; }
 .zine .pullquote-text { font-size: 18px; line-height: 1.4; }
-.zine .figure { margin: 1.75rem auto; max-width: 100%; }
+.zine .figure { margin: 2.25rem auto; max-width: 100%; }
 .zine .figure-frame { box-shadow: 8px 8px 0 var(--ink); }
 .zine .figure-frame.canary-shadow { box-shadow: 8px 8px 0 var(--accent); }
-.zine .figs-4up { max-width: 100%; margin: 1.75rem auto; gap: 1rem; }
+.zine .figs-4up { max-width: 100%; margin: 2.25rem auto; gap: 1.25rem; }
 .zine .figs-4up .figure-frame { box-shadow: 4px 4px 0 var(--ink); }
-.zine .surface-gallery { max-width: 100%; margin: 1.75rem auto; gap: 1rem; }
+.zine .surface-gallery { max-width: 100%; margin: 2.25rem auto; gap: 1.25rem; }
 .zine .surface-gallery .figure-frame { box-shadow: 4px 4px 0 var(--ink); }
-.zine .figure-caption { padding: 12px 18px 14px; }
-.zine .figure-caption .text { font-size: 14px; }
+.zine .figure-caption { padding: 14px 20px 16px; }
+.zine .figure-caption .text { font-size: 15px; }
+@media (min-width: 1100px) {
+  .zine .figure,
+  .zine .figs-4up,
+  .zine .surface-gallery {
+    margin-left: -120px;
+    margin-right: -120px;
+    width: calc(100% + 240px);
+    max-width: calc(100% + 240px);
+  }
+}
+@media (min-width: 1300px) {
+  .zine .figure,
+  .zine .figs-4up,
+  .zine .surface-gallery {
+    margin-left: -180px;
+    margin-right: -180px;
+    width: calc(100% + 360px);
+    max-width: calc(100% + 360px);
+  }
+}
 .zine .principles { margin: 1.75rem 0; }
 .zine .principle { padding: 1.1rem 1rem; }
 .zine .principle .name { font-size: 18px; }
