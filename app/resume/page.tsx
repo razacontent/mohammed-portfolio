@@ -6,102 +6,122 @@ export const metadata = {
 
 const experience = [
   {
-    role: "Senior Content Designer",
-    date: "2022 — 2025",
-    org: "Amazon Prime · Worldwide Membership & Personalization",
+    role: "UX Writer",
+    date: "May 2025 — Present",
+    org: "Amazon Worldwide Prime",
+    tagline:
+      "Content design lead for Prime's first LLM-powered personalization agents.",
     bullets: [
-      "Built the Value Communication Framework end-to-end (research, writing, experiments, regional rollout); attributed to +77K members retained annually.",
-      "Designed AI content schemas, voice framework, and content data model adopted by 15 teams and 3 GenAI programs at Prime.",
-      "Shipped 400M+ AI-personalized lifecycle moments across 22 product surfaces and 9 regions.",
-      "Partnered with retention, growth, AI, and personalization orgs to embed the framework as strategic infrastructure for Prime growth.",
+      "Authored the prompt frameworks, system prompts, and voice systems that govern model behavior across Prime's first three LLM-powered personalization agents serving 200M+ members.",
+      "Designed the response patterns, refusal logic, calibrated uncertainty language, and human-AI handoff criteria that decide when each agent acts, hedges, or escalates to a person.",
+      "Built the AI content evaluation framework now used by 15+ product teams to ship AI features independently, partnering with applied scientists, engineers, and trust leads on the production-quality bar.",
+      "Built the Value Communications Framework (Promised, Perceived, Proved), Prime's voice and lifecycle content system. Drove cross-functional adoption across product, marketing, and content teams.",
+      "Drove +77K annualized member impact on a retention initiative by reframing voluntary churn moments through narrative content rather than discount mechanics.",
     ],
   },
   {
-    role: "Founding Content Designer",
-    date: "2020 — 2022",
-    org: "Crunchyroll · Anime Streaming",
+    role: "Senior Content Designer · Founding Hire",
+    date: "Nov 2022 — Feb 2025",
+    org: "Crunchyroll",
+    tagline:
+      "Founded the content design practice and shipped Crunchyroll's first conversational AI from zero.",
     bullets: [
-      "Joined as the only content designer at a 13M+ subscriber service. Established the craft, socialized it across the org, enabled PMs, brand, and growth as writing partners.",
-      "Wrote brand voice, product writing principles, and the strings powering free-to-premium upgrade flow and ad-tier launch conversion funnel.",
-      "Embedded content design into membership growth, monetization, and the everyday product experience: in-app messaging, queue/watchlist, recommendations.",
-      "Codified writing review systems that let partner teams ship voice-aligned copy without bottlenecking on me.",
+      "Designed and shipped Crunchyroll's first conversational AI. Mapped conversation flows, authored LLM guidelines and training taxonomies, and defined evaluation criteria with engineering for model behavior, error recovery, and tone across millions of fan interactions.",
+      "Founded Crunchyroll's content design practice from zero: voice system, design system contributions, and content rituals that established the discipline's quality bar across product teams.",
+      "Led content strategy for the end-to-end overhaul of Crunchyroll's 10-foot TV experience across smart TVs, consoles, streaming devices, web, and mobile, unifying the multi-surface interface for 15M+ viewers.",
+    ],
+  },
+  {
+    role: "Content Designer · Contract",
+    date: "Oct 2021 — Oct 2022",
+    org: "Intuit TurboTax",
+    tagline:
+      "Shipped TurboTax's first AI tax assistant for crypto and complex foreign accounts.",
+    bullets: [
+      "Designed and shipped TurboTax's first AI assistant for cryptocurrency and complex foreign account reporting. Authored prompt frameworks and response patterns for high-stakes regulated content with legal, product, and engineering partners.",
+      "Drove adoption of the foreign account reporting flow (FBAR) by rewriting tax law into decision-tree language users could act on without expert help.",
+      "Engineered AI content workflows in Writer.ai that scaled plain-language editing across legal, compliance, and product teams.",
+    ],
+  },
+  {
+    role: "Content Designer",
+    date: "Feb 2021 — Sep 2021",
+    org: "Shopify",
+    bullets: [
+      "Lifted Marketing Analytics adoption from 12% to 28% by rewriting navigation, terminology, and onboarding for 200K+ merchants interpreting performance data. Authored content principles and IA patterns adopted as the analytics team's content standard.",
     ],
   },
   {
     role: "Senior UX Writer",
-    date: "2019 — 2020",
-    org: "Shopify · Merchant Analytics",
+    date: "Feb 2019 — Feb 2021",
+    org: "Alaska Airlines",
     bullets: [
-      "Diagnosed analytics adoption failure as IA, not user sophistication. Restructured the dashboard around real merchant decisions.",
-      "Lifted trust scores +18 points and rebuilt adoption from a 12% baseline. Pattern adopted as the merchant analytics template across Shopify.",
-      "Influenced merchants doing $200B+ in GMV annually.",
-    ],
-  },
-  {
-    role: "UX Writer",
-    date: "2018 — 2019",
-    org: "Intuit / TurboTax · Filing Compliance",
-    bullets: [
-      "Rewrote a high-stakes tax compliance form line by line with legal. Translated regulatory language into plain-English strings users could finish.",
-      "Built the four-point clarity standard adopted across compliance flows. Recovered an abandoned filing flow with zero legal rejections.",
-      "Influenced filing for 50M+ TurboTax users.",
-    ],
-  },
-  {
-    role: "UX Writer",
-    date: "2017 — 2018",
-    org: "Alaska Airlines · Booking & Loyalty",
-    bullets: [
-      "First content design role. Wrote booking, mobile app, and Mileage Plan loyalty strings.",
-      "Learned the discipline of writing under regulatory, operational, and brand constraints.",
+      "Created Alaska's first UX style guide in Figma, reducing call center contact volume 15–20% by aligning error messaging, confirmations, and self-service language across desktop, mobile, and kiosk.",
     ],
   },
 ];
 
 const skills = [
   {
-    cat: "AI · Systems",
+    cat: "Prompt Engineering · Model UX",
     items: [
-      "Content schemas",
-      "Voice frameworks",
-      "AI taxonomies",
-      "GenAI prompt design",
-      "Content data models",
-      "Lifecycle taxonomies",
+      "System prompts",
+      "Prompt frameworks",
+      "Few-shot prompting",
+      "Prompt chaining",
+      "Response patterns",
+      "Refusal logic",
+      "Calibrated uncertainty language",
+      "Human-AI handoff design",
+      "Conversation design",
+      "Agentic flow design",
+      "Multi-agent orchestration",
+      "Model UX patterns",
     ],
   },
   {
-    cat: "Writing · Craft",
+    cat: "AI Evaluation · Governance",
     items: [
+      "LLM evaluation criteria",
+      "Model output review",
+      "Content red-teaming",
+      "Responsible AI partnership with legal, policy, and trust teams",
+      "AI rollout coordination",
+      "Safety and trust UX patterns",
+      "Brand-voice alignment in production",
+    ],
+  },
+  {
+    cat: "AI Tools · Workflow",
+    items: [
+      "Claude",
+      "Gemini",
+      "ChatGPT",
+      "Writer.ai",
+      "Prompt iteration",
+      "AI-assisted content pipelines",
+      "Model output evaluation in daily workflow",
+    ],
+  },
+  {
+    cat: "Content Design Leadership",
+    items: [
+      "Content strategy",
       "UX writing",
-      "Content design",
-      "Plain-language frameworks",
-      "Localization-ready copy",
-      "A/B copy testing",
-      "Brand voice",
-      "Naming & IA",
-    ],
-  },
-  {
-    cat: "Strategy · Org",
-    items: [
-      "Founding content design",
-      "Partner enablement",
-      "Cross-functional leadership",
-      "Practitioner-led research",
-      "Legal & compliance partnership",
+      "Content design practice founding",
+      "Design system content layers",
+      "Voice and tone frameworks",
+      "Terminology standards",
+      "Content principles",
+      "Content taxonomies",
+      "Documentation IA",
+      "Accessibility",
+      "Cross-functional partnership with applied scientists, engineers, designers, PMs, legal, and trust teams",
     ],
   },
   {
     cat: "Tools",
-    items: [
-      "Figma",
-      "Notion",
-      "Lokalise",
-      "Mixpanel · Amplitude",
-      "Claude · ChatGPT",
-      "React (read-level)",
-    ],
+    items: ["Figma", "Writer.ai", "Notion", "Jira", "GitHub"],
   },
 ];
 
@@ -122,7 +142,10 @@ export default function ResumePage() {
           <header className="resume-header">
             <h1 className="resume-name">Mohammed Raza</h1>
             <div className="resume-role">
-              Senior Content Designer
+              <span>Senior Content Designer</span>{" "}
+              <span className="resume-role-spec">
+                AI · Model UX · Prompt Engineering
+              </span>
             </div>
             <div className="resume-contacts">
               <a href="mailto:mohammed@razacontent.com">
@@ -131,7 +154,7 @@ export default function ResumePage() {
               <span className="sep">·</span>
               <a href="https://razacontent.com">razacontent.com</a>
               <span className="sep">·</span>
-              <a href="https://linkedin.com/in/razamohammed">LinkedIn</a>
+              <a href="https://linkedin.com/in/mohammedraza">LinkedIn</a>
               <span className="sep">·</span>
               <span>Seattle, WA</span>
               <span className="sep">·</span>
@@ -142,29 +165,36 @@ export default function ResumePage() {
           <section className="resume-summary">
             <p>
               <strong>
-                Senior content designer with eight years across Amazon Prime,
-                Crunchyroll, Shopify, TurboTax, and Alaska Airlines.
+                Senior content designer specializing in AI products.
               </strong>{" "}
-              I&rsquo;ve worked on products that reached over a billion users,
-              writing end-to-end experiences for membership growth, ad-tier
-              conversion, and AI personalization at 400M+ scale. In parallel,
-              I build the voice frameworks, content schemas, and AI
-              taxonomies they ship on.
+              Eight years building experiences for more than a billion users,
+              the last three deep in LLM production work, authoring the prompts,
+              voice systems, and evaluation criteria that govern model behavior
+              at consumer scale. My work sits at the intersection of content
+              design, prompt engineering, and Model UX: system prompts, response
+              patterns, refusal logic, calibrated uncertainty, human-AI handoff,
+              and the evaluation systems that let teams ship AI without a writer
+              in the loop on every flow. Trust in AI is authored in the words a
+              model says when it doesn't know the answer.
             </p>
           </section>
 
           <section className="resume-section">
             <div className="resume-section-head">
               <div className="resume-section-title">Experience</div>
-              <div className="resume-section-meta">5 roles · 2017—2025</div>
+              <div className="resume-section-meta">5 roles · 2019 — Present</div>
             </div>
             {experience.map((row) => (
               <div className="exp-row" key={row.date}>
                 <div className="exp-header">
-                  <div className="exp-role">{row.role}</div>
+                  <div className="exp-role">
+                    {row.role} <span className="exp-org-inline">{row.org}</span>
+                  </div>
                   <div className="exp-date">{row.date}</div>
                 </div>
-                <div className="exp-org">{row.org}</div>
+                {row.tagline && (
+                  <div className="exp-tagline">{row.tagline}</div>
+                )}
                 <ul className="exp-bullets">
                   {row.bullets.map((b, i) => (
                     <li key={i}>{b}</li>
@@ -182,7 +212,7 @@ export default function ResumePage() {
             {skills.map((cat) => (
               <div className="skills-grid" key={cat.cat}>
                 <div className="skills-cat">{cat.cat}</div>
-                <div className="skills-list">{cat.items.join(", ")}.</div>
+                <div className="skills-list">{cat.items.join(" · ")}</div>
               </div>
             ))}
           </section>
@@ -192,12 +222,9 @@ export default function ResumePage() {
               <div className="resume-section-title">Education</div>
             </div>
             <div className="edu-row">
-              <div>
-                <div className="edu-degree">
-                  M.A. Education, Language &amp; Anthropology
-                </div>
+              <div className="edu-degree">
+                M.A. Anthropology · B.A. Anthropology
               </div>
-              <div className="edu-date">2015 — 2017</div>
             </div>
           </section>
         </div>
