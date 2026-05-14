@@ -317,17 +317,35 @@ input, textarea { cursor: text; }
 
 .hero-headline {
   font-family: var(--display);
-  font-size: clamp(56px, 9vw, 112px);
+  font-size: clamp(28px, 3.6vw, 48px);
   font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   color: var(--ink);
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 }
 .hero-headline .line { display: block; }
 .hero-headline .canary-mark {
   background: var(--canary); color: var(--ink);
   padding: 0 8px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hero-subhead {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink-mid);
+  margin-bottom: 36px;
+}
+.hero-subhead .line { display: inline; }
+.hero-subhead .line + .line { margin-left: 0.4em; }
+.hero-subhead .canary-mark {
+  background: var(--canary); color: var(--ink);
+  padding: 0 6px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -1099,7 +1117,9 @@ input, textarea { cursor: text; }
     top: 8px; right: 0;
     width: 112px; height: 112px;
   }
-  .hero-headline { font-size: clamp(40px, 11vw, 72px); }
+  .hero-headline { font-size: clamp(26px, 6.5vw, 44px); margin-bottom: 12px; }
+  .hero-subhead { font-size: clamp(16px, 4vw, 22px); margin-bottom: 28px; }
+  .hero-subhead .line + .line { margin-left: 0.3em; }
   .hero-sub { font-size: 16px; }
   .hero-sub-canary { font-size: 16px; padding: 8px 0 8px 14px; }
   .hero-status { font-size: 13px; }

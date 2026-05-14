@@ -12,12 +12,18 @@ export default function Hero() {
         <div className="hero-eyebrow">Editor &amp; Author · est. 2017</div>
 
         <h1 className="hero-headline">
+          <span className="line">I make products feel human</span>
+          <span className="line">without sacrificing</span>
+          <span className="line">business goals.</span>
+        </h1>
+
+        <div className="hero-subhead">
           <span className="line">Part writer.</span>
           <span className="line">Part architect.</span>
           <span className="line">
             Part <span className="canary-mark">canary.</span>
           </span>
-        </h1>
+        </div>
 
         <p className="hero-sub">
           I&rsquo;m Mohammed Raza, a content designer with eight years across{" "}
