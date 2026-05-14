@@ -296,6 +296,22 @@
       The work shows up in the screens. Every content decision was annotated with its purpose, hierarchy, and tone so the design team and engineering shared the same context. The content notes were a structured part of the design artifact rather than informal Figma comments, which is what kept the intent intact through to engineering.
     </p>
 
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 2.5rem 0 0.75rem;">The entry point from the main tax flow.</h3>
+
+    <p class="prose">
+      FBAR begins on the post-filing dashboard, alongside the federal and state returns the customer just submitted. The FBAR row is treated as a peer to the rest of the return, with a clear Get started CTA. Surfacing it here lets a Premier filer discover the obligation while they are still in the act of finishing their taxes, instead of finding out months later from a notice.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/13.png" alt="Welcome Lillian dashboard with the 2022 tax return refund summary, federal and state acceptances, and an FBAR row with a Get started CTA"></div>
+        <div class="figure-caption">
+          <span class="fig">Entry</span>
+          <span class="text">Welcome dashboard with the FBAR row promoted alongside the federal and state returns. The Get started CTA treats FBAR as a peer obligation, not a buried link.</span>
+        </div>
+      </div>
+    </div>
+
     <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 2.5rem 0 0.75rem;">Before and after: the flow entry.</h3>
 
     <div class="figure">
@@ -314,6 +330,22 @@
         <div class="figure-caption">
           <span class="fig">Fig. 06</span>
           <span class="text">Account disclosure screens: restructured copy with clearer value framing.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 3rem 0 0.75rem;">The qualification flow.</h3>
+
+    <p class="prose">
+      Three screens carry the qualification logic: the dollar-threshold check, the ownership-or-control confirmation, and the marketing landing page that catches anyone who arrives outside the flow. Every step states the IRS requirement and lets the filer self-identify in their own words, instead of asking them to interpret regulatory language.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/14.jpg" alt="Three TurboTax screens in sequence: $10,000 threshold question with Yes selected, ownership and control of a foreign bank account question, and the FBAR marketing landing page"></div>
+        <div class="figure-caption">
+          <span class="fig">Qualification</span>
+          <span class="text">Threshold check, ownership confirmation, and marketing landing. Each screen lets a filer self-identify against the IRS rule in plain language.</span>
         </div>
       </div>
     </div>
@@ -358,6 +390,20 @@
     </div>
 
     <p class="prose">
+      Even the lightest screens carried notes. The data-transfer transition reads as a moment of trust: the system is doing work the filer would otherwise have to redo by hand. The note documents both jobs the screen has to do, so engineering and motion design ship the same intent.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/15.png" alt="Transition screen 'Bringing over details from your tax return' with progress indicator, paired with a Content notes annotation block listing two screen purposes: transition and show value of using our FBAR filing"></div>
+        <div class="figure-caption">
+          <span class="fig">Transition</span>
+          <span class="text">Even the lightweight transition screen ships with a content note. Two jobs: signal the transfer is happening, and earn credit for the work TurboTax is doing on the filer's behalf.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="prose">
       The "You Need to File a Report" screen required particular care. TurboTax couldn't file the FBAR directly at the time, and that constraint had to be communicated honestly without causing panic or breaking trust. Empathetic honesty at a high-stakes moment is one of the hardest content problems in compliance work, and the screen had to lead with what was true and actionable instead of with an apology.
     </p>
 
@@ -371,6 +417,22 @@
       </div>
     </div>
 
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 3rem 0 0.75rem;">The filing flow itself.</h3>
+
+    <p class="prose">
+      Three screens carry the actual filing: account entry, review, and sign-and-transmit. Each one keeps the legally immovable terms (FinCEN, Consent to Disclosure, Transmit FBAR) verbatim while letting everything around them speak in plain language. The Review step exists because the rewrite made the data feel light enough to lose track of, so the screen pauses the filer before transmission and shows the inputs in groups they can scan in a single read.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/16.png" alt="Three TurboTax filing screens in sequence: Add your foreign account with financial institution and account-value fields, Review your info before moving on with Filer, Contact, and Foreign accounts summaries, and It's time to sign and transmit your FBAR with Consent to Disclosure and Transmit FBAR controls"></div>
+        <div class="figure-caption">
+          <span class="fig">Filing</span>
+          <span class="text">Account entry, review, and sign-and-transmit. Legally immovable terms preserved verbatim; everything else rewritten to plain language. The Review step gives the filer one pre-transmission read of what they're about to sign.</span>
+        </div>
+      </div>
+    </div>
+
     <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 3rem 0 0.75rem;">The success state.</h3>
 
     <div class="figure">
@@ -379,6 +441,22 @@
         <div class="figure-caption">
           <span class="fig">Fig. 10</span>
           <span class="text">"That's a wrap!" The completion screen reinforces value and sets up next year's filing.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family: var(--display); font-size: 22px; font-weight: 700; margin: 3rem 0 0.75rem;">Beyond the product: the email layer.</h3>
+
+    <p class="prose">
+      FBAR doesn't end at the success screen. Three email moments carry the rest of the relationship: a pre-filing nudge that frames the work ahead, a rejection note that holds trust when something goes wrong, and a confirmation that closes the loop with the IRS. Each one follows the same content principles as the in-product flow, so a filer hears one voice across product, email, and support.
+    </p>
+
+    <div class="figure">
+      <div class="figure-frame">
+        <div class="figure-img-wrap"><img src="/images/turbotax/17.jpg" alt="Three TurboTax emails in sequence: a pre-filing 'Hi First name, let's get your FBAR submitted!' invitation, a 'Your FBAR was rejected' notice with a re-file CTA and what-happened-and-what's-next sections, and a 'Great news, First Name!' confirmation describing the submission to FinCEN and next steps"></div>
+        <div class="figure-caption">
+          <span class="fig">Email</span>
+          <span class="text">Three email moments: an invitation, a rejection that holds trust, and a confirmation. Same voice as the product, so the filer never hears a stranger.</span>
         </div>
       </div>
     </div>
