@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export const metadata = {
-  title: "Issue №02 · Crunchyroll · Co-shaped a rebrand · razacontent",
+  title: "Issue №04 · Crunchyroll · Co-shaped a rebrand · razacontent",
 };
 
 export default function CrunchyrollLivingRoomPage() {

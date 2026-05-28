@@ -7,7 +7,7 @@ export const metadata = {
 const experience = [
   {
     role: "UX Writer",
-    date: "May 2025 — Present",
+    date: "2025 — 2026",
     org: "Amazon Worldwide Prime",
     tagline:
       "Content design lead for Prime's first LLM-powered personalization agents.",
