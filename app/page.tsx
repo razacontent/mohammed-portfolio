@@ -14,7 +14,7 @@ export default function HomePage() {
           <div className="section-head">
             <h2>Today&rsquo;s rack · selected work</h2>
             <div className="meta">
-              <span>Four issues · 2018—2025</span>
+              <span>Five issues · 2016—2026</span>
             </div>
           </div>
         </Reveal>
