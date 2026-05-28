@@ -39,9 +39,9 @@ export default function Hero() {
           <strong>
             voice frameworks, content schemas, and AI taxonomies
           </strong>{" "}
-          they ship on. I think in four tracks at once:{" "}
+          they ship on. I think in five tracks at once:{" "}
           <span className="highlight">
-            AI, content systems, team cohesion, and brand identity.
+            AI, content systems, team cohesion, brand identity, and trust &amp; compliance.
           </span>
         </p>
 
